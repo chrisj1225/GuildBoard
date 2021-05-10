@@ -8,17 +8,28 @@ class Splash extends React.Component {
   }
 
   render() {
-    return(
+    const {currentUser} = this.props;
+    const header = currentUser ? (
       <div>
-        <h1>Welcome to Guild Board</h1>
+        <button onClick={() => this.props.logout()}>Logout</button>
+      </div>
+    ) : (
+      <div>
         <Link to="/login">Login</Link>
         <Link to="/signup">Sign Up</Link>
-        <button onClick={() => this.props.logout()}>Logout</button>
+      </div>
+    )
+
+    return(
+      <div>
+        <header>
+          {header}
+        </header>
+        <h1>Welcome to Guild Board</h1>
       </div>
 
     )
   }
-
 }
 
 export default Splash

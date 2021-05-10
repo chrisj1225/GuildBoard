@@ -3,8 +3,9 @@ import Splash from './splash';
 import { logout } from '../../actions/session_actions';
 
 const mSTP = (state, ownProps) => {
+  // debugger
   return({
-    currentUser: state.users[state.session.id]
+    currentUser: state.entities.users[state.session.id]
   })
 }
 
@@ -14,4 +15,4 @@ const mDTP = dispatch => {
   })
 }
 
-export default connect(null, mDTP)(Splash);
+export default connect(mSTP, mDTP)(Splash);
