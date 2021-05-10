@@ -1,17 +1,22 @@
 import { connect } from 'react-redux';
-import Login from './login';
+import SplashForm from './splash_form';
 import { signup } from '../../actions/session_actions';
 
-// const mSTP = (state, ownProps) => {
-//   return({
-//     currentUser: state.users[state.session.id]
-//   })
-// }
-
-const mDTP = dispatch => {
+const mSTP = (state, ownProps) => {
   return({
-    signup: user => dispatch(signup(user))
+    user: {
+      email: "",
+      username: "",
+      password: ""
+    },
+    formType: "Sign Up"
   })
 }
 
-export default connect(null, mDTP)(Signup);
+const mDTP = dispatch => {
+  return({
+    action: user => dispatch(signup(user))
+  })
+}
+
+export default connect(mSTP, mDTP)(SplashForm);

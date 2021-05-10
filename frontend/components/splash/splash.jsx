@@ -12,6 +12,7 @@ class Splash extends React.Component {
       <div>
         <Link to="/login">Login</Link>
         <Link to="/signup">Sign Up</Link>
+        <button onClick={() => this.props.logout()}>Logout</button>
       </div>
 
     )

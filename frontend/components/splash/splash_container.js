@@ -1,6 +1,6 @@
 import { connect } from 'react-redux';
 import Splash from './splash';
-import { login } from '../../actions/session_actions';
+import { logout } from '../../actions/session_actions';
 
 const mSTP = (state, ownProps) => {
   return({
@@ -10,8 +10,8 @@ const mSTP = (state, ownProps) => {
 
 const mDTP = dispatch => {
   return({
-    login: user => dispatch(login(user))
+    logout: () => dispatch(logout())
   })
 }
 
-export default connect(mSTP, mDTP)(Splash);
+export default connect(null, mDTP)(Splash);

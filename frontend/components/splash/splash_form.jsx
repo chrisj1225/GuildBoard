@@ -1,20 +1,19 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
-class Login extends React.Component {
+class SplashForm extends React.Component {
   constructor(props) {
     super(props)
 
-    this.state = {
-      username: "",
-      password: ""
-    }
+    this.state = this.props.user
 
     this.handleSubmit = this.handleSubmit.bind(this);
   }
 
   handleSubmit(e) {
     e.preventDefault();
-    this.props.login(this.state);
+    const user = Object.assign({}, this.state)
+    this.props.action(user);
   }
 
   update(field) {
@@ -26,9 +25,22 @@ class Login extends React.Component {
   }
 
   render() {
+    const emailInput = (
+      <div>
+        <label>Email:
+          <input 
+            type="text" 
+            onChange={this.update('email')} 
+            value={this.state.email} />
+        </label>
+        <br />
+      </div>
+    )
     return (
       <div>
+        <h1>{this.props.formType}</h1>
         <form onSubmit={this.handleSubmit}>
+          { this.props.formType == 'Sign Up' ? emailInput : null}
           <label>Username:
             <input 
               type="text" 
@@ -43,13 +55,16 @@ class Login extends React.Component {
               value={this.state.password} />
           </label>
           <br />
-          <input type="submit" value="Login" />
+          <input type="submit" value={this.props.formType} />
         </form>
+        { this.props.formType == "Login" ? 
+          <Link to="/signup">Sign Up</Link> : 
+          <Link to="/login">Login</Link> }
+        <br />
+        <Link to="/">Back to Landing Page</Link>
       </div>
     )
   }
-
-
 }
 
-export default Login;
+export default SplashForm;
