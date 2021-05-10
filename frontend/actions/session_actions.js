@@ -6,6 +6,7 @@ export const RECEIVE_ERRORS = "RECEIVE_ERRORS";
 
 // Regular Action Creators
 export const receiveCurrentUser = (currentUser) => {
+  // debugger
   return ({
     type: RECEIVE_CURRENT_USER,
     currentUser
