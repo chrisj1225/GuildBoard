@@ -8,6 +8,14 @@ class User < ApplicationRecord
   
   after_initialize :ensure_session_token
 
+  # Associations
+  has_many :servers,
+    primary_key: :id,
+    foreign_key: :owner_id,
+    class_name: :Server
+
+  # Methods:
+
   def self.find_by_credentials(username, password) 
     user = User.find_by(username: username)
     return nil unless user
