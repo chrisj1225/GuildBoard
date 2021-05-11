@@ -26,7 +26,7 @@ class SplashForm extends React.Component {
 
   render() {
     const emailInput = (
-      <div>
+      <>
         <label>Email:
           <input 
             type="text" 
@@ -34,11 +34,32 @@ class SplashForm extends React.Component {
             value={this.state.email} />
         </label>
         <br />
-      </div>
+      </>
     )
+
+    const redirect = this.props.formType == "Login" ? (
+      <div>
+        <span>Need an account? </span>
+        <Link to="/signup">Register</Link>
+      </div>
+    ) : (
+      <Link to="/login">Already have an account?</Link>
+    );
+
+    const header = this.props.formType == "Login" ? (
+      <>
+        <h2 className="splashHeader">Welcome Back!</h2>
+        <p>We're so excited to see you again!</p>
+      </>
+    ) : (
+      <>
+        <h2 className="splashHeader">Create an account</h2>
+      </>
+    )
+
     return (
       <div>
-        <h1>{this.props.formType}</h1>
+        {header}
         <form onSubmit={this.handleSubmit}>
           { this.props.formType == 'Sign Up' ? emailInput : null}
           <label>Username:
@@ -57,9 +78,7 @@ class SplashForm extends React.Component {
           <br />
           <input type="submit" value={this.props.formType} />
         </form>
-        { this.props.formType == "Login" ? 
-          <Link to="/signup">Sign Up</Link> : 
-          <Link to="/login">Login</Link> }
+        {redirect}
         <br />
         <Link to="/">Back to Landing Page</Link>
       </div>

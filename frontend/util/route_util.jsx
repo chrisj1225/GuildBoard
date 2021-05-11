@@ -8,6 +8,7 @@ const Auth = ({ component: Component, path, loggedIn, exact }) => (
     exact={exact}
     render={props => 
       !loggedIn ? <Component {...props} /> : <Redirect to="/" />
+      // Change Redirect to "/servers/:general/channels/:general" once those components are made"
     }
   />
 );

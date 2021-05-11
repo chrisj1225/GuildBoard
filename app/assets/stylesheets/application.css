@@ -13,3 +13,11 @@
  *= require_tree .
  *= require_self
  */
+
+* {
+  font-family: 'Noto Sans JP', sans-serif;
+}
+
+.splashHeader {
+  font-family: 'Lato', sans-serif;
+}
