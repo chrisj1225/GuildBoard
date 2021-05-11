@@ -1,0 +1,13 @@
+.header {
+  font-family: 'Lato', sans-serif;
+  background-color: red;
+}
+
+.text {
+  font-family: 'Noto Sans JP', sans-serif;
+}
+
+.errorMsg {
+  color: red;
+  font-size: 8px;
+}

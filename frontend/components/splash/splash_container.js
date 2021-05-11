@@ -1,5 +1,5 @@
 import { connect } from 'react-redux';
-import Splash from './splash';
+import Splash from './Splash';
 import { logout } from '../../actions/session_actions';
 
 const mSTP = (state, ownProps) => {

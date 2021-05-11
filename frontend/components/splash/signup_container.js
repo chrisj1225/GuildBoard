@@ -1,5 +1,5 @@
 import { connect } from 'react-redux';
-import SplashForm from './splash_form';
+import Signup from './Signup';
 import { signup } from '../../actions/session_actions';
 
 const mSTP = (state, ownProps) => {
@@ -9,14 +9,15 @@ const mSTP = (state, ownProps) => {
       username: "",
       password: ""
     },
-    formType: "Sign Up"
+    formType: "Sign Up",
+    errors: state.errors.session
   })
 }
 
 const mDTP = dispatch => {
   return({
-    action: user => dispatch(signup(user))
+    signup: user => dispatch(signup(user))
   })
 }
 
-export default connect(mSTP, mDTP)(SplashForm);
+export default connect(mSTP, mDTP)(Signup);
