@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-import classes from './Splash.module.css';
+import classes from './auth.module.scss';
 
 class Login extends React.Component {
   constructor(props) {
@@ -27,33 +27,52 @@ class Login extends React.Component {
   }
 
   render() {
+    const showErrors = (
+      <>
+        {this.props.errors.map((err, idx) => (
+          <p key={idx} className={classes.error}>{err}</p>
+        ))}
+      </>
+    )
     return (
-      <div>
-        <h2 className={classes.header}>Welcome Back!</h2>
-        <p>We're so excited to see you again!</p>
-        <form onSubmit={this.handleSubmit}>
-          <label>Username:
-            <input 
-              type="text" 
-              onChange={this.update('username')} 
-              value={this.state.username} />
-          </label>
-          <br />
-          <label>Password:
-            <input 
-              type="password" 
-              onChange={this.update('password')} 
-              value={this.state.password} />
-          </label>
-          <br />
-          <input type="submit" value={this.props.formType} />
-        </form>
-        <div>
-          <span>Need an account? </span>
-          <Link to="/signup">Register</Link>
+      <div className={classes.container}>
+        <div className={classes.loginbox}>
+          <div className={classes.form}>
+            <h2 className={classes.header}>Welcome back!</h2>
+            <p className={classes.text}>We're so excited to see you again!</p>
+            <form onSubmit={this.handleSubmit}>
+              <label>USERNAME:
+                <br />
+                <input 
+                  className={classes.input_field}
+                  type="text" 
+                  onChange={this.update('username')} 
+                  value={this.state.username} />
+              </label>
+              <br />
+              <label>PASSWORD:
+                <br />
+                <input 
+                  className={classes.input_field}
+                  type="password" 
+                  onChange={this.update('password')} 
+                  value={this.state.password} />
+              </label>
+              {showErrors}
+              <br />
+              <input className={classes.button} type="submit" value={this.props.formType} />
+            </form>
+            <p className={classes.text}>
+              Need an account? <Link className={classes.link} to="/signup">Register</Link>
+            </p>
+            <Link className={classes.link} to="/">Back to Landing Page</Link>
+          </div>
+          <div className={classes.demo}>
+            <p className={classes.text}>Don't have an account?</p>
+            <p className={classes.text}>Try logging in as a demo user!</p>
+            <button className={classes.demo_login}>Demo User Login</button>
+          </div>
         </div>
-        <br />
-        <Link to="/">Back to Landing Page</Link>
       </div>
     )
   }

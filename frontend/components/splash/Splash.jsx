@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-import classes from './Splash.module.css';
+// import classes from './Splash.module.css';
 
 class Splash extends React.Component {
   constructor(props) {
@@ -42,8 +42,8 @@ class Splash extends React.Component {
           <nav></nav>
           {userAuth}
         </header>
-        <h1 className={classes.header}>Your place to talk</h1>
-        <p className={classes.text}>Whether you're part of a school club, gaming group, worldwide art community, or just a handful of friends that want to spend time together, GuildBoard makes it easy to talk every day and hang out more often.</p>
+        <h1>Your place to talk</h1>
+        <p>Whether you're part of a school club, gaming group, worldwide art community, or just a handful of friends that want to spend time together, GuildBoard makes it easy to talk every day and hang out more often.</p>
         {redirectHome}
 
       </div>
