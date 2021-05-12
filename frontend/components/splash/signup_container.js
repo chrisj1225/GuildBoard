@@ -1,6 +1,6 @@
 import { connect } from 'react-redux';
 import Signup from './Signup';
-import { signup } from '../../actions/session_actions';
+import { signup, clearErrors } from '../../actions/session_actions';
 
 const mSTP = (state, ownProps) => {
   return({
@@ -10,13 +10,14 @@ const mSTP = (state, ownProps) => {
       password: ""
     },
     formType: "Sign Up",
-    errors: state.errors.session
+    errors: state.errors
   })
 }
 
 const mDTP = dispatch => {
   return({
-    signup: user => dispatch(signup(user))
+    signup: user => dispatch(signup(user)),
+    clearErrors: () => dispatch(clearErrors())
   })
 }
 

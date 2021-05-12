@@ -7,9 +7,13 @@ class Signup extends React.Component {
   constructor(props) {
     super(props)
 
-    this.state = this.props.user
+    this.state = this.props.user;
 
     this.handleSubmit = this.handleSubmit.bind(this);
+  }
+
+  componentDidMount() {
+    this.props.clearErrors();
   }
 
   handleSubmit(e) {
@@ -22,6 +26,7 @@ class Signup extends React.Component {
     return e => {
       this.setState({
         [field]: e.target.value
+
       })
     }
   }
@@ -29,7 +34,7 @@ class Signup extends React.Component {
   render() {
     const showErrors = (
       <>
-        {this.props.errors.map((err, idx) => (
+        {this.props.errors.session.map((err, idx) => (
           <p key={idx} className={classes.error}>{err}</p>
         ))}
       </>
