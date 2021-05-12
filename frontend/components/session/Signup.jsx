@@ -56,7 +56,7 @@ class Signup extends React.Component {
               <br />
               <label>Username:
                 <input 
-                  className={styles[input-field]}
+                  className={styles['input-field']}
                   type="text" 
                   onChange={this.update('username')} 
                   value={this.state.username} />
