@@ -1,5 +1,6 @@
 import { 
-  RECEIVE_SERVER_ERRORS
+  RECEIVE_SERVER_ERRORS,
+  CLEAR_SERVER_ERRORS
 } from '../../actions/server_actions'
 
 const serverErrorsReducer = (state = [], action) => {

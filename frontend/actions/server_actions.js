@@ -4,6 +4,7 @@ export const RECEIVE_SERVERS = 'RECEIVE_SERVERS';
 export const RECEIVE_SERVER = 'RECEIVE_SERVER';
 export const REMOVE_SERVER = 'REMOVE_SERVER';
 export const RECEIVE_SERVER_ERRORS = 'RECEIVE_SESSION_ERRORS';
+export const CLEAR_SERVER_ERRORS = 'CLEAR_SERVER_ERRORS';
 
 export const receiveServers = servers => {
   return({
@@ -30,6 +31,12 @@ export const receiveErrors = (errors) => {
   return ({
     type: RECEIVE_SERVER_ERRORS,
     errors
+  })
+};
+
+export const clearErrors = () => {
+  return ({
+    type: CLEAR_SERVER_ERRORS
   })
 };
 
