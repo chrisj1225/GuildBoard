@@ -2,8 +2,8 @@ import React from 'react';
 import { Route, Switch } from 'react-router-dom';
 import { AuthRoute } from '../util/route_util';
 import SplashContainer from './splash/splash_container';
-import LoginContainer from './splash/login_container';
-import SignupContainer from './splash/signup_container';
+import LoginContainer from './session/login_container';
+import SignupContainer from './session/signup_container';
 
 
 const App = () => (
