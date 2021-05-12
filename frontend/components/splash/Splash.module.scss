@@ -1,5 +1,5 @@
 .splash {
-  background-image: url('../../../app/assets/images/the_valley.png');
+  // background-image: url('../../../app/assets/images/the_valley.png');
   background-size: contain;
   background-repeat: no-repeat;
   width: 100%;
@@ -32,20 +32,21 @@
   margin: 10px
 }
 
+.login-container {
+  display: flex;
+  align-items: center;
+}
+
 .log-button {
   font-family: 'Noto Sans JP', sans-serif;
   font-size: 12px;
+  line-height: 30px;
   width: 60px;
   height: 30px;
   text-align: center;
   margin: auto;
   border-radius: 10px;
   background-color: white;
-}
-
-.login-container {
-  display: flex;
-  align-items: center;
 }
 
 .splash-content {
@@ -86,6 +87,7 @@
   background-color: white;
   border-radius: 20px;
   text-align: center;
+  line-height: 40px;
   // margin: auto;
 }
 
@@ -98,6 +100,7 @@
   color: white;
   border-radius: 20px;
   text-align: center;
+  line-height: 40px;
   // margin: auto;
 }
 

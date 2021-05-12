@@ -40,8 +40,10 @@ class Signup extends React.Component {
       </>
     )
 
+    const authBackgroundImg = {backgroundImage: `url(${window.authBackground})`}
+
     return (
-      <div className={styles.container}>
+      <div className={styles.container} style={authBackgroundImg}>
         <div className={styles['signup-box']}>
           <div className={styles.form}>
             <h2 className={styles.header}>Create an account</h2>

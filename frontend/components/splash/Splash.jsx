@@ -6,7 +6,6 @@ import styles from './Splash.module.scss';
 class Splash extends React.Component {
   constructor(props) {
     super(props)
-
   }
 
   render() {
@@ -33,9 +32,13 @@ class Splash extends React.Component {
       </div>
     )
 
+    const splashBackgroundImg = {backgroundImage: `url(${window.splashBackground})`}
+
     return(
       <div >
-        <div className={styles.splash}>
+        <div 
+          className={styles.splash}
+          style={splashBackgroundImg} >
           <div className={styles['nav-container']}>
             <Link to="/">
               <img className={styles.logo} src={window.logoUrl} />

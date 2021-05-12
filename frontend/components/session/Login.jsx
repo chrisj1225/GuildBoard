@@ -38,8 +38,11 @@ class Login extends React.Component {
         ))}
       </>
     )
+
+    const authBackgroundImg = {backgroundImage: `url(${window.authBackground})`}
+
     return (
-      <div className={styles.container}>
+      <div className={styles.container} style={authBackgroundImg}>
         <div className={styles['login-box']}>
           <div className={styles.form}>
             <h2 className={styles.header}>Welcome back!</h2>
