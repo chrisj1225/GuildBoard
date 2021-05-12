@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-import classes from './auth.module.scss';
+import styles from './auth.module.scss';
 
 class Signup extends React.Component {
   constructor(props) {
@@ -35,20 +35,20 @@ class Signup extends React.Component {
     const showErrors = (
       <>
         {this.props.errors.session.map((err, idx) => (
-          <p key={idx} className={classes.error}>{err}</p>
+          <p key={idx} className={styles.error}>{err}</p>
         ))}
       </>
     )
 
     return (
-      <div className={classes.container}>
-        <div className={classes.signupbox}>
-          <div className={classes.form}>
-            <h2 className={classes.header}>Create an account</h2>
+      <div className={styles.container}>
+        <div className={styles['signup-box']}>
+          <div className={styles.form}>
+            <h2 className={styles.header}>Create an account</h2>
             <form onSubmit={this.handleSubmit}>
               <label>Email:
                 <input 
-                  className={classes.input_field}
+                  className={styles['input-field']}
                   type="text" 
                   onChange={this.update('email')} 
                   value={this.state.email} />
@@ -56,7 +56,7 @@ class Signup extends React.Component {
               <br />
               <label>Username:
                 <input 
-                  className={classes.input_field}
+                  className={styles[input-field]}
                   type="text" 
                   onChange={this.update('username')} 
                   value={this.state.username} />
@@ -64,20 +64,20 @@ class Signup extends React.Component {
               <br />
               <label>Password:
                 <input 
-                  className={classes.input_field}
+                  className={styles['input-field']}
                   type="password" 
                   onChange={this.update('password')} 
                   value={this.state.password} />
               </label>
               {showErrors}
               <br />
-              <input className={classes.button} type="submit" value={this.props.formType} />
+              <input className={styles.button} type="submit" value={this.props.formType} />
             </form>
             <div>
-              <Link className={classes.link} to="/login">Already have an account?</Link>
+              <Link className={styles.link} to="/login">Already have an account?</Link>
             </div>
             <br />
-            <Link className={classes.link} to="/">Back to Landing Page</Link>
+            <Link className={styles.link} to="/">Back to Landing Page</Link>
 
           </div>
         </div>

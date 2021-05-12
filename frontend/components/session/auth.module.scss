@@ -8,7 +8,7 @@
   align-items: center;
 }
 
-.loginbox {
+.login-box {
   box-shadow: 5px 5px 5px black;
   display: flex;
   width: 550px;
@@ -17,7 +17,7 @@
   border-radius: 5px;
 }
 
-.signupbox {
+.signup-box {
   box-shadow: 5px 5px 5px black;
   display: flex;
   width: 360px;
@@ -42,7 +42,7 @@
   margin: 0 0 5px 0;
 }
 
-.signupbox .header {
+.signup-box .header {
   text-align: center;
   margin: 0 0 20px 0;
 }
@@ -62,7 +62,7 @@ label {
   color: #8d8e91;
 }
 
-.input_field {
+.input-field {
   color: white;
   margin: 5px 0 15px 0;
   background-color: #24242c;
@@ -101,7 +101,7 @@ label {
   align-items: center;
 }
 
-.demo_login {
+.demo-login {
   font-family: 'Noto Sans JP', sans-serif;
   background: #7289da;
   color: white;
