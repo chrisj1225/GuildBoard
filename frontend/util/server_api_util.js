@@ -34,3 +34,25 @@ export const deleteServer = (serverId) => {
     url: `/api/servers/${serverId}`
   })
 }
+
+export const fetchUserServers = (userId) => {
+  return $.ajax({
+    method: 'GET',
+    url: `/api/users/${userId}/servers`
+  })
+}
+
+export const fetchServerMembers = (serverId) => {
+  return $.ajax({
+    method: 'GET',
+    url: `/api/servers/${serverId}/users`
+  })
+}
+
+export const addServerMember = (serverId, currentUser) => {
+  return $.ajax({
+    method: 'POST',
+    url: `/api/servers/${serverId}/memberships`,
+    data: { user_id: currentUser.id }
+  })
+}

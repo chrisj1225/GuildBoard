@@ -1,22 +1,17 @@
 class Api::ServersController < ApplicationController
 
   def index 
-    @servers = Server.all
+    user = User.find(params[:user_id])
+    @servers = user.servers
     render "/api/servers/index"
   end
-
-  def users
-    @server = Server.find_by(id: params[:server_id])
-    @users = @server.members
-    if @users
-      render "/api/servers/show"
-    else 
-      render json: ["That server does not exist"], status: 404
-    end
-  end
+  
+  # Later implement 'search' route to get ALL servers for explore servers
+  # @servers = Server.all
 
   def show
     @server = Server.find(params[:id])
+    render "api/servers/show"
   end
 
   def create
@@ -29,7 +24,7 @@ class Api::ServersController < ApplicationController
 
   def update
     # debugger
-    @server = Server.find_by(id: params[:id])
+    @server = Server.find_by(server_id: params[:server_id])
     if @server && @server.update(server_params)
        render "/api/servers/show"
     else
@@ -39,7 +34,7 @@ class Api::ServersController < ApplicationController
   end
 
   def destroy
-    @server = Server.find(params[:id])
+    @server = Server.find(params[:server_id])
     if current_user.id == @server.owner.id
       @server.destroy
       render "/api/servers/show"

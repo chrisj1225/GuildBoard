@@ -1,7 +1,8 @@
 class Api::MembershipsController < ApplicationController
 
   def create 
-    @membership = Membership.new(membership_params)
+    debugger
+    @membership = Membership.new(user_id: params[:user_id])
     if params.include?(:server_id)
       @membership.joinable_id = params[:server_id]
       @membership.joinable_type = "Server"
@@ -32,8 +33,8 @@ class Api::MembershipsController < ApplicationController
 
   private
 
-  def membership_params
-    params.require(:membership).permit(:user_id)
-  end
+  # def membership_params
+  #   params.require(:user).permit(:user_id)
+  # end
 
 end
