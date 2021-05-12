@@ -5,6 +5,16 @@ class Api::ServersController < ApplicationController
     render "/api/servers/index"
   end
 
+  def users
+    @server = Server.find_by(id: params[:server_id])
+    @users = @server.members
+    if @users
+      render "/api/servers/show"
+    else 
+      render json: ["That server does not exist"], status: 404
+    end
+  end
+
   def show
     @server = Server.find(params[:id])
   end
