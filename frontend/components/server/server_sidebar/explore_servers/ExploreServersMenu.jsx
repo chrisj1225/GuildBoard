@@ -6,8 +6,6 @@ class ExploreServersMenu extends React.Component {
   constructor(props) {
     super(props)
 
-    this.state = this.props.memberParams;
-
     this.joinServer = this.joinServer.bind(this);
   }
 
@@ -17,12 +15,18 @@ class ExploreServersMenu extends React.Component {
   }
 
   joinServer(serverId) {
-    this.setState({
-      joinableId: serverId
-    })
-    let member_params = convertToSnakeCase(this.state);
-    this.props.addServerMember(member_params);
-    this.props.closeModal();
+    // debugger
+    return () => {
+      // debugger
+      let memberParams = {};
+      Object.keys(this.props.memberParams).forEach(key => {
+        memberParams[key] = this.props.memberParams[key]
+      });
+      memberParams.joinableId = serverId
+      memberParams = convertToSnakeCase(memberParams);
+      this.props.addServerMember(memberParams);
+      this.props.closeModal();
+    }
   }
 
   // Add event handler for leaveServer(e) for leave button
@@ -36,7 +40,7 @@ class ExploreServersMenu extends React.Component {
             return <ExploreServersItem 
               key={server.id}
               server={server}
-              joinServer={() => this.joinServer}
+              joinServer={this.joinServer}
             />
           })}
 

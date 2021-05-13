@@ -6,7 +6,7 @@ class Api::MembershipsController < ApplicationController
     if membership.save
       if membership.joinable_type == "Server"
         @server = membership.joinable
-        render "api/server/show"
+        render "api/servers/show"
       end
     else 
       render json: ["Something went wrong"], status: 404

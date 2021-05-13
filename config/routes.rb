@@ -6,12 +6,12 @@ Rails.application.routes.draw do
       resources :servers, only: [:index]
     end
     resource :session, only: [:create, :destroy]
-    resources :servers, only: [:create, :update, :destroy] do
+    resources :servers, only: [:show, :create, :update, :destroy] do
       resources :users, only: [:index]
     end
     resources :memberships, only: [:create, :destroy]
   
-    get '/servers/explore', to: 'servers#explore', as: 'servers_explore'
+    get '/explore/servers', to: 'servers#explore', as: 'servers_explore'
   end
 
   root "static_pages#root"

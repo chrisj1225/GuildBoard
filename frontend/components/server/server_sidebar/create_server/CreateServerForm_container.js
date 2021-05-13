@@ -6,7 +6,7 @@ import CreateServerForm from './CreateServerForm';
 const mSTP = (state, ownProps) => {
   // debugger
   return({
-    currentUser: state.entities.users[state.session.id],
+    currentUser: state.entities.users[state.session.session.id],
     newServer: {
       title: ""
     }

@@ -1,15 +1,14 @@
 import { 
-  RECEIVE_SERVERS,
   RECEIVE_ALL_SERVERS,
   RECEIVE_SERVER,
   REMOVE_SERVER
 } from '../../actions/server_actions'
 import { LOGOUT_CURRENT_USER } from '../../actions/session_actions';
 
-export const serversReducer = (state = {}, action) => {
+const serversReducer = (state = {}, action) => {
   Object.freeze(state);
   switch(action.type) {
-    case RECEIVE_SERVERS:
+    case RECEIVE_ALL_SERVERS:
       return action.servers;
     case RECEIVE_SERVER:
       return Object.assign({}, state, { [action.server.id]: action.server })
@@ -24,12 +23,4 @@ export const serversReducer = (state = {}, action) => {
   }
 }
 
-export const allServersReducer = (state = {}, action) => {
-  Object.freeze(state);
-  switch(action.type) {
-    case RECEIVE_ALL_SERVERS:
-      return action.servers;
-    default:
-      return state;
-  }
-}
+export default serversReducer;

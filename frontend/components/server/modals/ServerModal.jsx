@@ -2,7 +2,7 @@ import React from 'react';
 import { closeModal } from '../../../actions/ui_actions';
 import { connect } from 'react-redux';
 import CreateServerFormContainer from '../server_sidebar/create_server/CreateServerForm_container';
-import ExploreServersMenuContainer from '../server_sidebar/explore_servers/ExploreServersMenu_Container';
+import ExploreServersMenuContainer from '../server_sidebar/explore_servers/ExploreServersMenu_container';
 
 import styles from './ServerModal.module.scss';
 

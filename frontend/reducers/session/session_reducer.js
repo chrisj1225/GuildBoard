@@ -1,19 +1,10 @@
-import { RECEIVE_CURRENT_USER, LOGOUT_CURRENT_USER } from '../../actions/session_actions';
+import { combineReducers } from 'redux';
+import authReducer from './auth_reducer';
+import userServersReducer from './user_servers_reducer';
 
-const _nullUser = Object.freeze({
-  id: null
+const sessionReducer = combineReducers({
+  session: authReducer,
+  userServers: userServersReducer
 })
-
-const sessionReducer = (state = _nullUser, action) => {
-  Object.freeze(state);
-  switch (action.type) {
-    case RECEIVE_CURRENT_USER:
-      return { id: action.currentUser.id }
-    case LOGOUT_CURRENT_USER:
-      return _nullUser
-    default:
-      return state;
-  }
-} 
 
 export default sessionReducer;

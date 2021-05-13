@@ -6,8 +6,8 @@ import ServerSideBar from './ServerSidebar';
 const mSTP = (state, ownProps) => {
   // debugger
   return({
-    currentUser: state.entities.users[state.session.id],
-    servers: Object.values(state.entities.servers)
+    currentUser: state.entities.users[state.session.session.id],
+    servers: state.session.userServers
 
   })
 }
