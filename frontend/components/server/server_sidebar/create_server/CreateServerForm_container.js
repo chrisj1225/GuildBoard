@@ -1,23 +1,20 @@
 import { connect } from 'react-redux';
-import { createServer, addServerMember } from '../../../../actions/server_actions';
+import { createServer } from '../../../../actions/server_actions';
 import CreateServerForm from './CreateServerForm';
 
 const mSTP = (state, ownProps) => {
-  debugger
+  // debugger
   return({
-    currentUser: Object.values(state.entities.users)[0],
-    server: {
-      title: "",
-      owner_id: state.session.id
-    },
-    createdServer: Object.values(state.entities.servers)[0]
+    currentUser: state.entities.users[state.session.id],
+    newServer: {
+      title: ""
+    }
   })
 }
 
 const mDTP = dispatch => {
   return ({
-    createServer: (server) => dispatch(createServer(server)),
-    addServerMember: (serverId, currentUser) => dispatch(addServerMember(serverId, currentUser))
+    createServer: (server) => dispatch(createServer(server))
   })
 }
 

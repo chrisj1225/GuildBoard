@@ -1,26 +1,16 @@
 class Api::MembershipsController < ApplicationController
 
-  def create 
-    # debugger
-    # would (user_id: current_user.id) work? 
-    # currently :user_id passed thru thunk action creator.
-    @membership = Membership.new(user_id: params[:user_id]) 
-    if params.include?(:server_id)
-      @membership.joinable_id = params[:server_id]
-      @membership.joinable_type = "Server"
+    
+  def create
+    membership = Membership.new(membership_params)
+    if membership.save
+      if membership.joinable_type == "Server"
+        @server = membership.joinable
+        render "api/server/show"
+      end
     else 
-      # @membership.joinable_id = params[:dm_id]
-      # @membership.joinable_type = "DM"
-    end
-    if @membership.save
-      # what needs to get rendered here? 
-      # which reducer does this need to hit?
-      # membership changes only affect backend. 
-      render "/api/servers/#{params[:server_id]}"
-    else
       render json: ["Something went wrong"], status: 404
     end
-
   end
 
   def destroy
@@ -52,8 +42,15 @@ class Api::MembershipsController < ApplicationController
 
   private
 
-  # def membership_params
-  #   params.require(:user).permit(:user_id)
-  # end
+  def membership_params
+    params.require(:member).permit(:user_id, :joinable_id, :joinable_type)
+  end
+
+  # member_params
+  # this.state = {
+  #   user_id: 2,
+  #   joinable_id: 2
+  #   joinable type: 'Server'
+  # }
 
 end

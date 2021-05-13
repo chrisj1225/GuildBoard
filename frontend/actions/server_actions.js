@@ -1,4 +1,5 @@
 import * as ServerAPIUtil from '../util/server_api_util';
+import * as MemberApiUtil from '../util/membership_api_util';
 
 export const RECEIVE_SERVERS = 'RECEIVE_SERVERS';
 export const RECEIVE_SERVER = 'RECEIVE_SERVER';
@@ -60,8 +61,8 @@ export const fetchServerMembers = (serverId) => dispatch => {
     .then(members => dispatch(receiveServerMembers(members)))
 };
 
-export const addServerMember = (serverId, currentUser) => dispatch => {
-  return ServerAPIUtil.addServerMember(serverId, currentUser)
+export const addServerMember = (member_params) => dispatch => {
+  return MemberApiUtil.addServerMember(member_params)
     .then(server => dispatch(receiveServer(server)))
 }
 
@@ -78,6 +79,7 @@ export const fetchServer = (serverId) => dispatch => {
 };
 
 export const createServer = (server) => dispatch => {
+  debugger
   return ServerAPIUtil.createServer(server)
     .then(server => dispatch(receiveServer(server)),
     err => dispatch(receiveErrors(err.responseJSON)))

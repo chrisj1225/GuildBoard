@@ -1,24 +1,19 @@
 import React from 'react';
+import { convertToSnakeCase } from '../../../../util/selectors';
 
 class CreateServerForm extends React.Component {
   constructor(props) {
     super(props)
 
-    this.state = this.props.server;
+    this.state = this.props.newServer;
 
     this.handleSubmit = this.handleSubmit.bind(this);
   }
 
-  componentWillUnmount() {
-    this.props.addServerMember(this.props.createdServer.id, this.props.currentUser.id)
-
-  }
-
   handleSubmit(e) {
     e.preventDefault();
-    debugger
-    this.props.createServer(this.state);
-    debugger
+    let server_params = convertToSnakeCase(this.state);
+    this.props.createServer(server_params);
   }
 
   update(field) {

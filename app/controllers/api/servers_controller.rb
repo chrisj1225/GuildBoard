@@ -15,9 +15,11 @@ class Api::ServersController < ApplicationController
   end
 
   def create
+    debugger
     @server = Server.new(server_params)
     @server.owner_id = current_user.id
     if @server.save
+      @server.memberships.create(user_id: current_user.id)
       render "api/servers/show"
     end
   end
@@ -44,7 +46,7 @@ class Api::ServersController < ApplicationController
   private
 
   def server_params
-    params.require(:server).permit(:title, :owner_id)
+    params.require(:server).permit(:title)
   end
 
 end

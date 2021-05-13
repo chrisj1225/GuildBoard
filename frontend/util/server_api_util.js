@@ -48,11 +48,3 @@ export const fetchServerMembers = (serverId) => {
     url: `/api/servers/${serverId}/users`
   })
 };
-
-export const addServerMember = (serverId, currentUser) => {
-  return $.ajax({
-    method: 'POST',
-    url: `/api/servers/${serverId}/memberships`,
-    data: { user_id: currentUser.id }
-  })
-};

@@ -3,7 +3,7 @@ import { fetchUserServers } from '../../../actions/server_actions';
 import ServerSideBar from './ServerSidebar';
 
 const mSTP = (state, ownProps) => {
-  debugger
+  // debugger
   return({
     currentUser: Object.values(state.entities.users)[0],
     servers: Object.values(state.entities.servers)
