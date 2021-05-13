@@ -11,9 +11,7 @@ const serversReducer = (state = {}, action) => {
     case RECEIVE_SERVERS:
       return action.servers;
     case RECEIVE_SERVER:
-      // return Object.assign({}, state, { [action.server.id]: action.server })
-      // For addServerMember server action (creating membersip)
-      // Nothing needs to hit the state...
+      return Object.assign({}, state, { [action.server.id]: action.server })
     case REMOVE_SERVER:
       let newState = Object.assign({}, state);
       delete newState[action.serverId];

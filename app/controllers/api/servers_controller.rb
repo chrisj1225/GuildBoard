@@ -24,7 +24,7 @@ class Api::ServersController < ApplicationController
 
   def update
     # debugger
-    @server = Server.find_by(server_id: params[:server_id])
+    @server = Server.find_by(id: params[:id])
     if @server && @server.update(server_params)
        render "/api/servers/show"
     else
@@ -34,8 +34,8 @@ class Api::ServersController < ApplicationController
   end
 
   def destroy
-    @server = Server.find(params[:server_id])
-    if current_user.id == @server.owner.id
+    @server = Server.find(params[:id])
+    if current_user.id == @server.owner_id
       @server.destroy
       render "/api/servers/show"
     end
@@ -44,7 +44,7 @@ class Api::ServersController < ApplicationController
   private
 
   def server_params
-    params.require(:server).permit(:title, :description)
+    params.require(:server).permit(:title, :owner_id)
   end
 
 end

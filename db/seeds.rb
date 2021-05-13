@@ -28,14 +28,12 @@ demo = User.create!(
 
 general_server = Server.new(
   title: 'General',
-  description: 'General Server to discuss anything!'
 )
 general_server.owner_id = chris.id
 general_server.save!
 
 aA_server = Server.new(
   title: 'App Academy',
-  description: 'App Academy Server'
 )
 aA_server.owner_id = chris.id
 aA_server.save!

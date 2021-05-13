@@ -6,6 +6,7 @@ import LoginContainer from './session/login_container';
 import SignupContainer from './session/signup_container';
 import ServerListContainer from './server/server_list/ServerList_container';
 import ServerSideBarContainer from './server/server_sidebar/ServerSidebar_container';
+import CreateServerFormContainer from './server/server_sidebar/create_server/CreateServerForm_container';
 
 const App = () => (
   <div>
@@ -15,6 +16,7 @@ const App = () => (
       <AuthRoute exact path="/signup" component={SignupContainer}/>
       <ProtectedRoute path="/server" component={ServerSideBarContainer} />
       <ProtectedRoute exact path="/server_explore" component={ServerListContainer} />
+      <ProtectedRoute exact path="/create_server" component={CreateServerFormContainer} />
     </Switch>
   </div>
 )
