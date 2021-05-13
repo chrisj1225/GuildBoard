@@ -1,7 +1,7 @@
 class Api::MembershipsController < ApplicationController
 
   def create 
-    debugger
+    # debugger
     @membership = Membership.new(user_id: params[:user_id])
     if params.include?(:server_id)
       @membership.joinable_id = params[:server_id]
@@ -11,7 +11,7 @@ class Api::MembershipsController < ApplicationController
       # @membership.joinable_type = "DM"
     end
     if @membership.save
-      render "api/servers/#{params[:server_id]}/"
+      render "api/servers/#{params[:server_id]}/users"
     else
       render json: ["Something went wrong"], status: 404
     end
@@ -19,13 +19,27 @@ class Api::MembershipsController < ApplicationController
   end
 
   def destroy
-    @membership = Membership.find_by(
-      user_id: current_user.id, 
-      joinable_id: params[:membership][:joinable_id],
-      joinable_type: params[:membership][:joinable_type]
-    )
-    if @membership
+    # debugger
+    # if params.include?(:server_id)
+    #   @membership = Membership.find_by(
+    #     user_id: current_user.id, 
+    #     joinable_id: params[:server_id],
+    #     joinable_type: "Server"
+    #   )
+    # elsif params.include?(:dm_id)
+    #   @membership = Membership.find_by(
+    #     user_id: current_user.id, 
+    #     joinable_id: params[:dm_id],
+    #     joinable_type: "DM"
+    #   )
+    # end
+    @membership = Membership.find(params[:id])
+    if @membership && params.include(:server_id)
       @membership.destroy
+      render "api/servers/#{params[:server_id]}/users"
+    elsif @membership && params.include(:dm_id)
+      @membership.destroy
+      render "api/servers/#{params[:server_id]}/users"
     else
       render json: ["Something went wrong"], status: 404
     end

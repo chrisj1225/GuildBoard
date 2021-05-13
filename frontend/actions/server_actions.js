@@ -6,6 +6,8 @@ export const REMOVE_SERVER = 'REMOVE_SERVER';
 export const RECEIVE_SERVER_ERRORS = 'RECEIVE_SESSION_ERRORS';
 export const CLEAR_SERVER_ERRORS = 'CLEAR_SERVER_ERRORS';
 
+export const RECEIVE_SERVER_MEMBERS = 'RECEIVE_SERVER_MEMBERS';
+
 export const receiveServers = servers => {
   return({
     type: RECEIVE_SERVERS,
@@ -39,6 +41,29 @@ export const clearErrors = () => {
     type: CLEAR_SERVER_ERRORS
   })
 };
+
+export const receiveServerMembers = (members) => {
+  return ({
+    type: RECEIVE_SERVER_MEMBERS,
+    members
+  })
+};
+
+export const fetchUserServers = (userId) => dispatch => {
+  return ServerAPIUtil.fetchUserServers(userId)
+    .then(servers => dispatch(receiveServers(servers)),
+    err => dispatch(receiveErrors(err.responseJSON)))
+};
+
+export const fetchServerMembers = (serverId) => dispatch => {
+  return ServerAPIUtil.fetchServerMembers(serverId)
+    .then(members => dispatch(receiveServerMembers(members)))
+};
+
+export const addServerMember = (serverId, currentUser) => dispatch => {
+  return ServerAPIUtil.addServerMember(serverId, currentUser)
+    .then(server => dispatch(receiveServer(server)))
+}
 
 export const fetchServers = () => dispatch => {
   return ServerAPIUtil.fetchServers()

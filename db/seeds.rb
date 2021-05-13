@@ -20,10 +20,22 @@ test_user = User.create!(
   username: 'testuser', 
   password: 'password')
 
+demo = User.create!(
+  email: 'demo@example.com', 
+  username: 'demouser', 
+  password: 'password'
+)
+
 general_server = Server.new(
   title: 'General',
-  description: 'General Server to discuss anything!',
-  owner_id: 1
+  description: 'General Server to discuss anything!'
+)
+general_server.owner_id = chris.id
+general_server.save!
+
+aA_server = Server.new(
+  title: 'App Academy',
+  description: 'App Academy Server'
 )
 general_server.owner_id = chris.id
 general_server.save!

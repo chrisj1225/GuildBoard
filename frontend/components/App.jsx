@@ -5,6 +5,7 @@ import SplashContainer from './splash/splash_container';
 import LoginContainer from './session/login_container';
 import SignupContainer from './session/signup_container';
 import ServerListContainer from './server/server_list/ServerList_container';
+import ServerSideBarContainer from './server/server_sidebar/ServerSidebar_container';
 
 const App = () => (
   <div>
@@ -13,6 +14,7 @@ const App = () => (
       <AuthRoute exact path="/login" component={LoginContainer} />
       <AuthRoute exact path="/signup" component={SignupContainer}/>
       <Route exact path="/server_explore" component={ServerListContainer} />
+      <Route path="/server" component={ServerSideBarContainer} />
     </Switch>
   </div>
 )
