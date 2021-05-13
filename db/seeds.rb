@@ -37,5 +37,5 @@ aA_server = Server.new(
   title: 'App Academy',
   description: 'App Academy Server'
 )
-general_server.owner_id = chris.id
-general_server.save!
+aA_server.owner_id = chris.id
+aA_server.save!

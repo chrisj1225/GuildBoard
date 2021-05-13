@@ -1,6 +1,8 @@
 import React from 'react';
 import ServerSidebarItem from './ServerSidebarItem';
 
+import styles from './ServerSidebar.module.scss';
+
 class ServerSidebar extends React.Component {
   constructor(props) {
     super(props)
@@ -13,7 +15,7 @@ class ServerSidebar extends React.Component {
 
   render() {
     return(
-      <div>
+      <div className={styles.sidebar}>
         <ul>
           {this.props.servers.map(server => {
             return <ServerSidebarItem 

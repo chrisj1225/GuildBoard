@@ -11,7 +11,7 @@ class Api::MembershipsController < ApplicationController
       # @membership.joinable_type = "DM"
     end
     if @membership.save
-      render "api/servers/#{params[:server_id]}/users"
+      # render "/api/servers/#{params[:server_id]}"
     else
       render json: ["Something went wrong"], status: 404
     end
@@ -36,10 +36,10 @@ class Api::MembershipsController < ApplicationController
     @membership = Membership.find(params[:id])
     if @membership && params.include(:server_id)
       @membership.destroy
-      render "api/servers/#{params[:server_id]}/users"
+      render "/api/servers/#{params[:server_id]}/users"
     elsif @membership && params.include(:dm_id)
       @membership.destroy
-      render "api/servers/#{params[:server_id]}/users"
+      render "/api/servers/#{params[:server_id]}/users"
     else
       render json: ["Something went wrong"], status: 404
     end
