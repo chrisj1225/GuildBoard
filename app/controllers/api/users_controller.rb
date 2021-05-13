@@ -11,6 +11,7 @@ class Api::UsersController < ApplicationController
     
     if @user.save
       login(@user)
+      @user.memberships.create(user_id: @user.id, joinable_id: 1, joinable_type: 'Server')
       render "api/users/show"
     else
       render json: @user.errors.full_messages, status: 422

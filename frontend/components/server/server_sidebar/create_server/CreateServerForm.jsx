@@ -14,6 +14,7 @@ class CreateServerForm extends React.Component {
     e.preventDefault();
     let server_params = convertToSnakeCase(this.state);
     this.props.createServer(server_params);
+    this.props.closeModal();
   }
 
   update(field) {
@@ -35,7 +36,10 @@ class CreateServerForm extends React.Component {
               onChange={this.update('title')}
               value={this.state.title} />
           </label>
-          <input type="submit" value="Create" />
+          <div>
+            <button onClick={()=>this.props.closeModal()}>Back</button>
+            <input type="submit" value="Create" />
+          </div>
         </form>
 
       </div>

@@ -1,5 +1,6 @@
 import { connect } from 'react-redux';
 import { createServer } from '../../../../actions/server_actions';
+import { closeModal } from '../../../../actions/ui_actions';
 import CreateServerForm from './CreateServerForm';
 
 const mSTP = (state, ownProps) => {
@@ -14,7 +15,8 @@ const mSTP = (state, ownProps) => {
 
 const mDTP = dispatch => {
   return ({
-    createServer: (server) => dispatch(createServer(server))
+    createServer: (server) => dispatch(createServer(server)),
+    closeModal: () => dispatch(closeModal())
   })
 }
 
