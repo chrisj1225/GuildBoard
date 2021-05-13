@@ -11,10 +11,10 @@ class Api::ServersController < ApplicationController
     render "/api/servers/explore"
   end
   
-  def show
-    @server = Server.find(params[:id])
-    render "api/servers/show"
-  end
+  # def show
+  #   @server = Server.find(params[:id])
+  #   render "api/servers/show"
+  # end
 
   def create
     # debugger

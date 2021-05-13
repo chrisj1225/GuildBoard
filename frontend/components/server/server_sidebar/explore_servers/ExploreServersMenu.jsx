@@ -14,7 +14,6 @@ class ExploreServersMenu extends React.Component {
   componentDidMount() {
     // debugger
     this.props.fetchServers();
-    // debugger
   }
 
   joinServer(serverId) {
@@ -37,17 +36,14 @@ class ExploreServersMenu extends React.Component {
             return <ExploreServersItem 
               key={server.id}
               server={server}
-              joinServer={this.joinServer}
+              joinServer={() => this.joinServer}
             />
           })}
 
         </ul>
       </div>
-
     )
-
   }
-
 }
 
 export default ExploreServersMenu;
