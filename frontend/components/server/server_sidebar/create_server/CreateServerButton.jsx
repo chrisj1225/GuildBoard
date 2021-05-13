@@ -1,17 +1,16 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
 
 import styles from '../ServerSidebar.module.scss';
 
-const CreateServerButton = () => (
+const CreateServerButton = ({ openModal }) => (
   <li>
-    <Link to="/create_server">
+    <button onClick={() => openModal('create')}>
       <div className={styles['server-icon']}>
         Create Server
-
       </div>
-    </Link>
-
+    </button>
+    {/* with ServerModal, instead of linking to '/create_server'
+    this should dispatch the openModal action with 'create' */}
   </li>
 
 )

@@ -23,7 +23,7 @@ class ServerSidebar extends React.Component {
               key={server.id}
               server={server} />
           })}
-          <CreateServerButton createServer={this.props.createServer} />
+          <CreateServerButton openModal={this.props.openModal} />
         {/* Include 'Add a Server' and 'Explore Servers' */}
 
         </ul>
