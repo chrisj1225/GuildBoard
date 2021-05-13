@@ -1,6 +1,7 @@
 import React from 'react';
 import ServerSidebarItem from './ServerSidebarItem';
 import CreateServerButton from './create_server/CreateServerButton';
+import ExploreServersButton from './explore_servers/ExploreServersButton';
 import styles from './ServerSidebar.module.scss';
 
 class ServerSidebar extends React.Component {
@@ -24,7 +25,7 @@ class ServerSidebar extends React.Component {
               server={server} />
           })}
           <CreateServerButton openModal={this.props.openModal} />
-        {/* Include 'Add a Server' and 'Explore Servers' */}
+          <ExploreServersButton openModal={this.props.openModal} />
 
         </ul>
       </div>

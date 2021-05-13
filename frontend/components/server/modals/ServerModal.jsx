@@ -2,6 +2,7 @@ import React from 'react';
 import { closeModal } from '../../../actions/ui_actions';
 import { connect } from 'react-redux';
 import CreateServerFormContainer from '../server_sidebar/create_server/CreateServerForm_container';
+import ExploreServersMenuContainer from '../server_sidebar/explore_servers/ExploreServersMenu_Container';
 
 import styles from './ServerModal.module.scss';
 
@@ -13,8 +14,9 @@ const ServerModal = ({ modal, closeModal }) => {
     case 'create':
       component = <CreateServerFormContainer />
       break;
-    // case 'explore':
-    //   component = <ExploreServersContainer />
+    case 'explore':
+      component = <ExploreServersMenuContainer />
+      break;
     default:
       return null;
   }

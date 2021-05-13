@@ -5,10 +5,12 @@ class Api::ServersController < ApplicationController
     @servers = user.servers
     render "/api/servers/index"
   end
-  
-  # Later implement 'search' route to get ALL servers for explore servers
-  # @servers = Server.all
 
+  def explore
+    @servers = Server.all
+    render "/api/servers/explore"
+  end
+  
   def show
     @server = Server.find(params[:id])
     render "api/servers/show"
