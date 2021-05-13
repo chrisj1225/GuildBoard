@@ -1,9 +1,9 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-import styles from '../ServerSidebarItem.module.scss';
+import styles from '../ServerSidebar.module.scss';
 
-const CreateServerButton = ({ createServer }) => (
+const CreateServerButton = () => (
   <li>
     <Link to="/create_server">
       <div className={styles['server-icon']}>

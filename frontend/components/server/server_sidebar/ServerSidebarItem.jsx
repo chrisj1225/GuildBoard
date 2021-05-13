@@ -1,6 +1,6 @@
 import React from 'react';
 
-import styles from './ServerSidebarItem.module.scss';
+import styles from './ServerSidebar.module.scss';
 
 const ServerSidebarItem = ({ server }) => (
   <li>

@@ -24,9 +24,9 @@ class ServerSidebar extends React.Component {
               server={server} />
           })}
           <CreateServerButton createServer={this.props.createServer} />
+        {/* Include 'Add a Server' and 'Explore Servers' */}
 
         </ul>
-        {/* Include 'Add a Server' and 'Explore Servers' */}
       </div>
 
 
