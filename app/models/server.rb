@@ -1,6 +1,6 @@
 class Server < ApplicationRecord
 
-  validates :title, presence: true
+  validates :title, presence: true, uniqueness: true;
   
   belongs_to :owner,
     primary_key: :id,
@@ -13,5 +13,10 @@ class Server < ApplicationRecord
   has_many :members,
     through: :memberships,
     source: :user
+
+  has_many :channels,
+    primary_key: :id,
+    foreign_key: :server_id,
+    class_name: :Channel
 
 end
