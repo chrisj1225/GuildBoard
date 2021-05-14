@@ -3,7 +3,7 @@
   width: 70px;
   height: 100vh;
   position: fixed;
-  overflow: scroll;
+  overflow-y: scroll;
   background-color: #202225;
 }
 
@@ -23,6 +23,7 @@
   border-radius: 50%;
   text-align: center;
   margin: 10px;
+  cursor: pointer; 
 
   .wrapper {
     display: none;
