@@ -7,7 +7,7 @@ const ServerSidebarItem = ({ server }) => {
   return (
   <li>
     <div className={styles['server-icon']}>
-      {server.title}
+      {server.title.split("")[0]}
     </div>
   </li>
     

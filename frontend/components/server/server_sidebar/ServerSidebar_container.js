@@ -4,7 +4,7 @@ import { openModal } from '../../../actions/ui_actions';
 import ServerSideBar from './ServerSidebar';
 
 const mSTP = (state, ownProps) => {
-  debugger
+  // debugger
   return({
     currentUser: state.entities.users[state.session.session.id],
     userServersIds: state.session.userServers,

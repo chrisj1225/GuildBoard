@@ -6,7 +6,7 @@ import {
 import { LOGOUT_CURRENT_USER } from '../../actions/session_actions';
 
 const serversReducer = (state = {}, action) => {
-  debugger
+  // debugger
   Object.freeze(state);
   switch(action.type) {
     case RECEIVE_ALL_SERVERS:

@@ -9,16 +9,16 @@ class ServerSidebar extends React.Component {
     super(props)
 
   }
-
+  
   componentDidMount() {
-    debugger
-    this.props.fetchUserServers(this.props.currentUser.id);
+    // debugger
     this.props.fetchServers();
+    this.props.fetchUserServers(this.props.currentUser.id);
   }
 
   render() {
-
-    debugger
+    // console.log(this.props.allServers);
+    // debugger
     return(
       <div className={styles.sidebar}>
         <ul>
@@ -26,6 +26,7 @@ class ServerSidebar extends React.Component {
             return <ServerSidebarItem 
               key={serverId}
               server={this.props.allServers[serverId]} />
+            
           })}
           <CreateServerButton openModal={this.props.openModal} />
           <ExploreServersButton openModal={this.props.openModal} />
