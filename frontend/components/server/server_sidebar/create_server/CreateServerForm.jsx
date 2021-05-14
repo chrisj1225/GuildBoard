@@ -1,6 +1,8 @@
 import React from 'react';
 import { convertToSnakeCase } from '../../../../util/selectors';
 
+import styles from './CreateForm.module.scss';
+
 class CreateServerForm extends React.Component {
   constructor(props) {
     super(props)
@@ -27,8 +29,8 @@ class CreateServerForm extends React.Component {
 
   render() {
     return(
-      <div>
-
+      <div className={styles['create-form']}>
+        <h1>Customize your server</h1>
         <form onSubmit={this.handleSubmit}>
           <label>Title:
             <input 

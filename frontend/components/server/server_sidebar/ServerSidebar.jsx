@@ -12,13 +12,16 @@ class ServerSidebar extends React.Component {
   
   componentDidMount() {
     // debugger
-    this.props.fetchServers();
-    this.props.fetchUserServers(this.props.currentUser.id);
+    // this.props.fetchServers();
+    // this.props.fetchUserServers(this.props.currentUser.id);
+    this.props.fetchAllServers(this.props.currentUser.id);
   }
 
   render() {
-    // console.log(this.props.allServers);
-    // debugger
+    if ((!Object.keys(this.props.allServers).length) || 
+    (!this.props.userServersIds.length)) {
+      return null;
+    }
     return(
       <div className={styles.sidebar}>
         <ul>
@@ -33,8 +36,6 @@ class ServerSidebar extends React.Component {
 
         </ul>
       </div>
-
-
     )
   }
 }

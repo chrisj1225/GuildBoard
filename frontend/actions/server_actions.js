@@ -66,6 +66,11 @@ export const receiveServerMembers = (members) => {
   })
 };
 
+export const fetchAllServers = (userId) => dispatch => {
+  dispatch(fetchServers());
+  dispatch(fetchUserServers(userId));
+}
+
 export const fetchUserServers = (userId) => dispatch => {
   return ServerAPIUtil.fetchUserServers(userId)
     .then(servers => dispatch(receiveUserServers(servers)),

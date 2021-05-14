@@ -1,7 +1,14 @@
 .sidebar {
   display: flex;
-  
+  width: 70px;
+  height: 100vh;
+  border: 1px solid black;
+  overflow: scroll;
+}
 
+::-webkit-scrollbar {
+  width: 0px;
+  background: transparent;
 }
 
 .server-icon {
@@ -10,4 +17,10 @@
   border-radius: 50%;
   border: 1px solid black;
   text-align: center;
+  margin: 10px;
+
+  &:hover {
+    border-radius: 20%;
+  }
 }
+
