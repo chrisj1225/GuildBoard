@@ -1,18 +1,27 @@
 class Api::ServersController < ApplicationController
 
   def index 
-    @servers = Server.all
+    user = User.find(params[:user_id])
+    @servers = user.servers
     render "/api/servers/index"
   end
 
+  def explore
+    @servers = Server.all
+    render "/api/servers/explore"
+  end
+  
   def show
     @server = Server.find(params[:id])
+    render "api/servers/show"
   end
 
   def create
+    # debugger
     @server = Server.new(server_params)
     @server.owner_id = current_user.id
     if @server.save
+      @server.memberships.create(user_id: current_user.id)
       render "api/servers/show"
     end
   end
@@ -30,7 +39,7 @@ class Api::ServersController < ApplicationController
 
   def destroy
     @server = Server.find(params[:id])
-    if current_user.id == @server.owner.id
+    if current_user.id == @server.owner_id
       @server.destroy
       render "/api/servers/show"
     end
@@ -39,7 +48,7 @@ class Api::ServersController < ApplicationController
   private
 
   def server_params
-    params.require(:server).permit(:title, :description)
+    params.require(:server).permit(:title)
   end
 
 end

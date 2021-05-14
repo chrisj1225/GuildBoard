@@ -8,6 +8,7 @@
 
 User.delete_all
 Server.delete_all
+Membership.delete_all
 
 chris = User.create!(
   email: 'chris@example.com', 
@@ -15,15 +16,43 @@ chris = User.create!(
   password: 'password'
 )
 
+general_server = Server.new(
+  title: 'General',
+)
+general_server.owner_id = chris.id
+general_server.save!
+
+aA_server = Server.new(
+  title: 'App Academy',
+)
+aA_server.owner_id = chris.id
+aA_server.save!
+
+chris_gen = Membership.create!(
+  user_id: chris.id,
+  joinable_id: general_server.id,
+  joinable_type: 'Server'
+)
+
+demo_user = User.create!(
+  email: 'demo@example.com', 
+  username: 'demouser', 
+  password: 'password'
+)
+
+demo_gen = Membership.create!(
+  user_id: demo_user.id,
+  joinable_id: general_server.id,
+  joinable_type: 'Server'
+)
+
 test_user = User.create!(
   email: 'test@example.com', 
   username: 'testuser', 
   password: 'password')
 
-general_server = Server.new(
-  title: 'General',
-  description: 'General Server to discuss anything!',
-  owner_id: 1
+test_gen = Membership.create!(
+  user_id: test_user.id,
+  joinable_id: general_server.id,
+  joinable_type: 'Server'
 )
-general_server.owner_id = chris.id
-general_server.save!

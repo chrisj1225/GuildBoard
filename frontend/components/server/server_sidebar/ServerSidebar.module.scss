@@ -1,0 +1,62 @@
+.sidebar {
+  display: flex;
+  width: 70px;
+  height: 100vh;
+  position: fixed;
+  overflow-y: scroll;
+  background-color: #202225;
+}
+
+::-webkit-scrollbar {
+  width: 0px;
+  background: transparent;
+}
+
+.server-icon {
+  position: relative;
+  font-family: 'Noto Sans JP', sans-serif;
+  color: white;
+  font-size: 32px;
+  background-color: #7289da;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  text-align: center;
+  margin: 10px;
+  cursor: pointer; 
+
+  .wrapper {
+    display: none;
+    position: absolute;
+    z-index: 10;
+    top: 15%;
+    left: 125%;
+
+    .tooltip {
+      // display: none;
+      // position: absolute;
+      width: 100px;
+      height: 30px;
+      margin: 5px 10px 5px 10px;
+      border-radius: 3px;
+      text-align: center;
+      background-color: #18191c;
+      color: white;
+      font-size: 14px;
+    }
+  
+  } 
+
+  &:hover {
+    border-radius: 20%;
+  
+    .wrapper {
+      display: block;
+    }
+    // .tooltip {
+    //   display: block;
+    // }
+  }
+}
+
+

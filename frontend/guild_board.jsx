@@ -4,6 +4,7 @@ import configureStore from './store/store';
 import Root from './components/root';
 
 // import { signup, login, logout } from './actions/session_actions';
+import { fetchUserServers, fetchServerMembers, addServerMember } from './actions/server_actions';
 
 document.addEventListener("DOMContentLoaded", () => {
   let store;
@@ -12,7 +13,10 @@ document.addEventListener("DOMContentLoaded", () => {
       entities: {
         users: { [window.currentUser.id]: window.currentUser }
       },
-      session: { id: window.currentUser.id }
+      session: {
+        session: { id: window.currentUser.id }
+      }
+        
     };
     store = configureStore(preloadedState);
     delete window.currentUser;
@@ -22,12 +26,15 @@ document.addEventListener("DOMContentLoaded", () => {
 
   
   // test functions:
+  window.getState = store.getState;
+  window.dispatch = store.dispatch;
   // window.signup = signup;
   // window.login = login;
   // window.logout = logout;
   // window.store = store;
-  window.getState = store.getState;
-  window.dispatch = store.dispatch;
+  window.fetchUserServers = fetchUserServers;
+  window.fetchServerMembers = fetchServerMembers;
+  window.addServerMember = addServerMember;
 
   const root = document.getElementById("root");
   ReactDOM.render(<Root store={store} />, root)

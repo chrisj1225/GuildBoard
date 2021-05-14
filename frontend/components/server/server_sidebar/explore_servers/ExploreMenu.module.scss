@@ -1,0 +1,67 @@
+.explore-container {
+  display: flex;
+  flex-direction: column;
+  align-content: center;
+  align-items: center;
+  font-family: 'Noto Sans JP', sans-serif;
+  border: 1px solid black;
+  border-radius: 5px;
+  width: 600px;
+  height: 800px;
+  overflow: scroll;
+  background-color: white;
+
+  h2 {
+    font-size: 14px;
+  }
+}
+
+.header {
+  font-family: 'Lato', sans-serif;
+  font-size: 24px;
+  padding: 20px 0 10px 0;
+  text-align: center;
+}
+
+
+.explore-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  width: 560px;
+  margin: 10px;
+
+  h3 {
+    margin-left: 10px;
+  }
+
+  button {
+    font-size: 14px;
+    text-align: center;
+    color: white;
+    margin-right: 10px;
+    height: 30px;
+    width: 60px;
+    border-radius: 5px;
+    border: 0;
+  }
+
+  .join {
+    background: #7289da;
+
+    &:hover {
+      background: #15318b;
+    }
+  }
+
+  .leave {
+    background: #D0312D;
+
+    &:hover {
+      background: #7A1712;
+    }
+  }
+}
+

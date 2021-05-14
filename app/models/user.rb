@@ -9,10 +9,21 @@ class User < ApplicationRecord
   after_initialize :ensure_session_token
 
   # Associations
-  has_many :servers,
+  has_many :servers_owned,
     primary_key: :id,
     foreign_key: :owner_id,
     class_name: :Server
+
+  has_many :memberships,
+    primary_key: :id,
+    foreign_key: :user_id,
+    class_name: :Membership
+
+  has_many :servers, # servers joined
+    through: :memberships,
+    source: :joinable,
+    source_type: 'Server'
+
 
   # Methods:
 
