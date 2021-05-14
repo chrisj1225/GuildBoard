@@ -9,6 +9,7 @@ class ExploreServersMenu extends React.Component {
     super(props)
 
     this.joinServer = this.joinServer.bind(this);
+    this.leaveServer = this.leaveServer.bind(this);
   }
 
   componentDidMount() {
@@ -31,10 +32,23 @@ class ExploreServersMenu extends React.Component {
     }
   }
 
+  leaveServer(serverId) {
+    // debugger
+    return () => {
+      const membershipId = this.props.servers[serverId].membershipId;
+      this.props.removeServerMember(membershipId);
+    }
+  }
+
   // Add event handler for leaveServer(e) for leave button
   // will conditionally render if current user is joined to server already.
 
   render() {
+
+    if (!this.props.servers.length) {
+      // debugger // this does not get triggered. Not a rendering issue.
+      return null;
+    }
     return(
       <div className={styles['explore-container']}>
         <h1 className={styles.header}>Explore all servers</h1>
@@ -45,6 +59,7 @@ class ExploreServersMenu extends React.Component {
               key={server.id}
               server={server}
               joinServer={this.joinServer}
+              leaveServer={() => this.leaveServer}
             />
           })}
 

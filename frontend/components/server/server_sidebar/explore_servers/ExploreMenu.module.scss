@@ -39,7 +39,6 @@
 
   button {
     font-size: 14px;
-    background: #7289da;
     text-align: center;
     color: white;
     margin-right: 10px;
@@ -47,9 +46,21 @@
     width: 60px;
     border-radius: 5px;
     border: 0;
+  }
+
+  .join {
+    background: #7289da;
 
     &:hover {
-      background: #15318b
+      background: #15318b;
+    }
+  }
+
+  .leave {
+    background: #D0312D;
+
+    &:hover {
+      background: #7A1712;
     }
   }
 }

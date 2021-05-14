@@ -1,5 +1,13 @@
 class Api::MembershipsController < ApplicationController
 
+  # def show 
+  #   @membership = membership.find_by(membership_params)
+  #   if @membership
+  #     render "api/membership/show"
+  #   else 
+  #     render json: ["The current user isn't joined to this server"], status: 404
+  #   end
+  # end
     
   def create
     membership = Membership.new(membership_params)
@@ -28,10 +36,11 @@ class Api::MembershipsController < ApplicationController
     #     joinable_type: "DM"
     #   )
     # end
-    @membership = Membership.find(params[:id])
-    if @membership && params.include(:server_id)
-      @membership.destroy
-      render "/api/servers/#{params[:server_id]}/users"
+    membership = Membership.find(params[:id])
+    if membership && membership.joinable_type == 'Server'
+      membership.destroy
+      @server = membership.joinable
+      render "/api/servers/show"
     # elsif @membership && params.include(:dm_id)
     #   @membership.destroy
     #   render "/api/servers/#{params[:dm_id]}/users"

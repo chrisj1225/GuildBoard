@@ -1,5 +1,5 @@
 import { connect } from 'react-redux';
-import { fetchServers, addServerMember } from '../../../../actions/server_actions';
+import { fetchServers, addServerMember, removeServerMember } from '../../../../actions/server_actions';
 import { closeModal } from '../../../../actions/ui_actions';
 import ExploreServersMenu from './ExploreServersMenu';
 
@@ -20,6 +20,7 @@ const mDTP = dispatch => {
   return ({
     fetchServers: () => dispatch(fetchServers()),
     addServerMember: (member_params) => dispatch(addServerMember(member_params)),
+    removeServerMember: (membershipId) => dispatch(removeServerMember(membershipId)),
     closeModal: () => dispatch(closeModal())
   })
 }

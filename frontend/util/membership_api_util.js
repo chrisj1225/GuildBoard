@@ -5,3 +5,10 @@ export const addServerMember = (member_params) => {
     data: { member: member_params}
   })
 };
+
+export const removeServerMember = (membershipId) => {
+  return $.ajax({
+    method: 'DELETE',
+    url: `/api/memberships/${membershipId}`
+  })
+}
