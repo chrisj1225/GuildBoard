@@ -12,7 +12,6 @@ class Api::ChannelsController < ApplicationController
   end
 
   def create
-    # debugger
     @channel = Channel.new(channel_params)
     @channel.owner_id = current_user.id
     @channel.server_id = params[:server_id]
@@ -22,7 +21,6 @@ class Api::ChannelsController < ApplicationController
   end
 
   def update
-    # debugger
     @channel = Channel.find_by(id: params[:id])
     if @channel && @channel.update(channel_params)
        render "/api/channels/show"

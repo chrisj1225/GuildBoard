@@ -8,9 +8,11 @@ Rails.application.routes.draw do
     resource :session, only: [:create, :destroy]
     resources :servers, only: [:create, :update, :destroy] do
       resources :users, only: [:index]
-      resources :channels, only: [:index, :show, :create, :update, :destroy]
+      resources :channels, only: [:index, :create]
     end
     resources :memberships, only: [:show, :create, :destroy]
+
+    resources :channels, only: [:show, :update, :destroy]
   
     get '/explore/servers', to: 'servers#explore', as: 'servers_explore'
   end
