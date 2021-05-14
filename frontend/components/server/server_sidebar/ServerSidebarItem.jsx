@@ -5,7 +5,7 @@ import styles from './ServerSidebar.module.scss';
 const ServerSidebarItem = ({ server }) => (
   <li>
     <div className={styles['server-icon']}>
-      {server.title}
+      {server.title.split("")[0]}
     </div>
   </li>
 )

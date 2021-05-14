@@ -6,7 +6,7 @@ const CreateServerButton = ({ openModal }) => (
   <li>
     <button onClick={() => openModal('create')}>
       <div className={styles['server-icon']}>
-        Create Server
+        +
       </div>
     </button>
     {/* with ServerModal, instead of linking to '/create_server'

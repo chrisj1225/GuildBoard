@@ -6,7 +6,7 @@ const ExploreServersButton = ({ openModal }) => (
   <li>
     <button onClick={() => openModal('explore')}>
       <div className={styles['server-icon']}>
-        Explore Servers
+        <i class="fas fa-compass"></i>
       </div>
     </button>
   </li>
