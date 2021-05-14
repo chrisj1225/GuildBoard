@@ -1,4 +1,5 @@
 import React from 'react';
+import ContextMenu from '../../context_menu/ContextMenu';
 
 import styles from './ServerSidebar.module.scss';
 
@@ -11,6 +12,7 @@ const ServerSidebarItem = ({ server }) => (
           {server.title}
         </div>
       </div>
+      {/* <ContextMenu /> */}
     </div>
   </li>
 )
