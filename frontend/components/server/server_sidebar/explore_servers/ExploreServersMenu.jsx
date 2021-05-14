@@ -37,6 +37,7 @@ class ExploreServersMenu extends React.Component {
     return () => {
       const membershipId = this.props.servers[serverId].membershipId;
       this.props.removeServerMember(membershipId);
+      this.props.closeModal();
     }
   }
 
@@ -45,7 +46,7 @@ class ExploreServersMenu extends React.Component {
 
   render() {
 
-    if (!this.props.servers.length) {
+    if (!Object.keys(this.props.servers).length) {
       // debugger // this does not get triggered. Not a rendering issue.
       return null;
     }
@@ -54,12 +55,12 @@ class ExploreServersMenu extends React.Component {
         <h1 className={styles.header}>Explore all servers</h1>
         <h2>Check out all of the publicly available servers and try joining one that interests you!</h2>
         <ul>
-          {this.props.servers.map(server => {
+          {Object.values(this.props.servers).map(server => {
             return <ExploreServersItem 
               key={server.id}
               server={server}
               joinServer={this.joinServer}
-              leaveServer={() => this.leaveServer}
+              leaveServer={this.leaveServer}
             />
           })}
 
