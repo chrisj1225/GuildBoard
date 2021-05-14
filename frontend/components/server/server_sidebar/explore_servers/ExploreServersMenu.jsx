@@ -2,6 +2,8 @@ import React from 'react';
 import { convertToSnakeCase } from '../../../../util/selectors';
 import ExploreServersItem from './ExploreServersItem';
 
+import styles from './ExploreMenu.module.scss';
+
 class ExploreServersMenu extends React.Component {
   constructor(props) {
     super(props)
@@ -34,7 +36,9 @@ class ExploreServersMenu extends React.Component {
 
   render() {
     return(
-      <div>
+      <div className={styles['explore-container']}>
+        <h1 className={styles.header}>Explore all servers</h1>
+        <h2>Check out all of the publicly available servers and try joining one that interests you!</h2>
         <ul>
           {this.props.servers.map(server => {
             return <ExploreServersItem 
