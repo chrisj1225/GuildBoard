@@ -2,6 +2,7 @@ import * as ServerAPIUtil from '../util/server_api_util';
 import * as MemberApiUtil from '../util/membership_api_util';
 
 export const RECEIVE_USER_SERVERS = 'RECEIVE_USER_SERVERS';
+export const RECEIVE_USER_SERVER = 'RECEIVE_USER_SERVER';
 export const RECEIVE_ALL_SERVERS = 'RECEIVE_ALL_SERVERS';
 export const RECEIVE_SERVER = 'RECEIVE_SERVER';
 export const REMOVE_SERVER = 'REMOVE_SERVER';
@@ -14,6 +15,13 @@ export const receiveUserServers = servers => {
   return({
     type: RECEIVE_USER_SERVERS,
     servers
+  })
+};
+
+export const receiveUserServer = server => {
+  return ({
+    type: RECEIVE_USER_SERVER,
+    server
   })
 };
 
@@ -71,7 +79,7 @@ export const fetchServerMembers = (serverId) => dispatch => {
 
 export const addServerMember = (member_params) => dispatch => {
   return MemberApiUtil.addServerMember(member_params)
-    .then(server => dispatch(receiveServer(server)))
+    .then(server => dispatch(receiveUserServer(server)))
 }
 
 export const fetchServers = () => dispatch => {

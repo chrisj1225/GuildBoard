@@ -1,11 +1,15 @@
-import { RECEIVE_USER_SERVERS } from '../../actions/server_actions';
+import { RECEIVE_USER_SERVERS, RECEIVE_USER_SERVER } from '../../actions/server_actions';
 import { LOGOUT_CURRENT_USER } from '../../actions/session_actions';
 
 const userServersReducer = (state = [], action) => {
+  // debugger
+  let newState = [...state];
   Object.freeze(state);
   switch (action.type) {
     case RECEIVE_USER_SERVERS:
-      return Object.values(action.servers);
+      return Object.keys(action.servers);
+    case RECEIVE_USER_SERVER:
+      return newState.push(action.server.id);
     case LOGOUT_CURRENT_USER:
       return [];
     default:

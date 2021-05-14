@@ -11,18 +11,21 @@ class ServerSidebar extends React.Component {
   }
 
   componentDidMount() {
-    // debugger
+    debugger
     this.props.fetchUserServers(this.props.currentUser.id);
+    this.props.fetchServers();
   }
 
   render() {
+
+    debugger
     return(
       <div className={styles.sidebar}>
         <ul>
-          {this.props.servers.map(server => {
+          {this.props.userServersIds.map(serverId => {
             return <ServerSidebarItem 
-              key={server.id}
-              server={server} />
+              key={serverId}
+              server={this.props.allServers[serverId]} />
           })}
           <CreateServerButton openModal={this.props.openModal} />
           <ExploreServersButton openModal={this.props.openModal} />
