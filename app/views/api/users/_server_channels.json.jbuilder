@@ -1,5 +1,5 @@
+# debugger
 user.servers.each do |server|
-  debugger
   server.channels.each do |channel|
     json.set! channel.id do
       json.extract! channel, :id, :title, :server_id, :owner_id

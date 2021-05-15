@@ -8,8 +8,8 @@ import ChannelContainer from '../channel/channel/Channel_container';
 const HomeContainer = () => (
   <>
     <ServerSideBarContainer />
-    <ServerChannelListContainer />
-    <ChannelContainer />
+    {/* <ServerChannelListContainer />
+    <ChannelContainer /> */}
   </>
 );
 

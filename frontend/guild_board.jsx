@@ -18,7 +18,7 @@ document.addEventListener("DOMContentLoaded", () => {
       },
       session: {
         session: { id: window.currentUser.id }, 
-        userServers: window.userServers,
+        userServers: Object.keys(window.userServers),
       }
         
     };
