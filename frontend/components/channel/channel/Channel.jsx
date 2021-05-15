@@ -17,6 +17,8 @@ class Channel extends React.Component {
 
 
   render () {
+    if (!this.props.currentChannel) return null;
+
     return (
       <div>
         <ChannelHeader channel={this.props.currentChannel}/>
@@ -32,11 +34,12 @@ class Channel extends React.Component {
 
 
 const mSTP = (state, ownProps) => {
-  const currentChannelId = this.ownProps.match.params.channelId
+  debugger
+  const currentChannelId = ownProps.match.params.channelId
   return({
-    currentServerId: this.ownProps.match.params.serverId,
+    currentServerId: ownProps.match.params.serverId,
     currentChannelId: currentChannelId,
-    currentChannel: this.entities.channels[currentChannelId]
+    currentChannel: state.entities.channels[currentChannelId]
 
   })
 }
