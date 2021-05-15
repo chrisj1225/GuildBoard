@@ -1,7 +1,7 @@
 import React from 'react';
-import { connect } from 'react-redux';
-import { fetchChannel } from '../../../actions/channel_actions';
-import { fetchServerMembers } from '../../../actions/server_actions';
+// import { connect } from 'react-redux';
+// import { fetchChannel } from '../../../actions/channel_actions';
+// import { fetchServerMembers } from '../../../actions/server_actions';
 
 import ChannelHeader from '../channel_header/ChannelHeader';
 
@@ -33,24 +33,24 @@ class Channel extends React.Component {
 
 
 
-const mSTP = (state, ownProps) => {
-  debugger
-  const currentChannelId = ownProps.match.params.channelId
-  return({
-    currentServerId: ownProps.match.params.serverId,
-    currentChannelId: currentChannelId,
-    currentChannel: state.entities.channels[currentChannelId]
+// const mSTP = (state, ownProps) => {
+//   debugger
+//   const currentChannelId = ownProps.match.params.channelId
+//   return({
+//     currentServerId: ownProps.match.params.serverId,
+//     currentChannelId: currentChannelId,
+//     currentChannel: state.entities.channels[currentChannelId]
 
-  })
-}
+//   })
+// }
 
-const mDTP = dispatch => {
-  return({
-    fetchChannel: (serverId) => dispatch(fetchChannel(serverId)),
-    fetchServerMembers: (serverId) => dispatch(fetchServerMembers(serverId))
-  })
-}
+// const mDTP = dispatch => {
+//   return({
+//     fetchChannel: (serverId) => dispatch(fetchChannel(serverId)),
+//     fetchServerMembers: (serverId) => dispatch(fetchServerMembers(serverId))
+//   })
+// }
 
-export default connect(mSTP, mDTP)(Channel);
+// export default connect(mSTP, mDTP)(Channel);
 
-/* export default Channel; */
+export default Channel;

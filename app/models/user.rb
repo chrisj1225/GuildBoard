@@ -24,7 +24,7 @@ class User < ApplicationRecord
     source: :joinable,
     source_type: 'Server'
 
-  has_many :channels,
+  has_many :channels_owned,
     primary_key: :id,
     foreign_key: :owner_id,
     class_name: :Channel

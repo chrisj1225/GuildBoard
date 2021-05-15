@@ -1,9 +1,20 @@
 <% if logged_in? %>
   <script type="text/javascript">
     window.currentUser = <%= render(
-      "api/users/user.json.jbuilder",
+      "api/users/current_user.json.jbuilder",
       user: current_user
     ).html_safe %>
+
+    window.userServers = <%= render(
+      "api/users/user_servers.json.jbuilder",
+      user: current_user
+    ).html_safe %>
+
+    window.userChannels = <%= render(
+      "api/users/user_servers.json.jbuilder",
+      user: current_user
+    ).html_safe %>
+
   </script>
 <% end %>
 

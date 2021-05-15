@@ -9,17 +9,24 @@ import { fetchUserServers, fetchServerMembers, addServerMember } from './actions
 document.addEventListener("DOMContentLoaded", () => {
   let store;
   if (window.currentUser) {
+    debugger
     const preloadedState = {
       entities: {
-        users: { [window.currentUser.id]: window.currentUser }
+        users: { [window.currentUser.id]: window.currentUser },
+        // servers: window.servers,
+        channels: window.userChannels
       },
       session: {
-        session: { id: window.currentUser.id }
+        session: { id: window.currentUser.id }, 
+        userServers: window.userServers,
       }
         
     };
     store = configureStore(preloadedState);
     delete window.currentUser;
+    // delete window.servers;
+    delete window.userServers;
+    delete window.userChannels;
   } else {
     store = configureStore();
   }

@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import ServerChannelList from './ServerChannelList';
 
 const mSTP = (state, ownProps) => {
+  debugger
   const currentServerId = ownProps.match.params.serverId
   return({
     channels: Object.values(state.entities.channels),

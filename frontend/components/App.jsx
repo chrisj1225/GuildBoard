@@ -5,7 +5,7 @@ import SplashContainer from './splash/splash_container';
 import LoginContainer from './session/login_container';
 import SignupContainer from './session/signup_container';
 // import ServerSideBarContainer from './server/server_sidebar/ServerSidebar_container';
-import HomeContainer from './home/HomeContainer';
+import MainContainer from './main/MainContainer';
 import ServerModal from './server/modals/ServerModal';
 
 const App = () => (
@@ -15,7 +15,7 @@ const App = () => (
       <AuthRoute exact path="/login" component={LoginContainer} />
       <AuthRoute exact path="/signup" component={SignupContainer}/>
       {/* <ProtectedRoute path="/servers" component={ServerSideBarContainer} /> */}
-      <ProtectedRoute path="/servers/:serverId/channels/:channelId" component={HomeContainer} />
+      <ProtectedRoute path="/servers/:serverId/channels/:channelId" component={MainContainer} />
       <Route exact path="/" component={SplashContainer} />
     </Switch>
   </div>
