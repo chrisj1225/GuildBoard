@@ -1,6 +1,5 @@
 class Channel < ApplicationRecord
   validates :title, :server_id, :owner_id, presence: true
-  validates :title, uniqueness: true
 
   belongs_to :server,
     primary_key: :id,

@@ -16,17 +16,27 @@ chris = User.create!(
   password: 'password'
 )
 
-general_server = Server.new(
+general_server = Server.create!(
   title: 'General',
+  owner_id: chris.id
 )
-general_server.owner_id = chris.id
-general_server.save!
 
-aA_server = Server.new(
-  title: 'App Academy',
+gen_genChan = Channel.create!(
+  title: 'general',
+  server_id: general_server.id,
+  owner_id: chris.id
 )
-aA_server.owner_id = chris.id
-aA_server.save!
+
+aA_server = Server.create!(
+  title: 'App Academy',
+  owner_id: chris.id
+)
+
+aA_genChan = Channel.create!(
+  title: 'general',
+  server_id: aA_server.id,
+  owner_id: chris.id
+)
 
 chris_gen = Membership.create!(
   user_id: chris.id,
