@@ -1,4 +1,5 @@
 import React from 'react'; 
+import styles from './ChannelHeader.module.scss';
 
 const ChannelHeader = ({ channel }) => (
 

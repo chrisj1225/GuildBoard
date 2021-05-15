@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import { fetchChannel } from '../../../actions/channel_actions';
 import { fetchServerMembers } from '../../../actions/server_actions';
 
-import ChannelHeader from './channel_header/ChannelHeader';
+import ChannelHeader from '../channel_header/ChannelHeader';
 
 class Channel extends React.Component {
   constructor(props) {
