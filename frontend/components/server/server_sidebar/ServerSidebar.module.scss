@@ -1,5 +1,8 @@
 .sidebar {
   display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
   width: 70px;
   height: 100vh;
   position: fixed;
@@ -22,7 +25,7 @@
   height: 50px;
   border-radius: 50%;
   text-align: center;
-  margin: 10px;
+  margin: 5px;
   cursor: pointer; 
 
   .wrapper {
@@ -59,4 +62,6 @@
   }
 }
 
-
+.active {
+  border-radius: 20%;
+}

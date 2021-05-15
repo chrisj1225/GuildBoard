@@ -1,13 +1,15 @@
 import React from 'react';
 
+import ServerChannelItem from './ServerChannelItem';
+
 class ServerChannelList extends React.Component {
   constructor(props) {
     super(props)
   }
 
-  componentDidMount() {
-    this.props.fetchChannels(this.props.serverId);
-  }
+  // componentDidMount() {
+  //   this.props.fetchChannels(this.props.serverId);
+  // }
 
   render() {
     return (

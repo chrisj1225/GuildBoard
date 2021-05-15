@@ -1,10 +1,11 @@
 import { connect } from 'react-redux';
+import { withRouter } from 'react-router';
 import { fetchChannel } from '../../../actions/channel_actions';
 import { fetchServerMembers } from '../../../actions/server_actions';
 import Channel from './Channel';
 
 const mSTP = (state, ownProps) => {
-  debugger
+  // debugger
   const currentChannelId = ownProps.match.params.channelId
   return({
     currentServerId: ownProps.match.params.serverId,
@@ -21,4 +22,4 @@ const mDTP = dispatch => {
   })
 }
 
-export default connect(mSTP, mDTP)(Channel);
+export default withRouter(connect(mSTP, mDTP)(Channel));

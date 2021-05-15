@@ -1,14 +1,17 @@
 import { connect } from 'react-redux';
+import { withRouter } from 'react-router';
+
+import { fetchChannels } from '../../../actions/channel_actions';
 
 import ServerChannelList from './ServerChannelList';
 
 const mSTP = (state, ownProps) => {
-  debugger
+  // debugger
   const currentServerId = ownProps.match.params.serverId
   return({
     channels: Object.values(state.entities.channels),
     serverId: currentServerId,
-    serverTitle: state.servers[currentServerId]
+    serverTitle: state.entities.servers[currentServerId].title
   })
 }
 
@@ -18,4 +21,4 @@ const mDTP = dispatch => {
   })
 }
 
-export default connect(mSTP, mDTP)(ServerChannelList);
+export default withRouter(connect(mSTP, mDTP)(ServerChannelList));

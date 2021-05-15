@@ -24,17 +24,14 @@ class ServerSidebar extends React.Component {
     }
     return(
       <div className={styles.sidebar}>
-        <ul>
-          {this.props.userServersIds.map(serverId => {
-            return <ServerSidebarItem 
-              key={serverId}
-              server={this.props.allServers[serverId]} />
-            
-          })}
-          <CreateServerButton openModal={this.props.openModal} />
-          <ExploreServersButton openModal={this.props.openModal} />
+        {this.props.userServersIds.map(serverId => {
+          return <ServerSidebarItem 
+            key={serverId}
+            server={this.props.allServers[serverId]} />
+        })}
+        <CreateServerButton openModal={this.props.openModal} />
+        <ExploreServersButton openModal={this.props.openModal} />
 
-        </ul>
       </div>
     )
   }

@@ -17,6 +17,8 @@ class Api::ChannelsController < ApplicationController
     @channel.server_id = params[:server_id]
     if @channel.save
       render "api/channels/show"
+    else
+      render json: @channel.errors.full_messages, status: 422
     end
   end
 
@@ -35,6 +37,8 @@ class Api::ChannelsController < ApplicationController
     if current_user.id == @channel.owner_id
       @channel.destroy
       render "/api/channels/show"
+    else
+      render json: @channel.errors.full_messages, status: 422
     end
   end
 

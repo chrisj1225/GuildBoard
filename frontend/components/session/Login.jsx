@@ -20,7 +20,7 @@ class Login extends React.Component {
     e.preventDefault();
     const user = Object.assign({}, this.state)
     this.props.login(user).then(() => {
-      this.props.history.push('/servers/1/channels/1')
+      this.props.history.push('/home')
     });
   }
 

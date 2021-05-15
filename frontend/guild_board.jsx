@@ -9,11 +9,10 @@ import { fetchUserServers, fetchServerMembers, addServerMember } from './actions
 document.addEventListener("DOMContentLoaded", () => {
   let store;
   if (window.currentUser) {
-    debugger
     const preloadedState = {
       entities: {
         users: { [window.currentUser.id]: window.currentUser },
-        // servers: window.servers,
+        servers: window.userServers,
         channels: window.userChannels
       },
       session: {
