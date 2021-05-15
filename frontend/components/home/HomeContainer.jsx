@@ -7,7 +7,7 @@ import Channel from '../channel/channel/Channel';
 const HomeContainer = () => (
   <>
     <ServerSideBarContainer />
-    {/* <ServerChannelListContainer /> */}
+    <ServerChannelListContainer />
     <Channel />
   </>
 );
