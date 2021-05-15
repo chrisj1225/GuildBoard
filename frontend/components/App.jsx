@@ -5,7 +5,8 @@ import SplashContainer from './splash/splash_container';
 import LoginContainer from './session/login_container';
 import SignupContainer from './session/signup_container';
 import ServerSideBarContainer from './server/server_sidebar/ServerSidebar_container';
-import ServerMemberListContainer from './server/server_member_list/ServerMemberList_container';
+import ServerChannelListContainer from './server/server_channel_list/ServerChannelList_container';
+import ChannelContainer from './channel/channel/Channel_container';
 import ServerModal from './server/modals/ServerModal';
 
 const App = () => (
@@ -16,8 +17,8 @@ const App = () => (
       <AuthRoute exact path="/login" component={LoginContainer} />
       <AuthRoute exact path="/signup" component={SignupContainer}/>
       <ProtectedRoute path="/servers" component={ServerSideBarContainer} />
-      <ProtectedRoute path="/servers/:serverId" component={ServerMemberListContainer} />
-      
+      <ProtectedRoute path="/servers/:serverId" component={ServerChannelListContainer} />
+      <ProtectedRoute path="/servers/:serverId/channels/:channelId" component={ChannelContainer} />
     </Switch>
   </div>
 )
