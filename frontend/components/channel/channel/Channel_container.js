@@ -10,7 +10,7 @@ import Channel from './Channel';
 //   })
 // }
 
-mDTP = dispatch => {
+const mDTP = dispatch => {
   return({
     fetchChannel: (serverId) => dispatch(fetchChannel(serverId)),
     fetchServerMembers: (serverId) => dispatch(fetchServerMembers(serverId))
