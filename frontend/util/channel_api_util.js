@@ -3,14 +3,14 @@ export const fetchChannels = (serverId) => {
     method: 'GET',
     url: `/api/servers/${serverId}/channels`
   })
-}
+};
 
 export const fetchChannel = (channelId) => {
   return $.ajax({
     method: 'GET',
     url: `/api/channels/${channelId}`
   })
-}
+};
 
 export const createChannel = (serverId, channel) => {
   return $.ajax({
@@ -18,7 +18,7 @@ export const createChannel = (serverId, channel) => {
     url: `/api/servers/${serverId}/channels`,
     data: { channel }
   })
-}
+};
 
 export const updateChannel = (channelId, channel) => {
   return $.ajax({
@@ -26,11 +26,11 @@ export const updateChannel = (channelId, channel) => {
     url: `/api/channels/${channelId}`,
     data: { channel }
   })
-}
+};
 
 export const deleteChannel = (channelId) => {
   return $.ajax({
     method: 'DELETE',
     url: `/api/channels/${channelId}`
   })
-}
+};
