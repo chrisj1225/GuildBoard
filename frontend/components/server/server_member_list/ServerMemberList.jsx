@@ -4,14 +4,14 @@ import ServerMemberItem from './ServerMemberItem';
 class ServerMemberList extends React.Component {
   constructor(props) {
     super(props)
-    // this.state = this.props.servers
   }
 
   componentDidMount() {
-    this.props.fetchServerMembers();
+    this.props.fetchServerMembers(this.props.currentServerId);
   }
 
   render(){
+    // debugger
     return(
       <div>
         <ul>

@@ -1,6 +1,7 @@
 import React from 'react';
 
 import ChannelHeader from '../channel_header/ChannelHeader';
+import ServerMemberListContainer from '../../server/server_member_list/ServerMemberList_container';
 
 import styles from './Channel.module.scss';
 
@@ -21,7 +22,8 @@ class Channel extends React.Component {
       <div className={styles['channel-container']}>
         <ChannelHeader channel={this.props.currentChannel}/>
         <div className={styles['channel-content']}>
-          
+          <div></div>
+          <ServerMemberListContainer />
 
         </div>
 

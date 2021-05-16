@@ -5,7 +5,6 @@ import { fetchServerMembers } from '../../../actions/server_actions';
 import Channel from './Channel';
 
 const mSTP = (state, ownProps) => {
-  // debugger
   const currentChannelId = ownProps.match.params.channelId
   return({
     currentServerId: ownProps.match.params.serverId,

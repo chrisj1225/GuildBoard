@@ -10,6 +10,13 @@ document.addEventListener("DOMContentLoaded", () => {
   let store;
   if (window.currentUser) {
     // debugger
+
+    // entities.users = All users in current server
+    // entities.servers = ALL servers in database
+    // entities.channels = all channels of servers currentUser is joined to.
+
+    // session.session = currentUser id
+    // session.userServers = array of id's of all servers currentUser is joined to.
     const preloadedState = {
       entities: {
         users: { [window.currentUser.id]: window.currentUser },
