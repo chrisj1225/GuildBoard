@@ -30,8 +30,11 @@
   font-size: 18px;
   font-style: bold;
   height: 40px;
-  margin-left: 10px;
   box-shadow: 0 3px 5px -5px black;
+  
+  h1 {
+    margin-left: 10px;
+  }
 }
 
 .channel-header {
@@ -60,4 +63,15 @@
     background-color: #34373c;
     color: white;
   }
+}
+
+.selected {
+  display: block;
+  width: 190px;
+  margin: 5px;
+  padding: 5px;
+  border-radius: 4px;
+  color: white;;
+  cursor: pointer;
+  background-color: #34373c;
 }

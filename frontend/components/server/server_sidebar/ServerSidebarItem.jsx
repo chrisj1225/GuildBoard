@@ -11,11 +11,16 @@ const ServerSidebarItem = ({ server, channels }) => {
   // debugger
   const genChanId = findGenChanId(server, channels);
   // debugger
+
+  // Styling: Fix tooltip & get activeClassName to work
+  // Adding border-radius when server is selected && 
+  // when switching channels within server.
   return (
     <NavLink 
       to={`/servers/${server.id}/channels/${genChanId}`}
       className={styles['server-icon']}
-      activeClassName={styles['server-icon active']} >
+      activeClassName={styles['selected']} 
+      >
       {server.title.split("")[0]}
       <div className={styles.wrapper}>
         <div className={styles.tooltip}>

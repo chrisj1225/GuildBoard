@@ -7,6 +7,7 @@ const ServerChannelItem = ({ channel, serverId }) => (
   <div>
     <NavLink
       className={styles['channel-item']}
+      activeClassName={styles['selected']}
       to={`${channel.id}`} >
       {/* to={`servers/${serverId}/channels/${channel.id}`} > */}
       # {channel.title}
