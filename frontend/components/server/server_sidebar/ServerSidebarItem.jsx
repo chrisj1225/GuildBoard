@@ -10,7 +10,7 @@ const ServerSidebarItem = ({ server, channels }) => {
   // Find more elegant way (maybe store in backend & retrieve via redux state)
   // debugger
   const genChanId = findGenChanId(server, channels);
-  
+  // debugger
   return (
     <NavLink 
       to={`/servers/${server.id}/channels/${genChanId}`}

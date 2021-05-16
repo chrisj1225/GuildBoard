@@ -1,6 +1,5 @@
 import { connect } from 'react-redux';
 import { fetchServers, addServerMember, removeServerMember } from '../../../../actions/server_actions';
-import { fetchAllChannels } from '../../../../actions/channel_actions';
 import { closeModal } from '../../../../actions/ui_actions';
 import ExploreServersMenu from './ExploreServersMenu';
 
@@ -21,7 +20,6 @@ const mSTP = (state, ownProps) => {
 const mDTP = dispatch => {
   return ({
     fetchServers: () => dispatch(fetchServers()),
-    fetchAllChannels: () => dispatch(fetchAllChannels()),
     addServerMember: (member_params) => dispatch(addServerMember(member_params)),
     removeServerMember: (membershipId) => dispatch(removeServerMember(membershipId)),
     closeModal: () => dispatch(closeModal())

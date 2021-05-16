@@ -27,11 +27,11 @@ gen_genChan = Channel.create!(
   owner_id: chris.id
 )
 
-gen_rulesChan = Channel.create!(
-  title: 'rules',
-  server_id: general_server.id,
-  owner_id: chris.id
-)
+# gen_rulesChan = Channel.create!(
+#   title: 'welcome-and-rules',
+#   server_id: general_server.id,
+#   owner_id: chris.id
+# )
 
 aA_server = Server.create!(
   title: 'App Academy',

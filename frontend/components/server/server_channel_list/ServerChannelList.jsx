@@ -8,10 +8,9 @@ class ServerChannelList extends React.Component {
     super(props)
 
   }
-  componentDidMount() {
-    this.props.fetchChannels(this.props.serverId);
-    // this.props.fetchAllChannels();
-  }
+  // componentDidMount() {
+  //   this.props.fetchChannels(this.props.serverId);
+  // }
 
   render() {
     // debugger

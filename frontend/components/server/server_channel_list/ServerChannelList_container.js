@@ -9,8 +9,8 @@ import ServerChannelList from './ServerChannelList';
 const mSTP = (state, ownProps) => {
   const currentServerId = ownProps.match.params.serverId;
   const currServer = state.entities.servers[currentServerId];
-  const allChannels = Object.values(state.entities.channels);
-  const currServerChans = findServerChans(currServer, allChannels);
+  const allUserChannels = Object.values(state.entities.channels);
+  const currServerChans = findServerChans(currServer, allUserChannels);
   // debugger
   return({
     channels: currServerChans,

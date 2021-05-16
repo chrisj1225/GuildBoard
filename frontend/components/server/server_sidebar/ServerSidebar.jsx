@@ -11,10 +11,10 @@ class ServerSidebar extends React.Component {
 
   }
   
-  componentDidMount() {
-    // debugger
-    this.props.fetchAllServers(this.props.currentUser.id);
-  }
+  // componentDidMount() {
+  //   // debugger
+  //   this.props.fetchAllServers(this.props.currentUser.id);
+  // }
 
   render() {
     // debugger

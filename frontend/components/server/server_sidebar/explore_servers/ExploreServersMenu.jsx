@@ -16,7 +16,6 @@ class ExploreServersMenu extends React.Component {
   componentDidMount() {
     // debugger
     this.props.fetchServers();
-    // this.props.fetchAllChannels();
   }
 
   joinServer(serverId) {

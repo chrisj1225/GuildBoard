@@ -10,8 +10,8 @@ const channelsReducer = (state = {}, action) => {
   // debugger
   Object.freeze(state);
   switch(action.type) {
-    case RECEIVE_ALL_CHANNELS:
-      return action.channels;
+    // case RECEIVE_ALL_CHANNELS:
+    //   return action.channels;
     case RECEIVE_CHANNELS:
       return action.channels;
     case RECEIVE_CHANNEL:
