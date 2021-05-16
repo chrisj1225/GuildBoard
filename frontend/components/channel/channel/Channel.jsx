@@ -18,8 +18,12 @@ class Channel extends React.Component {
     if (!this.props.currentChannel) return null;
 
     return (
-      <div>
+      <div className={styles['channel-container']}>
         <ChannelHeader channel={this.props.currentChannel}/>
+        <div className={styles['channel-content']}>
+          
+
+        </div>
 
       </div>
 
