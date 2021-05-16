@@ -1,7 +1,9 @@
 import React from 'react';
 import ServerChannelItem from './ServerChannelItem';
+import CreateChannelButton from './create_channel/CreateChannelButton';
 
 import styles from './ServerChannelList.module.scss';
+
 
 class ServerChannelList extends React.Component {
   constructor(props) {
@@ -25,7 +27,8 @@ class ServerChannelList extends React.Component {
         <div className={styles['channel-list']}>
           <div className={styles['channel-header']}>
             <h2>TEXT CHANNELS</h2>
-            <button>+</button>
+            <CreateChannelButton 
+              openModal={this.props.openModal} />
           </div>
           <div>
             {this.props.channels.map(channel => {

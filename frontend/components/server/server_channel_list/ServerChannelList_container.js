@@ -1,9 +1,9 @@
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router';
 
-import { fetchChannels, fetchAllChannels } from '../../../actions/channel_actions';
+import { fetchChannels } from '../../../actions/channel_actions';
 import { findServerChans } from '../../../util/selectors';
-
+import { openModal } from '../../../actions/ui_actions';
 import ServerChannelList from './ServerChannelList';
 
 const mSTP = (state, ownProps) => {
@@ -21,8 +21,8 @@ const mSTP = (state, ownProps) => {
 
 const mDTP = dispatch => {
   return({
-    // fetchAllChannels: () => dispatch(fetchAllChannels()),
-    fetchChannels: (serverId) => dispatch(fetchChannels(serverId))
+    fetchChannels: (serverId) => dispatch(fetchChannels(serverId)),
+    openModal: (modal) => dispatch(openModal(modal))
   })
 }
 

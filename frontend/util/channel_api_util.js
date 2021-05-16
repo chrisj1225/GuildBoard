@@ -1,9 +1,9 @@
-export const fetchAllChannels = () => {
-  return $.ajax({
-    method: 'GET',
-    url: `/api/all/channels`
-  })
-};
+// export const fetchAllChannels = () => {
+//   return $.ajax({
+//     method: 'GET',
+//     url: `/api/all/channels`
+//   })
+// };
 
 export const fetchChannels = (serverId) => {
   return $.ajax({
@@ -19,18 +19,18 @@ export const fetchChannel = (channelId) => {
   })
 };
 
-export const createChannel = (serverId, channel) => {
+export const createChannel = (channel) => {
   return $.ajax({
     method: 'POST',
-    url: `/api/servers/${serverId}/channels`,
+    url: `/api/channels`,
     data: { channel }
   })
 };
 
-export const updateChannel = (channelId, channel) => {
+export const updateChannel = (channel) => {
   return $.ajax({
     method: 'PATCH',
-    url: `/api/channels/${channelId}`,
+    url: `/api/channels/${channel.id}`,
     data: { channel }
   })
 };
