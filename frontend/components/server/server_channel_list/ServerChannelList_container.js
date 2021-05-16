@@ -21,8 +21,8 @@ const mSTP = (state, ownProps) => {
 
 const mDTP = dispatch => {
   return({
-    fetchAllChannels: () => dispatch(fetchAllChannels()),
-    // fetchChannels: (serverId) => dispatch(fetchChannels(serverId))
+    // fetchAllChannels: () => dispatch(fetchAllChannels()),
+    fetchChannels: (serverId) => dispatch(fetchChannels(serverId))
   })
 }
 

@@ -1,6 +1,11 @@
 <% if logged_in? %>
   <script type="text/javascript">
 
+    window.allServers = <%= render(
+      "api/users/all_servers.json.jbuilder",
+      user: current_user
+    ).html_safe %>
+
     window.userServers = <%= render(
       "api/users/user_servers.json.jbuilder",
       user: current_user

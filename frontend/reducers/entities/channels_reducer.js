@@ -11,18 +11,18 @@ const channelsReducer = (state = {}, action) => {
   Object.freeze(state);
   switch(action.type) {
     case RECEIVE_ALL_CHANNELS:
-      return action.servers;
+      return action.channels;
     case RECEIVE_CHANNELS:
-      if (action.servers) {
-        return action.servers;
-      } else {
-        return state;
-      }
+      return action.channels;
     case RECEIVE_CHANNEL:
-      return Object.assign({}, state, { [action.channel.id]: action.channel })
+      // return Object.assign({}, state, { [action.channel.id]: action.channel })
+      return {
+        ...state,
+        [action.channel.id]: action.channel
+      }
     case REMOVE_CHANNEL:
       let newState = Object.assign({}, state);
-      delete newState[action.serverId];
+      delete newState[action.channelId];
       return newState;
     case LOGOUT_CURRENT_USER:
         return {};

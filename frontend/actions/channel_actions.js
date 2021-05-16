@@ -79,6 +79,6 @@ export const updateChannel = (channelId, channel) => dispatch => {
 
 export const deleteChannel = (channelId) => dispatch => {
   return ChannelAPIUtil.deleteChannel(channelId)
-    .then(() => dispatch(removeChannel()),
+    .then(() => dispatch(removeChannel(channelId)),
     err => dispatch(receiveErrors(err.responseJSON)))
 }

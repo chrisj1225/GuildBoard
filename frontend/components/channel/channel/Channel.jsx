@@ -2,15 +2,17 @@ import React from 'react';
 
 import ChannelHeader from '../channel_header/ChannelHeader';
 
+import styles from './Channel.module.scss';
+
 class Channel extends React.Component {
   constructor(props) {
     super(props)
 
   }
 
-  componentDidMount() {
-    this.props.fetchChannel(this.props.currentChannelId)
-  }
+  // componentDidMount() {
+  //   this.props.fetchChannel(this.props.currentChannelId)
+  // }
 
   render () {
     if (!this.props.currentChannel) return null;

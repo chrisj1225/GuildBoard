@@ -13,7 +13,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const preloadedState = {
       entities: {
         users: { [window.currentUser.id]: window.currentUser },
-        servers: window.userServers,
+        servers: window.allServers,
         channels: window.userChannels
       },
       session: {
