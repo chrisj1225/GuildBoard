@@ -12,3 +12,10 @@ export const convertToSnakeCase = obj => {
   for(let i = 0; i < keys.length; i++) { newObj[convertedKeys[i]] = values[i] }
   return newObj;
 }
+
+export const findGenChanId = (server, channels) => {
+  const genChans = channels.filter( channel => {
+    return (channel.serverId == server.id) && (channel.title = "general")
+  })
+  return genChans[0].id;
+}

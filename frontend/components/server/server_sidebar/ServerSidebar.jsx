@@ -1,4 +1,5 @@
 import React from 'react';
+import HomeButton from './HomeButton.jsx/HomeButton';
 import ServerSidebarItem from './ServerSidebarItem';
 import CreateServerButton from './create_server/CreateServerButton';
 import ExploreServersButton from './explore_servers/ExploreServersButton';
@@ -24,10 +25,13 @@ class ServerSidebar extends React.Component {
     }
     return(
       <div className={styles.sidebar}>
+        <HomeButton />
+        <hr />
         {this.props.userServersIds.map(serverId => {
           return <ServerSidebarItem 
             key={serverId}
-            server={this.props.allServers[serverId]} />
+            server={this.props.allServers[serverId]}
+            channels={this.props.channels} />
         })}
         <CreateServerButton openModal={this.props.openModal} />
         <ExploreServersButton openModal={this.props.openModal} />
