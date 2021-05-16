@@ -1,4 +1,5 @@
 import { 
+  RECEIVE_ALL_CHANNELS,
   RECEIVE_CHANNELS,
   RECEIVE_CHANNEL,
   REMOVE_CHANNEL
@@ -9,6 +10,8 @@ const channelsReducer = (state = {}, action) => {
   // debugger
   Object.freeze(state);
   switch(action.type) {
+    case RECEIVE_ALL_CHANNELS:
+      return action.servers;
     case RECEIVE_CHANNELS:
       return action.servers;
     case RECEIVE_CHANNEL:

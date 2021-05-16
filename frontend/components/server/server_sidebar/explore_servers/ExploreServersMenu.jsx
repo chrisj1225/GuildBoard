@@ -1,6 +1,7 @@
 import React from 'react';
 import { convertToSnakeCase } from '../../../../util/selectors';
 import ExploreServersItem from './ExploreServersItem';
+import { findGenChanId } from '../../../../util/selectors';
 
 import styles from './ExploreMenu.module.scss';
 
@@ -15,10 +16,11 @@ class ExploreServersMenu extends React.Component {
   componentDidMount() {
     // debugger
     this.props.fetchServers();
+    this.props.fetchAllChannels();
   }
 
   joinServer(serverId) {
-    // debugger
+    debugger
     return () => {
       // debugger
       let memberParams = {};
@@ -27,7 +29,11 @@ class ExploreServersMenu extends React.Component {
       });
       memberParams.joinableId = serverId
       memberParams = convertToSnakeCase(memberParams);
-      this.props.addServerMember(memberParams);
+      this.props.addServerMember(memberParams).then((action) => {
+        debugger
+        const genChanId = findGenChanId(action.server, this.props.channels);
+        this.props.history.push(`/servers/${action.server.id}/channels/${genChanId}`)
+      });
       this.props.closeModal();
     }
   }

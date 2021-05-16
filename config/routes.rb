@@ -15,6 +15,7 @@ Rails.application.routes.draw do
     resources :channels, only: [:show, :update, :destroy]
   
     get '/explore/servers', to: 'servers#explore', as: 'servers_explore'
+    get '/all/channels', to: 'channels#all', as: 'channels_all'
   end
 
   root "static_pages#root"

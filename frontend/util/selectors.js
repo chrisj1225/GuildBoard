@@ -19,3 +19,7 @@ export const findGenChanId = (server, channels) => {
   })
   return genChans[0].id;
 }
+
+export const findServerChans = (server, channels) => {
+  return channels.filter( channel => channel.serverId == server.id )
+} 

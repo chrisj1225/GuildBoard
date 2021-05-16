@@ -1,6 +1,7 @@
 import React from 'react';
-
 import ServerChannelItem from './ServerChannelItem';
+
+import styles from './ServerChannelList.module.scss';
 
 class ServerChannelList extends React.Component {
   constructor(props) {
@@ -13,7 +14,7 @@ class ServerChannelList extends React.Component {
 
   render() {
     return (
-      <div>
+      <div className={styles['channel-list']}>
         <h1>{this.props.serverTitle}</h1>
         <ul>
           {this.props.channels.map(channel => {

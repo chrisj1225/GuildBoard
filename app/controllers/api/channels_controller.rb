@@ -1,9 +1,15 @@
 class Api::ChannelsController < ApplicationController
 
   def index 
-    server = User.find(params[:server_id])
+    server = Server.find(params[:server_id])
     @channels = server.channels
     render "/api/channels/index"
+    debugger    
+  end
+
+  def all
+    @channels = Channel.all
+    render "/api/all/channels"
   end
   
   def show

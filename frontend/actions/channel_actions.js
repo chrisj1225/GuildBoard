@@ -1,10 +1,18 @@
 import * as ChannelAPIUtil from '../util/channel_api_util';
 
+export const RECEIVE_ALL_CHANNELS = "RECEIVE_ALL_CHANNELS";
 export const RECEIVE_CHANNELS = "RECEIVE_CHANNELS";
 export const RECEIVE_CHANNEL = "RECEIVE_CHANNEL";
 export const REMOVE_CHANNEL = "REMOVE_CHANNEL";
 export const RECEIVE_CHANNEL_ERRORS = 'RECEIVE_CHANNEL_ERRORS';
 export const CLEAR_CHANNEL_ERRORS = 'CLEAR_CHANNEL_ERRORS';
+
+export const receiveAllChannels = channels => {
+  return({
+    type: RECEVE_ALL_CHANNELS,
+    channels
+  })
+} 
 
 export const receiveChannels = channels => {
   return({
@@ -38,6 +46,12 @@ export const clearErrors = () => {
     type: CLEAR_CHANNEL_ERRORS
   })
 };
+
+export const fetchAllChannels = () => dispatch => {
+  return ChannelAPIUtil.fetchChannels()
+    .then(channels => dispatch(receiveAllChannels(channels)),
+    err => dispatch(receiveErrors(err.responseJSON)))
+}
 
 export const fetchChannels = (serverId) => dispatch => {
   return ChannelAPIUtil.fetchChannels(serverId)
