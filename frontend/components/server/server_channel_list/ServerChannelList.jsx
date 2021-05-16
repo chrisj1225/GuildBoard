@@ -7,18 +7,14 @@ class ServerChannelList extends React.Component {
   constructor(props) {
     super(props)
 
-    this.clickChannel = this.clickChannel.bind(this);
   }
 
   // componentDidMount() {
   //   this.props.fetchChannels(this.props.serverId);
   // }
 
-  clickChannel() {
-
-  }
-
   render() {
+    // debugger
     return (
       <div className={styles['channel-list-container']}>
 
@@ -36,6 +32,7 @@ class ServerChannelList extends React.Component {
               return <ServerChannelItem 
               key={channel.id}
               channel={channel}
+              serverId={this.props.serverId}
               />
             })}
           </div>

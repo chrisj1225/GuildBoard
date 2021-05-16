@@ -10,8 +10,8 @@
   &:first-child {
     align-items: normal;
   }
-
 }
+
 .channel-list {
   display: flex;
   flex-direction: column;
@@ -43,6 +43,7 @@
 }
 
 .channel-item {
+  display: block;
   width: 190px;
   margin: 5px;
   padding: 5px;

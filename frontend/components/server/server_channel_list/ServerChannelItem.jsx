@@ -1,12 +1,15 @@
 import React from 'react';
+import { NavLink } from 'react-router-dom';
 
 import styles from './ServerChannelList.module.scss';
 
-const ServerChannelItem = ({ channel }) => (
+const ServerChannelItem = ({ channel, serverId }) => (
   <div>
-    <h2 className={styles['channel-item']}>
+    <NavLink
+      className={styles['channel-item']}
+      to={`servers/${serverId}/channels/${channel.id}`} >
       # {channel.title}
-    </h2>
+    </NavLink>
   </div>
 );
 
