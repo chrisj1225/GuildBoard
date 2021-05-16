@@ -14,6 +14,7 @@ export const convertToSnakeCase = obj => {
 }
 
 export const findGenChanId = (server, channels) => {
+  // debugger
   const genChans = channels.filter( channel => {
     return (channel.serverId == server.id) && (channel.title = "general")
   })

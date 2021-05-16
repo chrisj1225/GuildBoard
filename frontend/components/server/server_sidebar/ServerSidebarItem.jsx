@@ -8,7 +8,7 @@ import styles from './ServerSidebar.module.scss';
 const ServerSidebarItem = ({ server, channels }) => {
   // Finding id of a server's general channel:
   // Find more elegant way (maybe store in backend & retrieve via redux state)
-
+  // debugger
   const genChanId = findGenChanId(server, channels);
   
   return (

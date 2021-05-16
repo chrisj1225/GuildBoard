@@ -13,12 +13,11 @@ class ServerSidebar extends React.Component {
   
   componentDidMount() {
     // debugger
-    // this.props.fetchServers();
-    // this.props.fetchUserServers(this.props.currentUser.id);
     this.props.fetchAllServers(this.props.currentUser.id);
   }
 
   render() {
+    // debugger
     if ((!Object.keys(this.props.allServers).length) || 
     (!this.props.userServersIds.length)) {
       return null;
