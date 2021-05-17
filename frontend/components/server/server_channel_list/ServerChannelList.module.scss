@@ -42,13 +42,14 @@
 .channel-header {
   display: flex;
   justify-content: space-between;
+  align-items: center;
   margin-top: 5px;
   font-size: 12px;
   width: 190px;
 }
 
 .create-channel {
-  font-size: 20;
+  font-size: 18px;
   font-weight: bold;
 }
 
