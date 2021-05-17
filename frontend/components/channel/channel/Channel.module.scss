@@ -1,0 +1,15 @@
+.channel-container {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  background-color: #36393f;
+  color: white;
+  font-weight: bold;
+  font-family: 'Noto Sans JP', sans-serif;
+}
+
+.channel-content {
+  display: flex;
+  flex-direction: row;
+  height: 100%;
+}

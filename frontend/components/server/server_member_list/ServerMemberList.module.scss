@@ -1,0 +1,19 @@
+.member-list {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  width: 220px;
+  // height: 100%;
+  background-color: #2f3136;
+  font-weight: lighter;
+  color: #858c81;
+}
+
+.member-header {
+  font-size: 12px;
+  margin: 10px;
+}
+
+.member-item {
+  margin: 5px;
+}

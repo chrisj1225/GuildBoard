@@ -1,9 +1,11 @@
 import React from 'react';
 
+import styles from './ServerMemberList.module.scss';
+
 const ServerMemberItem = ({ user }) => (
-  <li>
-    <h3>{user.username}</h3>
-  </li>
+  <div className={styles['member-item']}>
+    <h2>{user.username}</h2>
+  </div>
 )
 
 export default ServerMemberItem;

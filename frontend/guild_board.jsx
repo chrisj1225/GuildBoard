@@ -9,17 +9,30 @@ import { fetchUserServers, fetchServerMembers, addServerMember } from './actions
 document.addEventListener("DOMContentLoaded", () => {
   let store;
   if (window.currentUser) {
+    // debugger
+    // entities.users = All users in current server
+    // entities.servers = ALL servers in database
+    // entities.channels = all channels of servers currentUser is joined to.
+
+    // session.session = currentUser id
+    // session.userServers = array of id's of all servers currentUser is joined to.
     const preloadedState = {
       entities: {
-        users: { [window.currentUser.id]: window.currentUser }
+        users: { [window.currentUser.id]: window.currentUser },
+        servers: window.allServers,
+        channels: window.userChannels
       },
       session: {
-        session: { id: window.currentUser.id }
+        session: { id: window.currentUser.id }, 
+        userServers: Object.keys(window.userServers),
       }
         
     };
     store = configureStore(preloadedState);
     delete window.currentUser;
+    delete window.allServers;
+    delete window.userServers;
+    delete window.userChannels;
   } else {
     store = configureStore();
   }

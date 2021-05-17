@@ -1,11 +1,26 @@
 import React from 'react';
-import ContextMenu from '../../context_menu/ContextMenu';
+import { NavLink } from 'react-router-dom';
+import { findGenChanId } from '../../../util/selectors';
+// import ContextMenu from '../../context_menu/ContextMenu';
 
 import styles from './ServerSidebar.module.scss';
 
-const ServerSidebarItem = ({ server }) => (
-  <li>
-    <div className={styles['server-icon']}>
+const ServerSidebarItem = ({ server, channels }) => {
+  // Finding id of a server's general channel:
+  // Find more elegant way (maybe store in backend & retrieve via redux state)
+  // debugger
+  const genChanId = findGenChanId(server, channels);
+  // debugger
+
+  // Styling: Fix tooltip & get activeClassName to work
+  // Adding border-radius when server is selected && 
+  // when switching channels within server.
+  return (
+    <NavLink 
+      to={`/servers/${server.id}/channels/${genChanId}`}
+      className={styles['server-icon']}
+      activeClassName={styles['selected']} 
+      >
       {server.title.split("")[0]}
       <div className={styles.wrapper}>
         <div className={styles.tooltip}>
@@ -13,8 +28,9 @@ const ServerSidebarItem = ({ server }) => (
         </div>
       </div>
       {/* <ContextMenu /> */}
-    </div>
-  </li>
-)
+    </NavLink>
+  )
+}
+
 
 export default ServerSidebarItem;

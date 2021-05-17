@@ -8,10 +8,14 @@ Rails.application.routes.draw do
     resource :session, only: [:create, :destroy]
     resources :servers, only: [:create, :update, :destroy] do
       resources :users, only: [:index]
+      resources :channels, only: [:index]
     end
     resources :memberships, only: [:show, :create, :destroy]
+
+    resources :channels, only: [:show, :create, :update, :destroy]
   
     get '/explore/servers', to: 'servers#explore', as: 'servers_explore'
+    get '/all/channels', to: 'channels#all', as: 'channels_all'
   end
 
   root "static_pages#root"

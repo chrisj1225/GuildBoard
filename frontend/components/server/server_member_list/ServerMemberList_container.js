@@ -1,17 +1,20 @@
 import { connect } from 'react-redux';
+import { withRouter } from 'react-router';
 import { fetchServerMembers } from '../../../actions/server_actions';
 import ServerMemberList from './ServerMemberList';
 
-const mSTP = (state) => {
+const mSTP = (state, ownProps) => {
+  // debugger
   return({
-    users: Object.values(state.entities.users)
+    users: Object.values(state.entities.users),
+    currentServerId: ownProps.match.params.serverId, 
   })
 }
 
 const mDTP = dispatch => {
   return ({
-    fetchServerMembers: () => dispatch(fetchServerMembers())
+    fetchServerMembers: (serverId) => dispatch(fetchServerMembers(serverId))
   })
 }
 
-export default connect(mSTP, mDTP)(ServerMemberList)
+export default withRouter(connect(mSTP, mDTP)(ServerMemberList));

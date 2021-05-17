@@ -1,25 +1,29 @@
 import { connect } from 'react-redux';
-// import { fetchUserServers, fetchServers } from '../../../actions/server_actions';
-import { fetchAllServers } from '../../../actions/server_actions';
+import { withRouter } from 'react-router';
+import { fetchAllServers, fetchServerMembers } from '../../../actions/server_actions';
 import { openModal } from '../../../actions/ui_actions';
 import ServerSideBar from './ServerSidebar';
 
 const mSTP = (state, ownProps) => {
   // debugger
+  let home;
+  if (ownProps.match.path == "/home") home = true;
   return({
+    home,
     currentUser: state.entities.users[state.session.session.id],
     userServersIds: state.session.userServers,
-    allServers: state.entities.servers
+    currServerId: ownProps.match.params.serverId,
+    allServers: state.entities.servers,
+    channels: Object.values(state.entities.channels)
   })
 }
 
 const mDTP = dispatch => {
   return ({
-    // fetchUserServers: (userId) => dispatch(fetchUserServers(userId)),
-    // fetchServers: () => dispatch(fetchServers()),
     fetchAllServers: (userId) => dispatch(fetchAllServers(userId)),
+    fetchServerMembers: (serverId) => dispatch(fetchServerMembers(serverId)),
     openModal: (modal) => dispatch(openModal(modal))
   })
 }
 
-export default connect(mSTP, mDTP)(ServerSideBar);
+export default withRouter(connect(mSTP, mDTP)(ServerSideBar));

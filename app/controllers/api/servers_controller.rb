@@ -22,6 +22,7 @@ class Api::ServersController < ApplicationController
     @server.owner_id = current_user.id
     if @server.save
       @server.memberships.create(user_id: current_user.id)
+      @server.channels.create(title: 'general', server_id: @server.id, owner_id: current_user.id)
       render "api/servers/show"
     end
   end

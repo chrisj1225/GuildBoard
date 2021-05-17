@@ -1,6 +1,7 @@
 import React from 'react';
 import { convertToSnakeCase } from '../../../../util/selectors';
 import ExploreServersItem from './ExploreServersItem';
+// import { findGenChanId } from '../../../../util/selectors';
 
 import styles from './ExploreMenu.module.scss';
 
@@ -18,7 +19,8 @@ class ExploreServersMenu extends React.Component {
   }
 
   joinServer(serverId) {
-    // debugger
+    // Fix join server redirect. 
+    // Currently has no access to props or all channels.
     return () => {
       // debugger
       let memberParams = {};
@@ -27,16 +29,25 @@ class ExploreServersMenu extends React.Component {
       });
       memberParams.joinableId = serverId
       memberParams = convertToSnakeCase(memberParams);
-      this.props.addServerMember(memberParams);
+      this.props.addServerMember(memberParams)
+        // .then((action) => {
+        // const genChanId = findGenChanId(action.server, this.props.channels);
+        // this.props.history.push(`/servers/${action.server.id}/channels/${genChanId}`)
+      // });
       this.props.closeModal();
     }
   }
 
   leaveServer(serverId) {
-    // debugger
+    // Fix leaveServer
+    // has no access to this.props within return.
+    const history = this.props.history;
     return () => {
       const membershipId = this.props.servers[serverId].membershipId;
-      this.props.removeServerMember(membershipId);
+      this.props.removeServerMember(membershipId)
+        // .then(() => {
+        //   history.push('/home');
+        // });
       this.props.closeModal();
     }
   }

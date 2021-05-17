@@ -12,7 +12,8 @@ const mSTP = (state, ownProps) => {
       joinableId: null,
       joinableType: 'Server'
     },
-    servers: state.entities.servers
+    servers: state.entities.servers,
+    channels: Object.values(state.entities.channels)
   })
 }
 
