@@ -63,7 +63,10 @@ class ServerChannelList extends React.Component {
         { this.state.serverMenuShow &&
           <div 
             className={styles['server-menu']} >
-            <span>Edit Server</span>
+            <span
+              onClick={() => this.props.openModal("update-server")} >
+              Edit Server
+            </span>
             <span 
               onClick={this.leaveServer} >
                 Leave Server

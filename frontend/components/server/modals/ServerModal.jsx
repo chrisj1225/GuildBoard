@@ -4,6 +4,7 @@ import { connect } from 'react-redux';
 import CreateServerFormContainer from '../server_sidebar/create_server/CreateServerForm_container';
 import ExploreServersMenuContainer from '../server_sidebar/explore_servers/ExploreServersMenu_container';
 import CreateChannelFormContainer from '../server_channel_list/create_channel/CreateChannelForm_container';
+import UpdateServerFormContainer from '../server_channel_list/update_server/UpdateServerForm_container';
 
 import styles from './ServerModal.module.scss';
 
@@ -20,6 +21,9 @@ const ServerModal = ({ modal, closeModal }) => {
       break;
     case 'create-channel':
       component = <CreateChannelFormContainer />
+      break;
+    case 'update-server':
+      component = <UpdateServerFormContainer />
       break;
     default:
       return null;
