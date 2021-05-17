@@ -5,6 +5,7 @@ import { openModal } from '../../../actions/ui_actions';
 import ServerSideBar from './ServerSidebar';
 
 const mSTP = (state, ownProps) => {
+  // debugger
   let home;
   if (ownProps.match.path == "/home") home = true;
   return({

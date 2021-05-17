@@ -10,7 +10,16 @@ const Home = () => (
     <div className={styles['home-content']}>
       Welcome to the Home page!
       <br />
-      Please press refresh... working on getting ServerSidebar to render on login
+      There is nothing here yet... Home will hold all direct message conversations.
+      <br />
+      For now, please try clicking one of the server buttons in the ServerSideBar to the left!
+      <br />
+      <ul>
+        <li>
+          Still working on getting ServerSidebar to render on login
+        </li>
+
+      </ul>
     </div>
 
   </div>
