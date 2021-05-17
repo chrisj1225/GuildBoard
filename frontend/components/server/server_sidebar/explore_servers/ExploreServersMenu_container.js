@@ -1,4 +1,5 @@
 import { connect } from 'react-redux';
+import { withRouter } from 'react-router';
 import { fetchServers, addServerMember, removeServerMember } from '../../../../actions/server_actions';
 import { closeModal } from '../../../../actions/ui_actions';
 import ExploreServersMenu from './ExploreServersMenu';
@@ -26,4 +27,4 @@ const mDTP = dispatch => {
   })
 }
 
-export default connect(mSTP, mDTP)(ExploreServersMenu);
+export default withRouter(connect(mSTP, mDTP)(ExploreServersMenu));

@@ -42,7 +42,7 @@ class ServerChannelList extends React.Component {
   }
 
   leaveServer() {
-    debugger
+    // debugger
     this.props.removeServerMember(this.props.currServer.membershipId)
       .then(() => this.props.history.push("/home"));
   }

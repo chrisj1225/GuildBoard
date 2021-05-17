@@ -3,7 +3,12 @@ import {
   RECEIVE_CHANNELS,
   RECEIVE_CHANNEL,
   REMOVE_CHANNEL
-} from '../../actions/channel_actions'
+} from '../../actions/channel_actions';
+import {
+  RECEIVE_USER_SERVER, 
+  RECEIVE_SERVER,
+  REMOVE_SERVER
+} from '../../actions/server_actions';
 import { LOGOUT_CURRENT_USER } from '../../actions/session_actions';
 
 const channelsReducer = (state = {}, action) => {
@@ -19,6 +24,17 @@ const channelsReducer = (state = {}, action) => {
       return {
         ...state,
         [action.channel.id]: action.channel
+      }
+    case RECEIVE_USER_SERVER:    
+      const channel_params = {
+        id: action.server.genChanId,
+        title: 'general',
+        serverId: action.server.id,
+        ownerId: action.server.ownerId
+      }
+      return {
+        ...state,
+        [channel_params.id]: channel_params
       }
     case REMOVE_CHANNEL:
       let newState = Object.assign({}, state);

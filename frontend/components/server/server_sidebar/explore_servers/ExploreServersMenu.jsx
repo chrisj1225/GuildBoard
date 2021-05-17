@@ -19,10 +19,7 @@ class ExploreServersMenu extends React.Component {
   }
 
   joinServer(serverId) {
-    // Fix join server redirect. 
-    // Currently has no access to props or all channels.
     return () => {
-      // debugger
       let memberParams = {};
       Object.keys(this.props.memberParams).forEach(key => {
         memberParams[key] = this.props.memberParams[key]
@@ -30,30 +27,25 @@ class ExploreServersMenu extends React.Component {
       memberParams.joinableId = serverId
       memberParams = convertToSnakeCase(memberParams);
       this.props.addServerMember(memberParams)
-        // .then((action) => {
-        // const genChanId = findGenChanId(action.server, this.props.channels);
-        // this.props.history.push(`/servers/${action.server.id}/channels/${genChanId}`)
-      // });
+        .then((res) => {
+          this.props.history.push(`/servers/${res.server.id}/channels/${res.server.genChanId}`)
+        });
       this.props.closeModal();
     }
   }
 
   leaveServer(serverId) {
-    // Fix leaveServer
-    // has no access to this.props within return.
-    const history = this.props.history;
     return () => {
       const membershipId = this.props.servers[serverId].membershipId;
       this.props.removeServerMember(membershipId)
-        // .then(() => {
-        //   history.push('/home');
-        // });
+        .then(() => {
+          this.props.history.push('/home');
+        });
       this.props.closeModal();
     }
   }
 
   render() {
-
     if (!Object.keys(this.props.servers).length) {
       // debugger // this does not get triggered. Not a rendering issue.
       return null;

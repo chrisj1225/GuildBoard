@@ -1,5 +1,6 @@
 import { connect } from 'react-redux';
-import { createServer, addServerMember } from '../../../../actions/server_actions';
+import { createServer } from '../../../../actions/server_actions';
+import { createChannel } from '../../../../actions/channel_actions';
 import { closeModal } from '../../../../actions/ui_actions';
 import CreateServerForm from './CreateServerForm';
 
@@ -16,7 +17,7 @@ const mSTP = (state, ownProps) => {
 const mDTP = dispatch => {
   return ({
     createServer: (server) => dispatch(createServer(server)),
-    addServerMember: (member_params, userId) => dispatch(addServerMember(member_params, userId)),
+    createChannel: (channel_params) => dispatch(createChannel(channel_params)),
     closeModal: () => dispatch(closeModal())
   })
 }
