@@ -14,6 +14,13 @@ class ServerChannelList extends React.Component {
   //   this.props.fetchChannels(this.props.serverId);
   // }
 
+  componentDidUpdate(prevProps, prevState) {
+    // debugger
+    if (prevProps.serverId !== this.props.serverId) {
+      this.props.fetchServerMembers(this.props.serverId)
+    }
+  }
+
   render() {
     // debugger
     if (!this.props.channels.length) return null;
