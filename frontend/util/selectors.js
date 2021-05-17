@@ -1,3 +1,5 @@
+import { createSelector } from 'reselect';
+
 // convert keys from camel to snake case
 // import into Component
 // before sending ajax request
@@ -13,8 +15,10 @@ export const convertToSnakeCase = obj => {
   return newObj;
 }
 
+
+
 export const findGenChanId = (server, channels) => {
-  debugger
+  // debugger
   const genChans = channels.filter( channel => {
     return (channel.serverId == server.id) && (channel.title == "general")
   })
