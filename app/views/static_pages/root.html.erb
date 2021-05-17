@@ -11,8 +11,8 @@
       user: current_user
     ).html_safe %>
 
-    window.userChannels = <%= render(
-      "api/users/server_channels.json.jbuilder",
+    window.allChannels = <%= render(
+      "api/users/all_channels.json.jbuilder",
       user: current_user
     ).html_safe %>
 

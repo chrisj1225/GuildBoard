@@ -1,4 +1,5 @@
 json.extract! server, :id, :title, :owner_id
+
 genChanId = ""
 server.channels.each do |channel|
   if channel.title == 'general'

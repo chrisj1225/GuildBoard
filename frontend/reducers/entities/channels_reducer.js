@@ -14,6 +14,7 @@ import { LOGOUT_CURRENT_USER } from '../../actions/session_actions';
 const channelsReducer = (state = {}, action) => {
   // debugger
   Object.freeze(state);
+  let newState = {...state};
   switch(action.type) {
     // case RECEIVE_ALL_CHANNELS:
     //   return action.channels;
@@ -25,8 +26,11 @@ const channelsReducer = (state = {}, action) => {
         ...state,
         [action.channel.id]: action.channel
       }
-    case RECEIVE_USER_SERVER:    
-      const channel_params = {
+    case RECEIVE_SERVER:
+      // new channel is initialized in ServersController#create
+      // duplicate is being added to the state here so that 
+      // user can get redirected to new server's 'general' channel.
+      const newGenChan = {
         id: action.server.genChanId,
         title: 'general',
         serverId: action.server.id,
@@ -34,10 +38,22 @@ const channelsReducer = (state = {}, action) => {
       }
       return {
         ...state,
-        [channel_params.id]: channel_params
+        [newGenChan.id]: newGenChan
+      }      
+    case RECEIVE_USER_SERVER:   
+      console.log(newState);
+      const channels = {};
+      for (let key in newState) {
+        if (newState[key].serverId == action.id) {
+          channels[key] = newState[key]
+        }
+      }
+      console.log(channels)
+      return {
+        ...state,
+        ...channels
       }
     case REMOVE_CHANNEL:
-      let newState = Object.assign({}, state);
       delete newState[action.channelId];
       return newState;
     case LOGOUT_CURRENT_USER:

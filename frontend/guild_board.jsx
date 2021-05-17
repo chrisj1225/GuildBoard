@@ -13,6 +13,7 @@ document.addEventListener("DOMContentLoaded", () => {
     // entities.users = All users in current server
     // entities.servers = ALL servers in database
     // entities.channels = all channels of servers currentUser is joined to.
+    //                      ALL channels in database
 
     // session.session = currentUser id
     // session.userServers = array of id's of all servers currentUser is joined to.
@@ -20,7 +21,7 @@ document.addEventListener("DOMContentLoaded", () => {
       entities: {
         users: { [window.currentUser.id]: window.currentUser },
         servers: window.allServers,
-        channels: window.userChannels
+        channels: window.allChannels
       },
       session: {
         session: { id: window.currentUser.id }, 
