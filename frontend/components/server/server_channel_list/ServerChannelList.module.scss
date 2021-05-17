@@ -28,15 +28,56 @@
 
 .server-header {
   display: flex;
+  // position: relative;
+  justify-content: space-between;
   align-items: center;
   font-size: 18px;
   font-style: bold;
   height: 40px;
   box-shadow: 0 3px 5px -5px black;
-  
+  cursor: pointer;
+
   h1 {
     margin-left: 10px;
   }
+
+  i {
+    margin-right: 20px;
+  }
+}
+
+.server-menu {
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  top: 45px;
+  margin-left: 10px;
+  width: 200px;
+  background-color: #18191c;
+  border-radius: 5px;
+  
+  span {
+    font-size: 12px;
+    padding: 5px;
+    margin: 5px 10px 5px 10px;
+    cursor: pointer;
+
+    &:hover {
+      background-color: #7289da;
+    }
+
+    &:last-child {
+      color: #c1393c;
+
+      &:hover {
+        color: white;
+        background-color: #c1393c;
+      }
+    }
+  }
+
+
+
 }
 
 .channel-header {
