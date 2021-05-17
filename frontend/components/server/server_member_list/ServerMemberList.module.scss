@@ -1,4 +1,5 @@
 .member-list {
+  flex-grow: 1;
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
@@ -6,7 +7,7 @@
   height: 100%;
   background-color: #2f3136;
   font-weight: lighter;
-
+  color: #858c81;
 }
 
 .member-header {

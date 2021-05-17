@@ -2,6 +2,7 @@
   flex-direction: column;
   align-items: center;
   width: 100%;
+  height: 100vh;
   background-color: #36393f;
   color: white;
   font-weight: bold;
@@ -11,5 +12,5 @@
 .channel-content {
   display: flex;
   flex-direction: row;
-
+  height: 100%;
 }

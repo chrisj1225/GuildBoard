@@ -5,8 +5,11 @@ import { openModal } from '../../../actions/ui_actions';
 import ServerSideBar from './ServerSidebar';
 
 const mSTP = (state, ownProps) => {
-  // debugger
+  console.log(ownProps);
+  let home;
+  if (ownProps.match.path == "/home") home = true;
   return({
+    home,
     currentUser: state.entities.users[state.session.session.id],
     userServersIds: state.session.userServers,
     currServerId: ownProps.match.params.serverId,
