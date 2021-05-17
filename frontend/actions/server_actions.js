@@ -100,8 +100,6 @@ export const removeServerMember = (membershipId) => dispatch => {
     .then(server => dispatch(removeUserServer(server)))
 }
 
-
-
 export const fetchServers = () => dispatch => {
   return ServerAPIUtil.fetchServers()
     .then(servers => dispatch(receiveAllServers(servers)),

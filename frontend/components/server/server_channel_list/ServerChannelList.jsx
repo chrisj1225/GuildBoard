@@ -15,6 +15,7 @@ class ServerChannelList extends React.Component {
 
     this.toggleMenu = this.toggleMenu.bind(this);
     this.closeMenu = this.closeMenu.bind(this);
+    this.leaveServer = this.leaveServer.bind(this);
   }
   // componentDidMount() {
   //   this.props.fetchChannels(this.props.serverId);
@@ -40,8 +41,13 @@ class ServerChannelList extends React.Component {
     })
   }
 
+  leaveServer() {
+    debugger
+    this.props.removeServerMember(this.props.currServer.membershipId)
+      .then(() => this.props.history.push("/home"));
+  }
+
   render() {
-    // debugger
     if (!this.props.channels.length) return null;
     return (
       <div className={styles['channel-list-container']}
@@ -51,7 +57,7 @@ class ServerChannelList extends React.Component {
         <div 
           className={styles['server-header']}
           onClick={this.toggleMenu} >
-          <h1>{this.props.serverTitle}</h1>
+          <h1>{this.props.currServer.title}</h1>
           <i className="fas fa-caret-down"></i>
         </div>
         { this.state.serverMenuShow &&
@@ -59,7 +65,7 @@ class ServerChannelList extends React.Component {
             className={styles['server-menu']} >
             <span>Edit Server</span>
             <span 
-               >
+              onClick={this.leaveServer} >
                 Leave Server
             </span>
           </div>
