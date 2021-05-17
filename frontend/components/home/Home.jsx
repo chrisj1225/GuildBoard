@@ -9,7 +9,8 @@ const Home = () => (
     <ServerSideBarContainer />
     <div className={styles['home-content']}>
       Welcome to the Home page!
-      
+      <br />
+      Please press refresh... working on getting ServerSidebar to render on login
     </div>
 
   </div>

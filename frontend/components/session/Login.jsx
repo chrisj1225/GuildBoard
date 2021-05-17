@@ -10,6 +10,7 @@ class Login extends React.Component {
     this.state = this.props.user;
 
     this.handleSubmit = this.handleSubmit.bind(this);
+    this.handleDemoLogin = this.handleDemoLogin.bind(this);
   }
 
   componentDidMount() {
@@ -20,6 +21,17 @@ class Login extends React.Component {
     e.preventDefault();
     const user = Object.assign({}, this.state)
     this.props.login(user).then(() => {
+      this.props.history.push('/home')
+    });
+  }
+
+  handleDemoLogin(e) {
+    e.preventDefault();
+    const demoUser = ({
+      username: "demouser",
+      password: "password"
+    });
+    this.props.login(demoUser).then(() => {
       this.props.history.push('/home')
     });
   }
@@ -79,7 +91,11 @@ class Login extends React.Component {
           <div className={styles.demo}>
             <p className={styles.text}>Don't have an account?</p>
             <p className={styles.text}>Try logging in as a demo user!</p>
-            <button className={styles['demo-login']}>Demo User Login</button>
+            <button 
+              className={styles['demo-login']}
+              onClick={this.handleDemoLogin} >
+                Demo User Login
+            </button>
           </div>
         </div>
       </div>
