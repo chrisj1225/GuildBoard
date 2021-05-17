@@ -52,9 +52,6 @@ class ExploreServersMenu extends React.Component {
     }
   }
 
-  // Add event handler for leaveServer(e) for leave button
-  // will conditionally render if current user is joined to server already.
-
   render() {
 
     if (!Object.keys(this.props.servers).length) {

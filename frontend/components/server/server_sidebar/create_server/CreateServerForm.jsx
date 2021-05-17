@@ -14,8 +14,19 @@ class CreateServerForm extends React.Component {
 
   handleSubmit(e) {
     e.preventDefault();
-    let server_params = convertToSnakeCase(this.state);
-    this.props.createServer(server_params);
+    const server_params = convertToSnakeCase(this.state);
+    this.props.createServer(server_params)
+      .then((res) => {
+        let newServerId = res.server.id
+        const member_params = convertToSnakeCase({
+          user_id: this.props.currentUser.id,
+          joinableId: newServerId,
+          joinableType: 'Server'
+        })
+        this.props.addServerMember(member_params)
+      });
+    // Create membership in frontend instead of backend to trigger 
+    // state change of state.session.userServers & rerender ServerSidebar
     this.props.closeModal();
   }
 
