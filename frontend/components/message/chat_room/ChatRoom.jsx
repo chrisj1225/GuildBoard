@@ -1,5 +1,5 @@
 import React from 'react';
-import MessageForm from '../message_form/MessageForm';
+import MessageFormContainer from '../message_form/MessageForm_container';
 import styles from './ChatRoom.module.scss';
 
 class ChatRoom extends React.Component {
@@ -9,30 +9,36 @@ class ChatRoom extends React.Component {
     this.state = { messages: [] };
     this.bottom = React.createRef();
 
-    this.loadChat = this.loadChat.bind(this);
-  }
-
-  componentDidMount() {
-    App.cable.subscriptions.create(
-      { channel: "ChatChannel" },
+    this.subscription = App.cable.subscriptions.create(
+      // first argument gets passed to backend chat_channel.rb as params
+      { 
+        channel: "ChatChannel",
+        type: this.props.chatType,
+        chatId: this.props.chatId
+      },
       {
         received: data => {
           // received listens to channel's stream for new data
           // data trasmitted to stream via backend broadcast_to method. 
-          this.setState({
-            messages:this.state.messages.concat(data.message)
-          });
+          this.setState.call(this, ({
+            messages: this.state.messages.concat(data.message)
+          }));
         },
-        speak: function(data) {
+        speak: data => {
           // calling speak in front end invokes speak method in backend
           // via App.cable's this.perform function
-          return this.perform("speak", data);
+          return this.subscription.perform("speak", data);
         },
-        load: function(messageableId) {
-          return this.perform("load")
-        }
+        // load: function(messageableId) {
+        //   return this.perform("load")
+        // }
       }
     );
+
+    this.loadChat = this.loadChat.bind(this);
+  }
+
+  componentDidMount() {
 
     // call this.loadChat here?
   }
@@ -53,7 +59,7 @@ class ChatRoom extends React.Component {
     const messageList = this.state.messages.map(message => {
       return(
         <li key={message.id}>
-          {message}
+          {message.body}
           <div ref={this.bottom} />
         </li>
       );
@@ -64,7 +70,7 @@ class ChatRoom extends React.Component {
         <div className={styles.messages}>
           {messageList}
         </div>
-        <MessageForm />
+        <MessageFormContainer subscription={this.subscription} />
       </div>
 
     )

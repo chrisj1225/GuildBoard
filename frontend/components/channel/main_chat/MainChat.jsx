@@ -1,6 +1,6 @@
 import React from 'react';
 
-import ChatRoom from '../../message/chat_room/ChatRoom';
+import ChatRoomContainer from '../../message/chat_room/ChatRoom_container';
 
 import styles from './MainChat.module.scss';
 
@@ -17,7 +17,7 @@ class MainChat extends React.Component {
     return (
       <div className={styles['main-chat-container']}>
         Main Chat Here
-        <ChatRoom />
+        <ChatRoomContainer />
       </div>
 
 

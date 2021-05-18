@@ -12,6 +12,7 @@ class Channel < ApplicationRecord
     class_name: :User
 
   has_many :messages,
-    as: :messageable
+    as: :messageable,
+    dependent: :destroy
 
 end

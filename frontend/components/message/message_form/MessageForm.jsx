@@ -1,10 +1,12 @@
 import React from 'react';
 
+import { convertToSnakeCase } from '../../../util/selectors';
+
 class MessageForm extends React.component {
   constructor(props) {
     super(props);
 
-    this.state = { body: "" };
+    this.state = this.props.message; // {body: "", authorId: 1 }
     this.handleSubmit = this.handleSubmit.bind(this);
   }
 
@@ -16,8 +18,12 @@ class MessageForm extends React.component {
 
   handleSubmit(e) {
     e.preventDefault();
-    App.cable.subscriptions.subscriptions[0].speak({ message: this.state.body });
-    this.setState({ body: "" });
+    this.props.subscription.speak(convertToSnakeCase({ 
+      message: this.state.body 
+    }));
+    this.setState({
+       body: "" 
+    });
   }  
 
   render() {
@@ -28,7 +34,7 @@ class MessageForm extends React.component {
             type="text"
             value={this.state.body}
             onChange={this.update('body')}
-            placeholder="Message channel/DM name"
+            placeholder="Message 'channel/DM name'"
           />
           <input type="submit"></input>
         </form>

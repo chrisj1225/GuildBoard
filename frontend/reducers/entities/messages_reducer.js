@@ -3,14 +3,13 @@ import {
   RECEIVE_MESSAGE
 } from '../../actions/message_actions';
 
-const messagesReducer = (state = [], action) => {
+const messagesReducer = (state = {}, action) => {
   Object.freeze(state);
-  let newState = [...state];
   switch(action.type) {
     case RECEIVE_CHANNEL_MESSAGES:
-      return action.messages
+      return Object.assign({}, state, action.messages)
     case RECEIVE_MESSAGE: 
-      return [...newState, action.message];
+      return Object.assign({}, state, { [action.message.id]: action.message });
     default:
       return state;
   }
