@@ -4,7 +4,7 @@ import styles from './ChatRoom.module.scss';
 
 class ChatRoom extends React.Component {
   constructor(props) {
-    super (props);
+    super(props);
 
     this.state = { messages: [] };
     this.bottom = React.createRef();
@@ -16,7 +16,7 @@ class ChatRoom extends React.Component {
       {
         received: data => {
           // received listens to channel's stream for new data
-          // data trasmitted to stream via backend broadcast_to method.
+          // data trasmitted to stream via backend broadcast_to method. 
           this.setState({
             messages:this.state.messages.concat(data.message)
           });

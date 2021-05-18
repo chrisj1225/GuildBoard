@@ -53,6 +53,8 @@ class Api::MessagesController < ApplicationController
   private
 
   def message_params
+    # Consider: if messages#create is nested under channels & DM routes
+    # can change strong params to just :body
     params.require(:message).permit(:body, :author_id, :messageable_id, :messageable_type)
   end
 

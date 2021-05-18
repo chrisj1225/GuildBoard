@@ -2,7 +2,7 @@ import React from 'react';
 
 class MessageForm extends React.component {
   constructor(props) {
-    super(props)
+    super(props);
 
     this.state = { body: "" };
     this.handleSubmit = this.handleSubmit.bind(this);
@@ -37,3 +37,5 @@ class MessageForm extends React.component {
   }
 
 }
+
+export default MessageForm;
