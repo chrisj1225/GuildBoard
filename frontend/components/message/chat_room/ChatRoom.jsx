@@ -15,11 +15,15 @@ class ChatRoom extends React.Component {
       { channel: "ChatChannel" },
       {
         received: data => {
+          // received listens to channel's stream for new data
+          // data trasmitted to stream via backend broadcast_to method.
           this.setState({
             messages:this.state.messages.concat(data.message)
           });
         },
         speak: function(data) {
+          // calling speak in front end invokes speak method in backend
+          // via App.cable's this.perform function
           return this.perform("speak", data);
         }
       }
