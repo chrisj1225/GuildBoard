@@ -8,10 +8,10 @@ class ChatChannel < ApplicationCable::Channel
   def speak(data)
     # convert data into Message instance
     @message = Message.new(
-      body: data['message'],
-      author_id: @chat.author_id,
-      messageable_id: @chat.class.to_s,
-      messageable_type: @chat.id
+      body: data['message']['body'],
+      author_id: data['message']['authorId'],
+      messageable_id: @chat.id,
+      messageable_type: @chat.class.to_s
     )
     if @message.save
       socket = { 
@@ -24,7 +24,7 @@ class ChatChannel < ApplicationCable::Channel
           createdAt: @message.created_at
         }
       }
-      ChatChannel.broadcast_to('chat_channel', socket)
+      ChatChannel.broadcast_to(@chat, socket)
     end
   end
 

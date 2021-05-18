@@ -8,7 +8,6 @@ class ChatRoom extends React.Component {
 
     this.state = { messages: [] };
     this.bottom = React.createRef();
-
     this.subscription = App.cable.subscriptions.create(
       // first argument gets passed to backend chat_channel.rb as params
       { 
@@ -52,7 +51,7 @@ class ChatRoom extends React.Component {
   }
 
   componentDidUpdate() {
-    this.bottom.current.scrollIntoView();
+    // this.bottom.current.scrollIntoView();
   }
 
   render() {
