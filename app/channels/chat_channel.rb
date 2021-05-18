@@ -12,7 +12,8 @@ class ChatChannel < ApplicationCable::Channel
 
   def load(messageable_id)
     messages =  Message
-      .where()     
+      .where("messageable_id = #{messageable_id}")
+      .order('created_at DESC')
       .collect(&:body)
 
     socket = { messages: messages, type: 'messages' }
