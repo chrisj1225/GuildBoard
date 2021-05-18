@@ -17,10 +17,12 @@ Rails.application.routes.draw do
     end
 
     resources :messages, only: [:create, :update, :destroy]
-  
+    
     get '/explore/servers', to: 'servers#explore', as: 'servers_explore'
     get '/all/channels', to: 'channels#all', as: 'channels_all'
   end
 
   root "static_pages#root"
+
+  mount ActionCable.server, at: '/cable'
 end

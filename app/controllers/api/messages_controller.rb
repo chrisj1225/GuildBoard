@@ -53,11 +53,12 @@ class Api::MessagesController < ApplicationController
   private
 
   def message_params
-    params.require(:message).permit(:author_id, :messageable_id, :messageable_type)
+    params.require(:message).permit(:body, :author_id, :messageable_id, :messageable_type)
   end
 
   # message_params
   # this.state = {
+  #   body: 'hello!'
   #   author_id: 1,
   #   messageable_id: 2
   #   messageable type: 'Channel'
