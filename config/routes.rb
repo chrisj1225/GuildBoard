@@ -12,7 +12,11 @@ Rails.application.routes.draw do
     end
     resources :memberships, only: [:show, :create, :destroy]
 
-    resources :channels, only: [:show, :create, :update, :destroy]
+    resources :channels, only: [:show, :create, :update, :destroy] do
+      resources :messages, only: [:index]
+    end
+
+    resources :messages, only: [:create, :update, :destroy]
   
     get '/explore/servers', to: 'servers#explore', as: 'servers_explore'
     get '/all/channels', to: 'channels#all', as: 'channels_all'
