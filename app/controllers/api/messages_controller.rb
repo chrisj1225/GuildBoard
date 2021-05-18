@@ -23,7 +23,7 @@ class Api::MessagesController < ApplicationController
     end
   end
   
-  def update
+  def update # bonus
     @message = Message.find(params[:id])
     if @message 
       if @message.author_id == current_user.id
@@ -40,8 +40,14 @@ class Api::MessagesController < ApplicationController
     end
   end
 
-  def destroy
+  def destroy #bonus
     @message = Message.find(params[:id])
+    if @message && @message.author_id == current_user.id
+      @message.destroy
+      # render to websocket
+    else
+      render json: ["There was an error"], status: 401
+    end
   end
 
   private
