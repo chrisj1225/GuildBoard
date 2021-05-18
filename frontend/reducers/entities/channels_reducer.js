@@ -41,18 +41,22 @@ const channelsReducer = (state = {}, action) => {
         [newGenChan.id]: newGenChan
       }      
     case RECEIVE_USER_SERVER:   
-      console.log(newState);
-      const channels = {};
-      for (let key in newState) {
-        if (newState[key].serverId == action.id) {
-          channels[key] = newState[key]
-        }
-      }
-      console.log(channels)
-      return {
-        ...state,
-        ...channels
-      }
+      // console.log(newState);
+      // const channels = {};
+      // for (let key in newState) {
+      //   if (newState[key].serverId == action.id) {
+      //     channels[key] = newState[key]
+      //   }
+      // }
+      // console.log(channels)
+      // return {
+      //   ...state,
+      //   ...channels
+      // }
+      
+      // since state.entities.channels now hold all channels in DB:
+      // nothing needs to be added to state, it's already there.
+      return state;
     case REMOVE_CHANNEL:
       delete newState[action.channelId];
       return newState;
