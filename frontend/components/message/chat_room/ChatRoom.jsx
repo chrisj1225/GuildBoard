@@ -8,6 +8,8 @@ class ChatRoom extends React.Component {
 
     this.state = { messages: [] };
     this.bottom = React.createRef();
+
+    this.loadChat = this.loadChat.bind(this);
   }
 
   componentDidMount() {
@@ -25,9 +27,22 @@ class ChatRoom extends React.Component {
           // calling speak in front end invokes speak method in backend
           // via App.cable's this.perform function
           return this.perform("speak", data);
+        },
+        load: function(messageableId) {
+          return this.perform("load")
         }
       }
     );
+
+    // call this.loadChat here?
+  }
+
+  loadChat(messageableId) {
+    return e => {
+      e.preventDefault();
+      // pass in messageableId to load here via this.props?
+      App.cable.subscriptions.subscriptions[0].load(messageableId);
+    }
   }
 
   componentDidUpdate() {
