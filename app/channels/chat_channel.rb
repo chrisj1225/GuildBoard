@@ -36,8 +36,8 @@ class ChatChannel < ApplicationCable::Channel
     #   .where("messageable_id = #{chat_id}")
     #   .order('created_at DESC')
     #   .collect(&:body)
+    # debugger
     messages = @chat.messages
-    debugger
     socket = { messages: messages, type: 'messages' }
     ChatChannel.broadcast_to(@chat, socket)
   end

@@ -8,7 +8,7 @@ class ChatRoom extends React.Component {
     super(props);
     this.state = { messages: [] };
     this.bottom = React.createRef();
-    this.loadChat = this.loadChat.bind(this);
+    // this.loadChat = this.loadChat.bind(this);
     this.subscription = App.cable.subscriptions.create(
       // first argument gets passed to backend chat_channel.rb as params
       { 
@@ -38,38 +38,41 @@ class ChatRoom extends React.Component {
           // via App.cable's this.perform function
           return this.subscription.perform("speak", data);
         },
-        load: function() {
-          return this.perform.call(this, "load")
+        load: () => {
+          return this.subscription.perform("load")
         },
-        unsubscribe: function() {
-          return this.perform("unsubscribed")
+        unsubscribe: () => {
+          return this.subscription.perform("unsubscribed")
         }
       }
     );
 
-    this.loadChat = this.loadChat.bind(this);
+    // this.loadChat = this.loadChat.bind(this);
   }
 
   componentDidMount() {
+    debugger
     // this.loadChat();
-    this.props.fetchChannelMessages(this.props.chat.id);
-    this.setState({
-      messages: this.props.messages
-    })
+    this.subscription.load();
+    // this.props.fetchChannelMessages(this.props.chat.id);
+    // this.setState({
+    //   messages: this.props.messages
+    // })
   }
 
-  loadChat() {
-    return e => {
-      e.preventDefault();
-      this.subscription.load();
-    }
-  }
+  // loadChat() {
+  //   return e => {
+  //     e.preventDefault();
+  //     this.subscription.load();
+  //   }
+  // }
 
   componentDidUpdate() {
     // this.bottom.current.scrollIntoView();
   }
 
   componentWillUnmount() {
+    debugger
     this.subscription.unsubscribe();
   }
 
