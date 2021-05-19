@@ -1,5 +1,7 @@
 import React from 'react';
 
+import styles from './MessageForm.module.scss'
+
 class MessageForm extends React.Component {
   constructor(props) {
     super(props);
@@ -26,15 +28,18 @@ class MessageForm extends React.Component {
 
   render() {
     return(
-      <div>
-        <form onSubmit={this.handleSubmit}>
+      <div className={styles['input-wrapper']}>
+        <form 
+          className={styles['input-wrapper']}
+          onSubmit={this.handleSubmit}>
           <input 
+            className={styles['message-input']}
             type="text"
             value={this.state.body}
             onChange={this.update('body')}
             placeholder="Message 'channel/DM name'"
           />
-          <button type="submit">enter</button>
+          <button type="submit"></button>
         </form>
       </div>
     )

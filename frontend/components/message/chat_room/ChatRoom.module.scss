@@ -1,9 +1,16 @@
 .chatroom-container {
+  display:flex;
+  flex-direction: column;
+  justify-content: flex-end;
   font-family: 'Noto Sans JP', sans-serif;
-
+  border: 1px solid white;
+  overflow-y: scroll;
+  width: 100%;
 } 
 
 .messages {
-  background-color: red;
+  font-size: 14px;
   color: white;
+  overflow-y: scroll;
+  margin-left: 20px;
 }

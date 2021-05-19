@@ -16,11 +16,10 @@ class MainChat extends React.Component {
 
     return (
       <div className={styles['main-chat-container']}>
-        Main Chat Here
-        <ChatRoomContainer />
+        <ChatRoomContainer 
+          key={this.props.currentChannel.id}/>
       </div>
-
-
+      
     )
   }
 

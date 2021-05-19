@@ -4,6 +4,7 @@ import { withRouter } from 'react-router';
 import ChatRoom from './ChatRoom';
 
 const mSTP = (state, ownProps) => {
+  // debugger
   return({
     chatType: "Channel",
     chatId: ownProps.match.params.channelId,

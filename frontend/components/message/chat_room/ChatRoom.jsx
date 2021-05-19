@@ -5,7 +5,7 @@ import styles from './ChatRoom.module.scss';
 class ChatRoom extends React.Component {
   constructor(props) {
     super(props);
-
+    // debugger
     this.state = { messages: [] };
     this.bottom = React.createRef();
     this.subscription = App.cable.subscriptions.create(
@@ -38,7 +38,7 @@ class ChatRoom extends React.Component {
   }
 
   componentDidMount() {
-
+    // debugger
     // call this.loadChat here?
   }
 
@@ -55,21 +55,22 @@ class ChatRoom extends React.Component {
   }
 
   render() {
+    // debugger
     const messageList = this.state.messages.map(message => {
       return(
-        <li key={message.id}>
+        <span key={message.id}>
           {message.body}
           <div ref={this.bottom} />
-        </li>
+        </span>
       );
     });
     return (
       <div className={styles['chatroom-container']}>
-        <div>ChatRoom</div>
         <div className={styles.messages}>
           {messageList}
         </div>
-        <MessageFormContainer subscription={this.subscription} />
+        <MessageFormContainer 
+          subscription={this.subscription} />
       </div>
 
     )
