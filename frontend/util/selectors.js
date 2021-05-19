@@ -37,4 +37,7 @@ export const convertDateString = (date) => {
   let newDate = `${splitDate[1]}/${splitDate[2]}/${splitDate[0]}`; // "05/19/2021"
   const currDate = new Date();
   return newDate;
+
+  // return newTimeStamp 
+  "2021-05-19T14:46:18.695Z"
 }

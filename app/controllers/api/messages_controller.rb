@@ -1,11 +1,6 @@
 class Api::MessagesController < ApplicationController 
 
   def index 
-    if params[:messageable_type] == "Channel"
-    @messages = Message
-      .where("messageable_id = #{params[:messageable_id]}")
-      .includes(:author)
-      .sort('created_at DESC')
     if params[:channel_id]
       @channel = Channel.find_by(id: params[:channel_id])
       @messages = @channel.messages
