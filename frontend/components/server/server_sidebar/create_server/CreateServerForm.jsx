@@ -50,7 +50,7 @@ class CreateServerForm extends React.Component {
           <p>By creating a server, you agree to GuildBoard's guidelines.</p>
           <div className={styles.buttons}>
             <button className={styles.back} onClick={()=>this.props.closeModal()}>Back</button>
-            <input className={styles.submit} type="submit" value="Create" />
+            <button className={styles.submit} type="submit" >Create</button>
           </div>
         </form>
 

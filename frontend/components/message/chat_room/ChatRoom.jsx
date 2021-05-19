@@ -70,7 +70,7 @@ class ChatRoom extends React.Component {
     });
     return (
       <div className={styles['chatroom-container']}>
-        <div>
+        <div className={styles['message-list']} >
           {messageList}
         </div>
         <MessageFormContainer 
@@ -79,7 +79,6 @@ class ChatRoom extends React.Component {
 
     )
   } 
- 
 }
 
 export default ChatRoom;

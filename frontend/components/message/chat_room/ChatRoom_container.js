@@ -20,4 +20,4 @@ const mSTP = (state, ownProps) => {
 //   })
 // }
 
-export default withRouter(connect(mSTP, null)(ChatRoom))
+export default withRouter(connect(mSTP, null)(ChatRoom));
