@@ -8,6 +8,7 @@ class ServerMemberList extends React.Component {
     super(props)
   }
 
+  // Not needed. This is called in ServerSidebar cDM.
   // componentDidMount() {
   //   this.props.fetchServerMembers(this.props.currentServerId);
   // }

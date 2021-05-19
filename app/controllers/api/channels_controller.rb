@@ -10,7 +10,7 @@ class Api::ChannelsController < ApplicationController
 
   def all
     @channels = Channel.all
-    render "/api/all/channels"
+    render "/api/channels/all"
   end
   
   def show

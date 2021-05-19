@@ -16,8 +16,8 @@ const channelsReducer = (state = {}, action) => {
   Object.freeze(state);
   let newState = {...state};
   switch(action.type) {
-    // case RECEIVE_ALL_CHANNELS:
-    //   return action.channels;
+    case RECEIVE_ALL_CHANNELS:
+      return action.channels;
     case RECEIVE_CHANNELS:
       return action.channels;
     case RECEIVE_CHANNEL:

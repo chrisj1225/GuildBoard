@@ -24,6 +24,7 @@ class ServerSidebar extends React.Component {
       this.props.fetchServerMembers(this.props.currServerId);
     } 
     this.props.fetchAllServers(this.props.currentUser.id);
+    this.props.fetchAllChannels()
   }
 
   render() {
@@ -39,8 +40,7 @@ class ServerSidebar extends React.Component {
         {this.props.userServersIds.map(serverId => {
           return <ServerSidebarItem 
             key={serverId}
-            server={this.props.allServers[serverId]}
-            channels={this.props.channels} />
+            server={this.props.allServers[serverId]} />
         })}
         <CreateServerButton openModal={this.props.openModal} />
         <ExploreServersButton openModal={this.props.openModal} />

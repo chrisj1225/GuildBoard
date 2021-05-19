@@ -5,7 +5,7 @@ import { findGenChanId } from '../../../util/selectors';
 
 import styles from './ServerSidebar.module.scss';
 
-const ServerSidebarItem = ({ server, channels }) => {
+const ServerSidebarItem = ({ server }) => {
   // Finding id of a server's general channel:
   // Find more elegant way (maybe store in backend & retrieve via redux state)
   // const genChanId = findGenChanId(server, channels);
