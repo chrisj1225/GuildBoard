@@ -32,14 +32,24 @@ class ChatChannel < ApplicationCable::Channel
   end
 
   def load
-    # messages =  Message
-    #   .where("messageable_id = #{chat_id}")
-    #   .order('created_at DESC')
-    #   .collect(&:body)
+    # messages = @chat.messages
+    messages = Message
+      .where(messageable_type: @chat.class.to_s, messageable_id: @chat.id)
+      .order(:created_at)
+      .limit(50)
     # debugger
-    messages = @chat.messages
+    messages = camelize(messages)
     socket = { messages: messages, type: 'messages' }
     ChatChannel.broadcast_to(@chat, socket)
+  end
+
+  def camelize(objArr) 
+    objArr.map { |obj| camelize_keys(obj.attributes) }
+  end
+
+  def camelize_keys(hash)
+    pairs = hash.map { |k, v| [k.camelize(:lower), v] }
+    Hash[pairs]
   end
 
   def unsubscribed; end

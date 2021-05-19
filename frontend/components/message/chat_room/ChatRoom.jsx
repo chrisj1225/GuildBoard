@@ -8,7 +8,6 @@ class ChatRoom extends React.Component {
     super(props);
     this.state = { messages: [] };
     this.bottom = React.createRef();
-    // this.loadChat = this.loadChat.bind(this);
     this.subscription = App.cable.subscriptions.create(
       // first argument gets passed to backend chat_channel.rb as params
       { 
@@ -46,13 +45,11 @@ class ChatRoom extends React.Component {
         }
       }
     );
-
-    // this.loadChat = this.loadChat.bind(this);
   }
 
   componentDidMount() {
-    debugger
-    // this.loadChat();
+    // debugger
+
     this.subscription.load();
     // this.props.fetchChannelMessages(this.props.chat.id);
     // this.setState({
@@ -60,23 +57,19 @@ class ChatRoom extends React.Component {
     // })
   }
 
-  // loadChat() {
-  //   return e => {
-  //     e.preventDefault();
-  //     this.subscription.load();
-  //   }
-  // }
-
   componentDidUpdate() {
-    // this.bottom.current.scrollIntoView();
+    if (this.bottom.current) {
+      this.bottom.current.scrollIntoView();
+    }
   }
 
   componentWillUnmount() {
-    debugger
     this.subscription.unsubscribe();
   }
 
   render() {
+    // debugger
+
     const messageList = this.state.messages.map(message => {
       // debugger
       return(
@@ -103,7 +96,6 @@ class ChatRoom extends React.Component {
         <MessageFormContainer 
           subscription={this.subscription} />
       </div>
-
     )
   } 
 }
