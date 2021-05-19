@@ -1,11 +1,10 @@
 .chatroom-container {
-  display:flex;
+  display: flex;
   flex-grow: 1;
   flex-direction: column;
   justify-content: flex-end;
   font-family: 'Noto Sans JP', sans-serif;
   border: 1px solid white;
-  overflow-y: scroll;
   width: 100%;
   height: calc(100vh - 40px);
 
@@ -15,10 +14,7 @@
 } 
 
 .message-list {
-  display: flex;
-  width: 100%;
-  overflow-x: hidden;
-  flex: wrap;
+  overflow-y: scroll;
 }
 
 .message {
@@ -35,4 +31,12 @@
   color: #e6792d;
   font-size: 15px;
   font-weight: lighter;
+  margin-right: 10px;
+}
+
+.msg-date {
+  color:#687571;
+  font-size: 12px;
+  font-weight: lighter;
+
 }

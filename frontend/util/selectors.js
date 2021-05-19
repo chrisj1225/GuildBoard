@@ -29,3 +29,12 @@ export const findGenChanId = (server, channels) => {
 export const findServerChans = (server, channels) => {
   return channels.filter( channel => channel.serverId == server.id )
 } 
+
+export const convertDateString = (date) => {
+  let splitDate = date.split("-");
+  splitDate[2] = splitDate[2].slice(0,2); // ["2021", "05", "19"]
+  let numSplitDate = splitDate.map(n => (parseInt(n))); // [2021, 5, 19]
+  let newDate = `${splitDate[1]}/${splitDate[2]}/${splitDate[0]}`; // "05/19/2021"
+  const currDate = new Date();
+  return newDate;
+}

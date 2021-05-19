@@ -1,5 +1,6 @@
 import React from 'react';
 import MessageFormContainer from '../message_form/MessageForm_container';
+import { convertDateString } from '../../../util/selectors';
 import styles from './ChatRoom.module.scss';
 
 class ChatRoom extends React.Component {
@@ -55,13 +56,18 @@ class ChatRoom extends React.Component {
   }
 
   render() {
-    // debugger
     const messageList = this.state.messages.map(message => {
+      // debugger
       return(
         <li 
           key={message.id}
           className={styles.message} >
-          <span className={styles['msg-username']}>{this.props.users[message.authorId].username}</span>
+          <span className={styles['msg-username']}>
+            {this.props.users[message.authorId].username}
+          </span>
+          <span className={styles['msg-date']}>
+            {convertDateString(message.createdAt)}
+          </span>
           <br />
           <span className={styles['msg-content']}>{message.body}</span>
           <div ref={this.bottom} />
