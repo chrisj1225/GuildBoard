@@ -8,7 +8,8 @@ const mSTP = (state, ownProps) => {
     message: {
       body: "",
       authorId: state.session.session.id
-    }
+    },
+    chat: state.entities.channels[ownProps.match.params.channelId]
   })
 }
 

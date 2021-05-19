@@ -28,16 +28,16 @@ class MessageForm extends React.Component {
 
   render() {
     return(
-      <div className={styles['input-wrapper']}>
+      <div className={styles['message-wrapper']}>
         <form 
-          className={styles['input-wrapper']}
+          className={styles['message-form']}
           onSubmit={this.handleSubmit}>
           <input 
             className={styles['message-input']}
             type="text"
             value={this.state.body}
             onChange={this.update('body')}
-            placeholder="Message 'channel/DM name'"
+            placeholder={`Message ${this.props.chat.title}`}
           />
           <button type="submit"></button>
         </form>

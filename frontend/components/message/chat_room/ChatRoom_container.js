@@ -7,7 +7,9 @@ const mSTP = (state, ownProps) => {
   // debugger
   return({
     chatType: "Channel",
-    chatId: ownProps.match.params.channelId,
+    chat: state.entities.channels[ownProps.match.params.channelId],
+    users: state.entities.users,
+    currentUser: state.entities.users[state.session.session.id]
     // get messages from current channel to load
   })
 }

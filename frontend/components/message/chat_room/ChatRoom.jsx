@@ -13,7 +13,7 @@ class ChatRoom extends React.Component {
       { 
         channel: "ChatChannel",
         type: this.props.chatType,
-        chatId: this.props.chatId
+        chatId: this.props.chat.id
       },
       {
         received: data => {
@@ -58,15 +58,19 @@ class ChatRoom extends React.Component {
     // debugger
     const messageList = this.state.messages.map(message => {
       return(
-        <span key={message.id}>
-          {message.body}
+        <li 
+          key={message.id}
+          className={styles.message} >
+          <span className={styles['msg-username']}>{this.props.users[message.authorId].username}</span>
+          <br />
+          <span className={styles['msg-content']}>{message.body}</span>
           <div ref={this.bottom} />
-        </span>
+        </li>
       );
     });
     return (
       <div className={styles['chatroom-container']}>
-        <div className={styles.messages}>
+        <div>
           {messageList}
         </div>
         <MessageFormContainer 
