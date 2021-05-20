@@ -11,4 +11,8 @@ class Channel < ApplicationRecord
     foreign_key: :owner_id,
     class_name: :User
 
+  has_many :messages,
+    as: :messageable,
+    dependent: :destroy
+
 end

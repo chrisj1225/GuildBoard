@@ -29,6 +29,10 @@ class User < ApplicationRecord
     foreign_key: :owner_id,
     class_name: :Channel
 
+  has_many :messages,
+    primary_key: :id,
+    foreign_key: :author_id,
+    class_name: :Message
 
   # Methods:
 

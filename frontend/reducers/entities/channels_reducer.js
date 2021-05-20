@@ -16,8 +16,8 @@ const channelsReducer = (state = {}, action) => {
   Object.freeze(state);
   let newState = {...state};
   switch(action.type) {
-    // case RECEIVE_ALL_CHANNELS:
-    //   return action.channels;
+    case RECEIVE_ALL_CHANNELS:
+      return action.channels;
     case RECEIVE_CHANNELS:
       return action.channels;
     case RECEIVE_CHANNEL:
@@ -31,28 +31,32 @@ const channelsReducer = (state = {}, action) => {
       // duplicate is being added to the state here so that 
       // user can get redirected to new server's 'general' channel.
       const newGenChan = {
-        id: action.server.genChanId,
+        id: action.serverInfo.server.genChanId,
         title: 'general',
-        serverId: action.server.id,
-        ownerId: action.server.ownerId
+        serverId: action.serverInfo.server.id,
+        ownerId: action.serverInfo.server.ownerId
       }
       return {
         ...state,
         [newGenChan.id]: newGenChan
       }      
     case RECEIVE_USER_SERVER:   
-      console.log(newState);
-      const channels = {};
-      for (let key in newState) {
-        if (newState[key].serverId == action.id) {
-          channels[key] = newState[key]
-        }
-      }
-      console.log(channels)
-      return {
-        ...state,
-        ...channels
-      }
+      // console.log(newState);
+      // const channels = {};
+      // for (let key in newState) {
+      //   if (newState[key].serverId == action.id) {
+      //     channels[key] = newState[key]
+      //   }
+      // }
+      // console.log(channels)
+      // return {
+      //   ...state,
+      //   ...channels
+      // }
+      
+      // since state.entities.channels now hold all channels in DB:
+      // nothing needs to be added to state, it's already there.
+      return state;
     case REMOVE_CHANNEL:
       delete newState[action.channelId];
       return newState;

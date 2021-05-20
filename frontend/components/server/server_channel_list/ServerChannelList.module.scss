@@ -1,7 +1,7 @@
 .channel-list-container {
   flex-direction: column;
   align-items: center;
-  width: 220px;
+  width: 240px;
   background-color: #2f3136;
   color: white;
   font-weight: bold;
@@ -15,15 +15,38 @@
 .channel-list {
   display: flex;
   flex-direction: column;
+  justify-content: flex-start;
+  height: calc(100vh - 40px);
   align-items: center;
   color: #858c81;
   font-family: 'Noto Sans JP', sans-serif;
-  overflow: scroll;
+  overflow-y: scroll;
+  overflow-x: hidden;
 
   &:first-child {
     align-items: normal;
   }
 
+  &::-webkit-scrollbar {
+    width: 5px;
+    background: transparent;
+  }
+
+  &:hover {
+    &::-webkit-scrollbar {
+      width: 5px;
+    }
+    
+    &::-webkit-scrollbar-track {
+      background: #2e3338;
+    }
+    
+    &::-webkit-scrollbar-thumb {
+      background-color: #202225;
+      border-radius: 15px; 
+      border: 3px solid #202225;
+    }
+  }
 }
 
 .server-header {

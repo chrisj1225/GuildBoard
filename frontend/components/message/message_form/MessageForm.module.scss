@@ -1,0 +1,21 @@
+.message-wrapper {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+}
+
+.message-form {
+  height: 80px;
+  width: 100%;
+  margin: 0 20px 0 10px;
+}
+
+.message-input {
+  background-color: #40444b;
+  width: 100%;
+  height: 30px;
+  border-radius: 5px;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  padding-left: 10px;
+}

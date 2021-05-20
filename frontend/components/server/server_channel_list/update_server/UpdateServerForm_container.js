@@ -8,7 +8,7 @@ const mSTP = (state, ownProps) => {
   // debugger
   const serverId = ownProps.location.pathname.split("/")[2];
   return({
-    currentUser: state.entities.users[state.session.session.id],
+    currentUser: state.entities.currentUser[state.session.session.id],
     newServer: state.entities.servers[serverId]
   })
 }

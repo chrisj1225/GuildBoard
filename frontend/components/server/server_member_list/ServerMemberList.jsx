@@ -8,12 +8,14 @@ class ServerMemberList extends React.Component {
     super(props)
   }
 
+  // Not needed. This is called in ServerSidebar cDM.
   // componentDidMount() {
   //   this.props.fetchServerMembers(this.props.currentServerId);
   // }
 
   render(){
     // debugger
+    if (!this.props.users) return null;
     return(
       <div className={styles['member-list']}>
         <h1 className={styles['member-header']}>

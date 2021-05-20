@@ -8,18 +8,18 @@ const Home = () => (
   <div className={styles['home-container']}>
     <ServerSideBarContainer />
     <div className={styles['home-content']}>
-      Welcome to the Home page!
+      <h1>Welcome to GuildBoard!</h1>
       <br />
-      There is nothing here yet... Home will hold all direct message conversations.
-      <br />
-      For now, please try clicking one of the server buttons in the ServerSideBar to the left!
-      <br />
-      <ul>
-        <li>
-          Still working on getting ServerSidebar to render on login
-        </li>
-
-      </ul>
+      <h2>
+        It's not much yet but this home page will eventually hold all direct message conversations!
+      </h2>
+      <br /><br />
+      <h2>
+        For now, please try clicking one of the server buttons in the ServerSideBar to the left!
+      </h2>
+      <br /><br />
+      <h1>We're working on it!</h1>
+      <img className={styles['bob-gif']} src={window.bobUrl} />
     </div>
 
   </div>

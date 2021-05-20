@@ -17,7 +17,7 @@ class CreateServerForm extends React.Component {
     const server_params = convertToSnakeCase(this.state);
     this.props.createServer(server_params)
       .then((res) => {
-        this.props.history.push(`/servers/${res.server.id}/channels/${res.server.genChanId}`)
+        this.props.history.push(`/servers/${res.serverInfo.server.id}/channels/${res.serverInfo.server.genChanId}`)
       });
     this.props.closeModal();
   }
@@ -50,7 +50,7 @@ class CreateServerForm extends React.Component {
           <p>By creating a server, you agree to GuildBoard's guidelines.</p>
           <div className={styles.buttons}>
             <button className={styles.back} onClick={()=>this.props.closeModal()}>Back</button>
-            <input className={styles.submit} type="submit" value="Create" />
+            <button className={styles.submit} type="submit" >Create</button>
           </div>
         </form>
 

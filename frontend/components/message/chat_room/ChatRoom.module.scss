@@ -1,0 +1,79 @@
+.chatroom-container {
+  display: flex;
+  flex-grow: 1;
+  flex-direction: column;
+  justify-content: flex-end;
+  font-family: 'Noto Sans JP', sans-serif;
+  // border: 1px solid white;
+  width: 100%;
+  height: calc(100vh - 40px);
+
+  li {
+    list-style-type: none;
+  }
+} 
+
+.welcome-msg {
+  font-family: 'Lato', sans-serif;
+  text-align: center;
+  margin-bottom: 40px;
+
+  h1 {
+    font-size: 30px;
+  }
+}
+
+.loading {
+  display: flex;
+  flex-grow: 1;
+  justify-content: center;
+  align-items: center;
+  font-size: 20px;
+}
+
+.message-list {
+  overflow-y: scroll;
+  overflow-x: hidden;
+  // &::-webkit-scrollbar {
+  //   width: 0px;
+  //   background: transparent;
+  // }
+  &::-webkit-scrollbar {
+    width: 8px;
+  }
+  
+  &::-webkit-scrollbar-track {
+    background: #2e3338;
+  }
+  
+  &::-webkit-scrollbar-thumb {
+    background-color: #202225;
+    border-radius: 15px; 
+    border: 3px solid #202225;
+  }
+}
+
+.message {
+  margin-left: 20px;
+  margin-top: 10px;
+}
+
+.msg-content {
+  font-size: 14px;
+  color: white;
+  margin-left: 20px;
+}
+
+.msg-username {
+  color: #e6792d;
+  font-size: 15px;
+  font-weight: lighter;
+  margin-right: 10px;
+}
+
+.msg-date {
+  color:#687571;
+  font-size: 12px;
+  font-weight: lighter;
+
+}

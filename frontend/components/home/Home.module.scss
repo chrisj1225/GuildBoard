@@ -1,9 +1,37 @@
 .home-container {
   display: flex;
   flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+  font-family: 'Lato', sans-serif;
+  color: white;
+  background-color: #36393f;
+
+
+  h1 {
+    font-size: 36px;
+  }
+
+  h2 {
+    font-size: 24px;
+  }
 }
 
 .home-content {
+  display: flex;
+  flex-direction: column;
   flex-grow: 1;
+  justify-content: center;
+  align-items: center;
+  font-family: 'Lato', sans-serif;
+  color: white;
+  text-align: center;
+  background-color: #36393f;
 
+}
+
+.bob-gif {
+  width: 500px;
+  height: auto;
 }
