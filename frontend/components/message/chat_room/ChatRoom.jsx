@@ -68,7 +68,6 @@ class ChatRoom extends React.Component {
   }
 
   render() {
-    debugger
     let messageList;
     if (Object.keys(this.props.users).length) {
       messageList = (this.props.messages.length) ?

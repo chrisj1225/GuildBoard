@@ -15,16 +15,14 @@ export const convertToSnakeCase = obj => {
   return newObj;
 }
 
-
-
-export const findGenChanId = (server, channels) => {
-  // debugger
-  const genChans = channels.filter( channel => {
-    return (channel.serverId == server.id) && (channel.title == "general")
-  })
-  // debugger
-  return genChans[0].id;
-}
+// export const findGenChanId = (server, channels) => {
+//   // debugger
+//   const genChans = channels.filter( channel => {
+//     return (channel.serverId == server.id) && (channel.title == "general")
+//   })
+//   // debugger
+//   return genChans[0].id;
+// }
 
 export const findServerChans = (server, channels) => {
   return channels.filter( channel => channel.serverId == server.id )

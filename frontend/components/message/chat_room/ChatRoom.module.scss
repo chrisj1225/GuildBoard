@@ -4,7 +4,7 @@
   flex-direction: column;
   justify-content: flex-end;
   font-family: 'Noto Sans JP', sans-serif;
-  border: 1px solid white;
+  // border: 1px solid white;
   width: 100%;
   height: calc(100vh - 40px);
 
@@ -37,6 +37,7 @@
 
 .message {
   margin-left: 20px;
+  margin-top: 10px;
 }
 
 .msg-content {

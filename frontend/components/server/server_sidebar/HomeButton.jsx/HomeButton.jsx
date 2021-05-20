@@ -8,7 +8,7 @@ const HomeButton = () => (
     to='/home'
     className={styles['server-icon']}
     activeClassName={styles['server-icon active']} >
-    H
+    <img className={styles.logo} src={window.gbLogoUrl} />
   </NavLink>
 
 )
