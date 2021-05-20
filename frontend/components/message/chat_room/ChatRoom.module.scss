@@ -33,6 +33,24 @@
 
 .message-list {
   overflow-y: scroll;
+  overflow-x: hidden;
+  // &::-webkit-scrollbar {
+  //   width: 0px;
+  //   background: transparent;
+  // }
+  &::-webkit-scrollbar {
+    width: 8px;
+  }
+  
+  &::-webkit-scrollbar-track {
+    background: #2e3338;
+  }
+  
+  &::-webkit-scrollbar-thumb {
+    background-color: #202225;
+    border-radius: 15px; 
+    border: 3px solid #202225;
+  }
 }
 
 .message {
