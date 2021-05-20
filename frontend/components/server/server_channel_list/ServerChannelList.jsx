@@ -17,16 +17,12 @@ class ServerChannelList extends React.Component {
     this.closeMenu = this.closeMenu.bind(this);
     this.leaveServer = this.leaveServer.bind(this);
   }
-  // componentDidMount() {
-  //   this.props.fetchChannels(this.props.serverId);
-  // }
 
-  componentDidUpdate(prevProps, prevState) {
-    // debugger
-    if (prevProps.serverId !== this.props.serverId) {
-      this.props.fetchServerMembers(this.props.serverId)
-    }
-  }
+  // componentDidUpdate(prevProps, prevState) {
+  //   if (prevProps.serverId !== this.props.serverId) {
+  //     this.props.fetchServerMembers(this.props.serverId)
+  //   }
+  // }
 
   toggleMenu() {
     const currSetting = this.state.serverMenuShow;

@@ -22,7 +22,7 @@ const mSTP = (state, ownProps) => {
 const mDTP = dispatch => {
   return ({
     fetchAllServers: (userId) => dispatch(fetchAllServers(userId)),
-    fetchServerMembers: (serverId) => dispatch(fetchServerMembers(serverId)),
+    // fetchServerMembers: (serverId) => dispatch(fetchServerMembers(serverId)),
     fetchAllChannels: () => dispatch(fetchAllChannels()),
     openModal: (modal) => dispatch(openModal(modal))
   })

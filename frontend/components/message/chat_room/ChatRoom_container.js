@@ -4,6 +4,7 @@ import { withRouter } from 'react-router';
 import { getChannelMessages } from '../../../util/selectors'; 
 
 import { fetchChannelMessages, receiveMessage, receiveChannelMessages } from '../../../actions/message_actions';
+import { fetchServerInfo } from '../../../actions/server_actions';
 
 import ChatRoom from './ChatRoom';
 
@@ -23,7 +24,8 @@ const mDTP = dispatch => {
   return({
     receiveMessage: message => dispatch(receiveMessage(message)),
     receiveChannelMessages: messages => dispatch(receiveChannelMessages(messages)),
-    fetchChannelMessages: channelId => dispatch(fetchChannelMessages(channelId))
+    // fetchChannelMessages: channelId => dispatch(fetchChannelMessages(channelId)),
+    // fetchServerInfo: serverId => dispatch(fetchServerInfo(serverId))
   })
 }
 

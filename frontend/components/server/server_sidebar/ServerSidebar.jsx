@@ -11,20 +11,13 @@ class ServerSidebar extends React.Component {
 
   }
   
-  // componentDidUpdate() {
-  //   // debugger
-  //   if (!this.props.home) {
-  //     this.props.fetchServerMembers(this.props.currServerId);
-  //   } 
-  //   // this.props.fetchAllServers(this.props.currentUser.id);
-  // }
   componentDidMount() {
     // debugger
-    if (!this.props.home) {
-      this.props.fetchServerMembers(this.props.currServerId);
-    } 
+    // if (!this.props.home) {
+    //   this.props.fetchServerMembers(this.props.currServerId);
+    // } 
     this.props.fetchAllServers(this.props.currentUser.id);
-    this.props.fetchAllChannels()
+    // this.props.fetchAllChannels()
   }
 
   render() {

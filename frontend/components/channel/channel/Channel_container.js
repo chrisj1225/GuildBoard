@@ -1,7 +1,6 @@
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router';
-import { fetchChannel } from '../../../actions/channel_actions';
-import { fetchServerMembers } from '../../../actions/server_actions';
+import { fetchServerInfo } from '../../../actions/server_actions';
 import Channel from './Channel';
 
 const mSTP = (state, ownProps) => {
@@ -16,8 +15,7 @@ const mSTP = (state, ownProps) => {
 
 const mDTP = dispatch => {
   return({
-    fetchChannel: (serverId) => dispatch(fetchChannel(serverId)),
-    fetchServerMembers: (serverId) => dispatch(fetchServerMembers(serverId))
+    fetchServerInfo: (serverId) => dispatch(fetchServerInfo(serverId))
   })
 }
 

@@ -10,6 +10,7 @@ export const REMOVE_SERVER = 'REMOVE_SERVER';
 export const RECEIVE_SERVER_ERRORS = 'RECEIVE_SERVERS_ERRORS';
 export const CLEAR_SERVER_ERRORS = 'CLEAR_SERVER_ERRORS';
 
+export const RECEIVE_SERVER_INFO = 'RECEIVE_SERVER_INFO';
 export const RECEIVE_SERVER_MEMBERS = 'RECEIVE_SERVER_MEMBERS';
 
 export const receiveUserServers = servers => {
@@ -73,6 +74,20 @@ export const receiveServerMembers = (members) => {
     members
   })
 };
+
+export const receiveServerInfo = (info) => {
+  return ({
+    type: RECEIVE_SERVER_INFO,
+    info
+  })
+}
+
+// call when switching servers. pulls all server data and should hit 
+// all relevant entities subreducers
+export const fetchServerInfo = (serverId) => dispatch => {
+  return ServerAPIUtil.fetchServer(serverId)
+  .then(info => dispatch(receiveServerInfo(info)))
+}
 
 export const fetchAllServers = (userId) => dispatch => {
   dispatch(fetchServers());

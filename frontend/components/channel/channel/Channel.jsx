@@ -14,9 +14,15 @@ class Channel extends React.Component {
   }
 
   componentDidMount() {
-    // this.props.fetchChannel(this.props.currentChannelId)
-    // this.props.fetchServerMembers(this.props.currentServerId);
+    this.props.fetchServerInfo(this.props.currentServerId);
   }
+  
+  componentDidUpdate(prevProps, prevState) {
+    if (prevProps.currentServerId !== this.props.currentServerId) {
+      this.props.fetchServerInfo(this.props.currentServerId);
+    }
+  }
+  
 
   render () {
     if (!this.props.currentChannel) return null;

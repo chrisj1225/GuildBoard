@@ -23,15 +23,9 @@ class ChatRoom extends React.Component {
           // data trasmitted to stream via backend broadcast_to method. 
           switch (data.type) {
             case "receive_message":
-              // this.setState.call(this, ({
-              //   messages: this.state.messages.concat(data.message)
-              // }));
               this.props.receiveMessage(data.message);
             break;
             case "receive_messages":
-              // this.setState.call(this, ({
-              //   messages: data.messages
-              // }));
               this.props.receiveChannelMessages(data.messages);
               break;
           }
@@ -53,7 +47,7 @@ class ChatRoom extends React.Component {
 
     // this.subscription.load();
     // debugger
-    this.props.fetchChannelMessages(this.props.chat.id);
+    // this.props.fetchServerInfo(this.props.chat.serverId);
   }
 
   componentDidUpdate() {

@@ -11,10 +11,10 @@ const mSTP = (state, ownProps) => {
   })
 }
 
-const mDTP = dispatch => {
-  return ({
-    fetchServerMembers: (serverId) => dispatch(fetchServerMembers(serverId))
-  })
-}
+// const mDTP = dispatch => {
+//   return ({
+//     fetchServerMembers: (serverId) => dispatch(fetchServerMembers(serverId))
+//   })
+// }
 
-export default withRouter(connect(mSTP, mDTP)(ServerMemberList));
+export default withRouter(connect(mSTP, null)(ServerMemberList));

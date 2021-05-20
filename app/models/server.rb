@@ -20,5 +20,9 @@ class Server < ApplicationRecord
     foreign_key: :server_id,
     class_name: :Channel,
     dependent: :destroy
+  
+  has_many :messages,
+    through: :channels,
+    source: :messages
 
 end
