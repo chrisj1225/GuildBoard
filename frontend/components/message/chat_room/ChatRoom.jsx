@@ -51,10 +51,10 @@ class ChatRoom extends React.Component {
     // debugger
 
     this.subscription.load();
-    // this.props.fetchChannelMessages(this.props.chat.id);
-    // this.setState({
-    //   messages: this.props.messages
-    // })
+    this.props.fetchChannelMessages(this.props.chat.id);
+    this.setState({
+      messages: this.props.messages
+    })
   }
 
   componentDidUpdate() {
@@ -64,7 +64,8 @@ class ChatRoom extends React.Component {
   }
 
   componentWillUnmount() {
-    this.subscription.unsubscribe();
+    // this.subscription.unsubscribe();
+    App.cable.subscriptions.remove(this.subscription);
   }
 
   render() {

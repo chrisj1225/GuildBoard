@@ -20,11 +20,11 @@ const ServerSidebarItem = ({ server }) => {
       activeClassName={styles['selected']} 
       >
       {server.title.split("")[0]}
-      <div className={styles.wrapper}>
+      {/* <div className={styles.wrapper}>
         <div className={styles.tooltip}>
           {server.title}
         </div>
-      </div>
+      </div> */}
       {/* <ContextMenu /> */}
     </NavLink>
   )

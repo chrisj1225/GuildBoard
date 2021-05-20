@@ -20,6 +20,7 @@ class Channel extends React.Component {
 
   render () {
     if (!this.props.currentChannel) return null;
+    if (this.props.match.params.serverId )
 
     return (
       <div className={styles['channel-container']}>
