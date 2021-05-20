@@ -7,7 +7,8 @@ const messagesReducer = (state = {}, action) => {
   Object.freeze(state);
   switch(action.type) {
     case RECEIVE_CHANNEL_MESSAGES:
-      return Object.assign({}, state, action.messages)
+      // return Object.assign({}, state, action.messages)
+      return action.messages;
     case RECEIVE_MESSAGE: 
       return Object.assign({}, state, { [action.message.id]: action.message });
     default:

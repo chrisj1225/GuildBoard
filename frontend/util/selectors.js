@@ -30,6 +30,13 @@ export const findServerChans = (server, channels) => {
   return channels.filter( channel => channel.serverId == server.id )
 } 
 
+export const getChannelMessages = (state, channelId) => {
+  const channelMessages = Object.values(state.entities.messages).filter(message => {
+    return message.messageableId == channelId
+  })
+  return channelMessages;
+}
+
 export const convertDateString = (date) => {
   let splitDate = date.split("-");
   splitDate[2] = splitDate[2].slice(0,2); // ["2021", "05", "19"]
