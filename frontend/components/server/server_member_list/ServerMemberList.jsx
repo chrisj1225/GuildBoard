@@ -15,6 +15,7 @@ class ServerMemberList extends React.Component {
 
   render(){
     // debugger
+    if (!this.props.users) return null;
     return(
       <div className={styles['member-list']}>
         <h1 className={styles['member-header']}>

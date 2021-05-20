@@ -11,7 +11,7 @@ const mSTP = (state, ownProps) => {
   if (ownProps.match.path == "/home") home = true;
   return({
     home,
-    currentUser: state.entities.users[state.session.session.id],
+    currentUser: state.entities.currentUser[state.session.session.id],
     userServersIds: state.session.userServers,
     currServerId: ownProps.match.params.serverId,
     allServers: state.entities.servers,

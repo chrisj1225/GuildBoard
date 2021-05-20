@@ -6,8 +6,10 @@ import styles from './ChatRoom.module.scss';
 class ChatRoom extends React.Component {
   constructor(props) {
     super(props);
-    // this.state = { messages: [] };
     this.bottom = React.createRef();
+    // this.state = {
+    //   mounted: false
+    // }
     this.subscription = App.cable.subscriptions.create(
       // first argument gets passed to backend chat_channel.rb as params
       { 
@@ -50,7 +52,7 @@ class ChatRoom extends React.Component {
   componentDidMount() {
 
     // this.subscription.load();
-  
+    // debugger
     this.props.fetchChannelMessages(this.props.chat.id);
   }
 
@@ -66,26 +68,25 @@ class ChatRoom extends React.Component {
   }
 
   render() {
-    // debugger
-    let messageList = [];
-    if (this.props.messages.length !== 0) {
-      this.props.messages.forEach(message => {
-        debugger
-        messageList.push(
-          <Message 
-            key={message.id}
-            message={message}
-            username={this.props.users[message.authorId].username}
-            bottom={this.bottom}
-          />
-          );
-        });
-    } else {
-      messageList = (
-        <div className={styles['welcome-msg']}>
+    debugger
+    let messageList;
+    if (Object.keys(this.props.users).length) {
+      messageList = (this.props.messages.length) ?
+        this.props.messages.map(message => {
+            return <Message 
+              key={message.id}
+              message={message}
+              username={this.props.users[message.authorId].username}
+              bottom={this.bottom}
+            />
+        }) : (
+          <div className={styles['welcome-msg']}>
             <h1>Welcome to {this.props.chat.title}!</h1>
           </div>
-        ); 
+        )
+    } else {
+      // return null;
+      return <div className={styles.loading}>Loading...</div>
     }
 
     return (
