@@ -20,17 +20,17 @@ export const receiveUserServers = servers => {
   })
 };
 
-export const receiveUserServer = server => {
+export const receiveUserServer = serverInfo => {
   return ({
     type: RECEIVE_USER_SERVER,
-    server
+    serverInfo
   })
 };
 
-export const removeUserServer = server => {
+export const removeUserServer = serverInfo => {
   return ({
     type: REMOVE_USER_SERVER,
-    server
+    serverInfo
   })
 };
 
@@ -41,10 +41,10 @@ export const receiveAllServers = servers => {
   })
 };
 
-export const receiveServer = server => {
+export const receiveServer = serverInfo => {
   return ({
     type: RECEIVE_SERVER,
-    server
+    serverInfo
   })
 };
 

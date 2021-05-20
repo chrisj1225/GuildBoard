@@ -17,7 +17,7 @@ class CreateServerForm extends React.Component {
     const server_params = convertToSnakeCase(this.state);
     this.props.createServer(server_params)
       .then((res) => {
-        this.props.history.push(`/servers/${res.server.id}/channels/${res.server.genChanId}`)
+        this.props.history.push(`/servers/${res.serverInfo.server.id}/channels/${res.serverInfo.server.genChanId}`)
       });
     this.props.closeModal();
   }

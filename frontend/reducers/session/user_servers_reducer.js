@@ -9,11 +9,11 @@ const userServersReducer = (state = [], action) => {
     case RECEIVE_USER_SERVERS:
       return Object.keys(action.servers);
     case RECEIVE_USER_SERVER:
-      return [...newState, (action.server.id)];
+      return [...newState, (action.serverInfo.server.id)];
     case RECEIVE_SERVER:
-      return [...newState, (action.server.id)];
+      return [...newState, (action.serverInfo.server.id)];
     case REMOVE_USER_SERVER:
-      newState.splice(newState.indexOf(action.server.id), 1);
+      newState.splice(newState.indexOf(action.serverInfo.server.id), 1);
       return newState;
     case LOGOUT_CURRENT_USER:
       return [];

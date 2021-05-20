@@ -28,7 +28,7 @@ class ExploreServersMenu extends React.Component {
       memberParams = convertToSnakeCase(memberParams);
       this.props.addServerMember(memberParams)
         .then((res) => {
-          this.props.history.push(`/servers/${res.server.id}/channels/${res.server.genChanId}`)
+          this.props.history.push(`/servers/${res.serverInfo.server.id}/channels/${res.serverInfo.server.genChanId}`)
         });
       this.props.closeModal();
     }

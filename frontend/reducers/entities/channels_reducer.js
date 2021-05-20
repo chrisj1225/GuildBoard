@@ -31,10 +31,10 @@ const channelsReducer = (state = {}, action) => {
       // duplicate is being added to the state here so that 
       // user can get redirected to new server's 'general' channel.
       const newGenChan = {
-        id: action.server.genChanId,
+        id: action.serverInfo.server.genChanId,
         title: 'general',
-        serverId: action.server.id,
-        ownerId: action.server.ownerId
+        serverId: action.serverInfo.server.id,
+        ownerId: action.serverInfo.server.ownerId
       }
       return {
         ...state,
