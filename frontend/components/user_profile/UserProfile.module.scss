@@ -1,0 +1,80 @@
+.profile-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100vw;
+  height: 100vh;
+  background-color: #36393f;
+  font-family: 'Noto Sans JP', sans-serif;
+
+
+  h1 {
+    font-family: 'Lato', sans-serif;
+    font-size: 20px;
+    color: white;
+    margin-bottom: 10px;
+  }
+}
+
+.logo {
+  height: 90px;
+  width: 90px;
+}
+
+.back_x {
+  position: absolute;
+  top: 30px;
+  right: 30px;
+  color: #72767d;
+  width: 48px;
+  height: 48px;
+
+  &:hover {
+    color: #484c52;
+  }
+}
+
+.profile-box {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  background-color:#2f3136;
+  width: 500px;
+  height: 200px;
+  border-radius: 10px;
+  color: white;
+}
+
+.info-header {
+  font-size: 12px;
+  font-weight: bold;
+  color: #868a8f;
+}
+
+.edit {
+  background: #7289da;
+  text-align: center;
+  color: white;
+  height: 40px;
+  width: 80px;
+  border-radius: 5px;
+  border: 0;
+
+  &:hover {
+    background-color: #15318b;
+  }
+}
+
+.logout {
+  font-size: 16px;
+  color: #c1393c;
+  padding: 5px;
+  border-radius: 5px;
+  margin-top: 5px;
+
+  &:hover {
+    color: white;
+    background-color: #c1393c;
+  }
+}

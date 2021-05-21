@@ -51,3 +51,9 @@ export const logout = () => dispatch => {
     .then(() => dispatch(logoutCurrentUser()),
       err => dispatch(receiveErrors(err.responseJSON)))
 }
+
+export const editUser = user => dispatch => {
+  return SessionApiUtil.editUser(user)
+    .then(user => dispatch(receiveCurrentUser(user)),
+      err => dispatch(receiveErrors(err.responseJSON)))
+}

@@ -4,11 +4,11 @@ import ServerSideBarContainer from '../server/server_sidebar/ServerSidebar_conta
 
 import styles from './Home.module.scss';
 
-const Home = () => (
+const Home = ({ currentUser }) => (
   <div className={styles['home-container']}>
     <ServerSideBarContainer />
     <div className={styles['home-content']}>
-      <h1>Welcome to GuildBoard!</h1>
+      <h1>Welcome to GuildBoard, {currentUser.username}!</h1>
       <br />
       <h2>
         The home page is currently under construction.

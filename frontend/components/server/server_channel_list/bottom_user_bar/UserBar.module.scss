@@ -1,0 +1,16 @@
+.user-bar-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 40px;
+  background-color: #292b2f;
+}
+
+.user {
+  padding-left: 10px;
+  font-size: 12px;
+}
+
+.cog {
+  padding-right: 10px;
+}

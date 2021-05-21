@@ -1,6 +1,7 @@
 import React from 'react';
 import ServerChannelItem from './ServerChannelItem';
 import CreateChannelButton from './create_channel/CreateChannelButton';
+import UserBar from './bottom_user_bar/UserBar';
 
 import styles from './ServerChannelList.module.scss';
 
@@ -86,6 +87,7 @@ class ServerChannelList extends React.Component {
             })}
           </div>
         </div>
+        <UserBar user={this.props.currentUser} />
       </div>
 
     )

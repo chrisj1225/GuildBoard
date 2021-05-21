@@ -5,6 +5,7 @@ import CreateServerFormContainer from '../server_sidebar/create_server/CreateSer
 import ExploreServersMenuContainer from '../server_sidebar/explore_servers/ExploreServersMenu_container';
 import CreateChannelFormContainer from '../server_channel_list/create_channel/CreateChannelForm_container';
 import UpdateServerFormContainer from '../server_channel_list/update_server/UpdateServerForm_container';
+import EditUserFormContainer from '../../user_profile/edit_user/EditUserForm_container';
 
 import styles from './ServerModal.module.scss';
 
@@ -24,6 +25,9 @@ const ServerModal = ({ modal, closeModal }) => {
       break;
     case 'update-server':
       component = <UpdateServerFormContainer />
+      break;
+    case 'edit-user':
+      component = <EditUserFormContainer />
       break;
     default:
       return null;
