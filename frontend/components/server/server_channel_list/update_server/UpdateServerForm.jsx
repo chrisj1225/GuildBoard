@@ -32,7 +32,6 @@ class UpdateServerForm extends React.Component {
       <div className={styles['create-container']}>
         <h1 className={styles.header}>Change Server Info</h1>
         <form 
-          className={styles['create-form']}
           onSubmit={this.handleSubmit}>
           <label>SERVER TITLE
             <input 

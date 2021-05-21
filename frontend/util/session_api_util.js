@@ -27,4 +27,4 @@ export const editUser = (user) => {
     url: `/api/users/${user.id}`,
     data: { user }
   })
-}
+};

@@ -1,9 +1,64 @@
-.edit-box {
-  width: 500px;
-  height: 500px;
+.edit-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-content: center;
+  background-color: #36393f;
+  font-family: 'Noto Sans JP', sans-serif;
+  width: 400px;
+  border-radius: 5px;
+
+  h2 {
+    font-family: 'Lato', sans-serif;
+    color: white;
+    font-size: 24px;
+    padding: 20px 0 10px 0;
+    text-align: center;
+  }
+
+  form {
+    color: #8d8e91;
+    font-size: 12px;
+
+    label {
+      font-weight: bold;
+      margin-left: 25px;
+      margin-bottom: 10px;
+    }
+    
+    input {
+      border: 1px solid #ccc;
+      border-radius: 2px;
+      width: 350px;
+      height: 32px;
+      font-size: 14px;
+      background-color: #303339;
+      color: white;
+      margin: 5px 0 10px 25px;
+      padding-left: 5px;
+    }
+  }
 }
 
 .button {
-  padding: 5px;
-  border: none;
+  background: #7289da;
+  text-align: center;
+  color: white;
+  margin: 20px;
+  height: 40px;
+  width: 90px;
+  border-radius: 5px;
+  border: 0;
+  
+  &:hover {
+    background: #15318b
+  }
+}
+  
+.error {
+  font-family: 'Noto Sans JP', sans-serif;
+  color: red;
+  font-size: 12px;
+  text-align: center;
+  margin: 0;
 }

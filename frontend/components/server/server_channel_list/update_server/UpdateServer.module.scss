@@ -77,8 +77,8 @@
   width: 90px;
   border-radius: 5px;
   border: 0;
-}
-
-.submit:hover {
-  background: #15318b
+  
+  &:hover {
+    background: #15318b
+  }
 }

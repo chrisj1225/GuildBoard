@@ -41,7 +41,7 @@ class EditUserForm extends React.Component {
     )
 
     return (
-        <div className={styles['edit-box']}>
+        <div className={styles['edit-container']}>
           <h2>Edit User</h2>
           <form onSubmit={this.handleSubmit}>
             <label>EMAIL:
@@ -59,9 +59,17 @@ class EditUserForm extends React.Component {
                 onChange={this.update('username')} 
                 value={this.state.username} />
             </label>
+            <br />
+            <label>Confirm Password:
+              <br />
+              <input 
+                type="password" 
+                onChange={this.update('password')} 
+                value={this.state.password} />
+            </label>
             {showErrors}
             <br />
-            <input className={styles.button} type="submit" value={this.props.formType} />
+            <button className={styles.button} type="submit">Edit</button>
           </form>
         </div>
     )

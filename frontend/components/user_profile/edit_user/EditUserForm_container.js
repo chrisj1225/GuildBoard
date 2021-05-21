@@ -7,7 +7,8 @@ const mSTP = (state, ownProps) => {
   return({
     user: {
       email: currentUser.email,
-      username: currentUser.username
+      username: currentUser.username,
+      password: ""
     },
     errors: state.errors
   })

@@ -27,10 +27,10 @@ class UserProfile extends React.Component {
         <div className={styles['profile-box']}>
           <img className={styles.logo} src={window.gbLogoUrl} />
           <div>
-            <span className={styles['info-header']}>USERNAME</span>
-            <h2 >{this.props.currentUser.username}</h2>
             <span className={styles['info-header']}>EMAIL</span>
             <h2>{this.props.currentUser.email}</h2>
+            <span className={styles['info-header']}>USERNAME</span>
+            <h2 >{this.props.currentUser.username}</h2>
           </div>
           <button 
             className={styles.edit}
