@@ -30,4 +30,3 @@ bundle.js.map
 
 # Ignore master key for decrypting credentials and more.
 /config/master.key
-/config/cable.yml
