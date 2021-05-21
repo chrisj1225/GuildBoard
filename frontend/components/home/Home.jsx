@@ -11,14 +11,16 @@ const Home = () => (
       <h1>Welcome to GuildBoard!</h1>
       <br />
       <h2>
-        It's not much yet but this home page will eventually hold all direct message conversations!
+        The home page is currently under construction.
+        <br />
+        Eventually this will hold direct messages with other users!
       </h2>
       <br /><br />
       <h2>
-        For now, please try clicking one of the server buttons in the ServerSideBar to the left!
+        For now, please try entering one of our servers to the left!
       </h2>
       <br /><br />
-      <h1>We're working on it!</h1>
+      <h2>We're working on it!</h2>
       <img className={styles['bob-gif']} src={window.bobUrl} />
     </div>
 

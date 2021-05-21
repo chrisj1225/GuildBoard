@@ -8,12 +8,28 @@
   border-radius: 5px;
   width: 600px;
   height: 800px;
-  overflow: scroll;
+  overflow-y: scroll;
+  overflow-x: hidden;
   background-color: white;
 
   h2 {
     font-size: 14px;
   }
+
+  &::-webkit-scrollbar {
+    width: 10px;
+  }
+  
+  &::-webkit-scrollbar-track {
+    background: #f0f0f0;
+  }
+  
+  &::-webkit-scrollbar-thumb {
+    background-color: #cdcdcd;
+    border-radius: 12px; 
+    border: 3px solid #cdcdcd;
+  }
+
 }
 
 .header {
