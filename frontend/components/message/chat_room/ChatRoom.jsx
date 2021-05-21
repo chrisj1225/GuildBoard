@@ -6,6 +6,10 @@ import styles from './ChatRoom.module.scss';
 class ChatRoom extends React.Component {
   constructor(props) {
     super(props);
+    this.state = {
+      messageReceived: false
+    }
+
     this.bottom = React.createRef();
     // this.state = {
     //   mounted: false
@@ -23,7 +27,11 @@ class ChatRoom extends React.Component {
           // data trasmitted to stream via backend broadcast_to method. 
           switch (data.type) {
             case "receive_message":
+              this.setState.call(this, ({
+                messageReceived: true
+              }));
               this.props.receiveMessage(data.message);
+              this.props.fetchServerMembers(this.props.currentServerId)
             break;
             case "receive_messages":
               this.props.receiveChannelMessages(data.messages);
@@ -50,9 +58,16 @@ class ChatRoom extends React.Component {
     // this.props.fetchServerInfo(this.props.chat.serverId);
   }
 
-  componentDidUpdate() {
+  componentDidUpdate(prevProps, prevState) {
     if (this.bottom.current) {
       this.bottom.current.scrollIntoView();
+    }
+
+    if (this.state.messageReceived) {
+      this.props.fetchServerMembers(this.props.currentServerId)
+      this.setState({
+        messageReceived: false
+      })
     }
   }
 
