@@ -23,7 +23,8 @@ class ChatChannel < ApplicationCable::Channel
           authorId: @message.author_id,
           messageableId: @message.messageable_id,
           messageableType: @message.messageable_type,
-          createdAt: @message.created_at
+          createdAt: @message.created_at,
+          author: @message.author
         },
         type: 'receive_message'
       }

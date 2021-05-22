@@ -1,3 +1,4 @@
+import { RECEIVE_MESSAGE } from '../../actions/message_actions';
 import { RECEIVE_SERVER_MEMBERS } from '../../actions/server_actions';
 import {
   RECEIVE_SERVER_INFO
@@ -10,6 +11,8 @@ const usersReducer = (state = {}, action) => {
       return action.info.members
     case RECEIVE_SERVER_MEMBERS:
       return action.members;
+    case RECEIVE_MESSAGE:
+      return Object.assign({}, state, {[action.message.authorId]: action.message.author})
     default:
       return state;
   }
