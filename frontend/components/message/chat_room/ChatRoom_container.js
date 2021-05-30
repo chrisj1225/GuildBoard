@@ -25,9 +25,9 @@ const mDTP = dispatch => {
   return({
     receiveMessage: message => dispatch(receiveMessage(message)),
     receiveChannelMessages: messages => dispatch(receiveChannelMessages(messages)),
-    fetchServerMembers: serverId => dispatch(fetchServerMembers(serverId)),
+    // fetchServerMembers: serverId => dispatch(fetchServerMembers(serverId)),
     // fetchChannelMessages: channelId => dispatch(fetchChannelMessages(channelId)),
-    fetchServerInfo: serverId => dispatch(fetchServerInfo(serverId))
+    // fetchServerInfo: serverId => dispatch(fetchServerInfo(serverId))
   })
 }
 
