@@ -6,6 +6,7 @@ export const RECEIVE_USER_SERVER = 'RECEIVE_USER_SERVER';
 export const REMOVE_USER_SERVER = 'REMOVE_USER_SERVER';
 export const RECEIVE_ALL_SERVERS = 'RECEIVE_ALL_SERVERS';
 export const RECEIVE_SERVER = 'RECEIVE_SERVER';
+export const REPLACE_SERVER = 'REPLACE_SERVER';
 export const REMOVE_SERVER = 'REMOVE_SERVER';
 export const RECEIVE_SERVER_ERRORS = 'RECEIVE_SERVERS_ERRORS';
 export const CLEAR_SERVER_ERRORS = 'CLEAR_SERVER_ERRORS';
@@ -44,6 +45,13 @@ export const receiveAllServers = servers => {
 export const receiveServer = serverInfo => {
   return ({
     type: RECEIVE_SERVER,
+    serverInfo
+  })
+};
+
+export const replaceServer = serverInfo => {
+  return ({
+    type: REPLACE_SERVER,
     serverInfo
   })
 };
@@ -136,7 +144,7 @@ export const createServer = (server) => dispatch => {
 
 export const updateServer = (server) => dispatch => {
   return ServerAPIUtil.updateServer(server)
-    .then(server => dispatch(receiveServer(server)),
+    .then(server => dispatch(replaceServer(server)),
     err => dispatch(receiveErrors(err.responseJSON)))
 };
 

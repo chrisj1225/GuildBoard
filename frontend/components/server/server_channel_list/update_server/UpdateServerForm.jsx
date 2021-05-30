@@ -15,7 +15,11 @@ class UpdateServerForm extends React.Component {
   handleSubmit(e) {
     e.preventDefault();
     let server_params = convertToSnakeCase(this.state);
-    this.props.updateServer(server_params);
+    if (this.state.id == 1) {
+      alert('You cannot edit the General Server')
+    } else {
+      this.props.updateServer(server_params);
+    }
     this.props.closeModal();
   }
 
