@@ -48,11 +48,24 @@ class ServerChannelList extends React.Component {
 
   render() {
     if (!this.props.channels.length) return null;
+
+    const { currentUser, currServer } = this.props;
+
+    let editServerButton;
+
+    editServerButton = (currentUser.id === currServer.ownerId) ? (
+      <span onClick={() => this.props.openModal("update-server")} >
+        Edit Server
+      </span>
+    ) : (
+      null
+    )
+
+
     return (
       <div className={styles['channel-list-container']}
         tabIndex="0"
         onBlur={this.closeMenu} >
-
         <div 
           className={styles['server-header']}
           onClick={this.toggleMenu} >
@@ -60,12 +73,8 @@ class ServerChannelList extends React.Component {
           <i className="fas fa-caret-down"></i>
         </div>
         { this.state.serverMenuShow &&
-          <div 
-            className={styles['server-menu']} >
-            <span
-              onClick={() => this.props.openModal("update-server")} >
-              Edit Server
-            </span>
+          <div className={styles['server-menu']} >
+            {editServerButton}
             <span 
               onClick={this.leaveServer} >
                 Leave Server

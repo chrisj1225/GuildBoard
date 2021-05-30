@@ -33,7 +33,7 @@ class UpdateServerForm extends React.Component {
 
   render() {
     return(
-      <div className={styles['create-container']}>
+      <div className={styles['update-container']}>
         <h1 className={styles.header}>Change Server Info</h1>
         <form 
           onSubmit={this.handleSubmit}>
