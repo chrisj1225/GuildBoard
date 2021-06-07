@@ -1,11 +1,14 @@
 import { connect } from 'react-redux';
+import { withRouter } from 'react-router-dom';
 import EditUserForm from './EditUserForm';
 import { editUser, clearErrors } from '../../../actions/session_actions';
 
 const mSTP = (state, ownProps) => {
   const currentUser = state.entities.currentUser[state.session.session.id];
+  debugger
   return({
     user: {
+      id: currentUser.id,
       email: currentUser.email,
       username: currentUser.username,
       password: ""
@@ -21,4 +24,4 @@ const mDTP = dispatch => {
   })
 }
 
-export default connect(mSTP, mDTP)(EditUserForm);
+export default withRouter(connect(mSTP, mDTP)(EditUserForm));

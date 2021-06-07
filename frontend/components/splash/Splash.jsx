@@ -44,10 +44,10 @@ class Splash extends React.Component {
               <img className={styles.logo} src={window.logoUrl} />
             </Link>
             <nav className={styles['nav-bar']}>
-              <Link to="/">Download</Link>
-              <Link to="/">Why GuildBoard?</Link>
-              <Link to="/">Github</Link>
-              <Link to="/">LinkedIn</Link>
+              <a href="https://github.com/chrisj1225/GuildBoard" target="_blank">Github</a>
+              <a href="https://www.linkedin.com/in/chrisj1225/" target="_blank">LinkedIn</a>
+              <a href="/" target="_blank">Portfolio</a>
+              <a href="/" target="_blank">AngelList</a>
             </nav>
             {LogButton}
           </div>
