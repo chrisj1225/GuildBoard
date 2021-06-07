@@ -1,7 +1,7 @@
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router';
 
-import { fetchChannels } from '../../../actions/channel_actions';
+import { fetchChannels, deleteChannel } from '../../../actions/channel_actions';
 import { fetchServerMembers, removeServerMember } from '../../../actions/server_actions';
 import { findServerChans } from '../../../util/selectors';
 import { openModal } from '../../../actions/ui_actions';
@@ -27,7 +27,9 @@ const mDTP = dispatch => {
     fetchChannels: (serverId) => dispatch(fetchChannels(serverId)),
     fetchServerMembers: (serverId) => dispatch(fetchServerMembers(serverId)),
     removeServerMember: (membershipId) => dispatch(removeServerMember(membershipId)),
-    openModal: (modal) => dispatch(openModal(modal))
+    openModal: (modal) => dispatch(openModal(modal)),
+    updateChannel: (channel) => dispatch(updateChannel(channel)),
+    deleteChannel: (channelId) => dispatch(deleteChannel(channelId))
   })
 }
 

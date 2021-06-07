@@ -21,7 +21,7 @@ class ContextMenu extends React.Component {
     document.addEventListener("contextmenu", this.handleContextMenu);
   }
 
-  componentWillUnMount() {
+  componentWillUnmount() {
     document.removeEventListener("click", this.handleClick);
     document.removeEventListener("contextmenu", this.handleContextMenu);
   }
@@ -52,13 +52,9 @@ class ContextMenu extends React.Component {
             top: this.state.yPos,
             left: this.state.xPos,
           }} >
-          <p>
-            Pass custom text and actions via props here!
-          </p>
-  
+          {this.props.menu}
         </div>
       )
-
     } else {
       return null;
     }

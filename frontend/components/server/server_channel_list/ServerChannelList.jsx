@@ -92,8 +92,12 @@ class ServerChannelList extends React.Component {
             {this.props.channels.map(channel => {
               return <ServerChannelItem 
               key={channel.id}
+              currentUser={currentUser}
               channel={channel}
               serverId={this.props.serverId}
+              updateChannel={this.props.updateChannel}
+              deleteChannel={this.props.deleteChannel}
+              history={this.props.history}
               />
             })}
           </div>

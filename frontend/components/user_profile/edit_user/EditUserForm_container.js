@@ -5,7 +5,6 @@ import { editUser, clearErrors } from '../../../actions/session_actions';
 
 const mSTP = (state, ownProps) => {
   const currentUser = state.entities.currentUser[state.session.session.id];
-  debugger
   return({
     user: {
       id: currentUser.id,

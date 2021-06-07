@@ -26,6 +26,9 @@ const ServerModal = ({ modal, closeModal }) => {
     case 'update-server':
       component = <UpdateServerFormContainer />
       break;
+    case 'update-chanel':
+      component = <UpdateChannelFormContainer />
+      break;
     case 'edit-user':
       component = <EditUserFormContainer />
       break;
