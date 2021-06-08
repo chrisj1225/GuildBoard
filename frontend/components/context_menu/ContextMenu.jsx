@@ -1,5 +1,6 @@
 import React from 'react';
 
+import ChannelContextMenu from '../channel/channel_context_menu/ChannelContextMenu';
 import styles from './ContextMenu.module.scss';
 
 class ContextMenu extends React.Component {
@@ -44,6 +45,19 @@ class ContextMenu extends React.Component {
   }
 
   render() {
+    // const { type, obj } = this.props;
+    
+    // let component;
+    // switch (type) {
+      //   case "channel":
+      //     component = <ChannelContextMenu channel={obj}/>
+      //     break;
+      //   default:
+      //     break;
+      // }
+
+    const { menu } = this.props;
+      
     if (this.state.showMenu) {
       return(
         <div 
@@ -52,7 +66,7 @@ class ContextMenu extends React.Component {
             top: this.state.yPos,
             left: this.state.xPos,
           }} >
-          {this.props.menu}
+          {menu}
         </div>
       )
     } else {

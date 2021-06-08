@@ -37,6 +37,7 @@ const ServerChannelItem = ({ channel, server, currentUser, openModal, deleteChan
         # {channel.title}
       </NavLink>
       <ContextMenu menu={ChannelMenu}/>
+      {/* <ContextMenu type="channel" channel={channel}/> */}
     </div>
   )
 };

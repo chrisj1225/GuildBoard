@@ -61,7 +61,6 @@ class ServerChannelList extends React.Component {
       null
     )
 
-
     return (
       <div className={styles['channel-list-container']}
         tabIndex="0"
