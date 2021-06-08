@@ -142,3 +142,12 @@
   cursor: pointer;
   background-color: #34373c;
 }
+
+#delete-btn {
+  color: #c1393c;
+
+  &:hover {
+    color: white;
+    background-color: #c1393c;
+  }
+}

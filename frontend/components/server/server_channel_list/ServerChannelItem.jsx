@@ -19,7 +19,7 @@ const ServerChannelItem = ({ channel, server, currentUser, openModal, deleteChan
     <div>
       {/* <NavLink to={`/servers/${serverId}/channels/${channel.id}`}>Open Channel</NavLink> */}
       <li onClick={() => openModal("update-channel")}>Edit Channel</li>
-      <li onClick={() => destroyChannel(channel.id)}>Delete Channel</li>
+      <li id={styles['delete-btn']} onClick={() => destroyChannel(channel.id)}>Delete Channel</li>
     </div>
   ) : (
     <div>

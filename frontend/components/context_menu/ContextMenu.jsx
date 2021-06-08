@@ -1,6 +1,6 @@
 import React from 'react';
 
-import ChannelContextMenu from '../channel/channel_context_menu/ChannelContextMenu';
+// import ChannelContextMenu from '../channel/channel_context_menu/ChannelContextMenu';
 import styles from './ContextMenu.module.scss';
 
 class ContextMenu extends React.Component {
