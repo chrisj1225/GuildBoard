@@ -94,8 +94,8 @@ class ServerChannelList extends React.Component {
               key={channel.id}
               currentUser={currentUser}
               channel={channel}
-              serverId={this.props.serverId}
-              updateChannel={this.props.updateChannel}
+              server={this.props.currServer}
+              openModal={this.props.openModal}
               deleteChannel={this.props.deleteChannel}
               history={this.props.history}
               />

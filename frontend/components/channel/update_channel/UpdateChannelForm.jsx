@@ -1,7 +1,7 @@
 import React from 'react';
-import { convertToSnakeCase } from '../../../../util/selectors';
+import { convertToSnakeCase } from '../../../util/selectors';
 
-import styles from './CreateForm.module.scss';
+import styles from './UpdateChannel.module.scss';
 
 class UpdateChannelForm extends React.Component {
   constructor(props) {
@@ -15,7 +15,11 @@ class UpdateChannelForm extends React.Component {
   handleSubmit(e) {
     e.preventDefault();
     let channel_params = convertToSnakeCase(this.state);
-    this.props.updateChannel(channel_params);
+    if (this.state.id == this.props.currServer.genChanId) {
+      alert('You cannot edit the general channel')
+    } else {
+      this.props.updateChannel(channel_params);
+    }
     this.props.closeModal();
   }
 
@@ -29,10 +33,10 @@ class UpdateChannelForm extends React.Component {
 
   render() {
     return(
-      <div className={styles['create-container']}>
+      <div className={styles['update-container']}>
         <h1 className={styles.header}>Edit Text Channel</h1>
         <form 
-          className={styles['create-form']}
+          className={styles['update-form']}
           onSubmit={this.handleSubmit}>
           <label>CHANNEL NAME
             <input 

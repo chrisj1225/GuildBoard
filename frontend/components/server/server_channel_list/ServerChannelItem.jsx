@@ -4,17 +4,21 @@ import ContextMenu from '../../context_menu/ContextMenu';
 
 import styles from './ServerChannelList.module.scss';
 
-const ServerChannelItem = ({ channel, serverId, currentUser, updateChannel, deleteChannel, history }) => {
+const ServerChannelItem = ({ channel, server, currentUser, openModal, deleteChannel, history }) => {
   const destroyChannel = (channelId) => {
-    deleteChannel(channelId)
-      .then(history.push('/home'));
+    if (channelId === server.genChanId) {
+      alert("You cannot delete the general channel");
+    } else {
+      deleteChannel(channelId)
+        .then(history.push(`/servers/${server.id}/channels/${server.genChanId}`));
+    }
   }
 
   let ChannelMenu;
   ChannelMenu = (currentUser.id == channel.ownerId) ? (
     <div>
       {/* <NavLink to={`/servers/${serverId}/channels/${channel.id}`}>Open Channel</NavLink> */}
-      <li onClick={() => updateChannel(channel)}>Edit Channel</li>
+      <li onClick={() => openModal("update-channel")}>Edit Channel</li>
       <li onClick={() => destroyChannel(channel.id)}>Delete Channel</li>
     </div>
   ) : (
