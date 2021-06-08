@@ -3,7 +3,7 @@
 
 # What is GuildBoard?
 * GuildBoard is a clone of the popular voice, video and text communication service known as Discord. The main purpose of this application is to provide groups of like-minded individuals unified by a shared interest or purpose (a Guild) to come together and discuss their thoughts and ideas instantaneously on shared servers/platforms (a Board). 
-* Feel free to try it out here: []https://guildboard.herokuapp.com/#/
+* Feel free to try it out here: [LIVE](https://guildboard.herokuapp.com/#/)
 
 ## Table of Contents
 
