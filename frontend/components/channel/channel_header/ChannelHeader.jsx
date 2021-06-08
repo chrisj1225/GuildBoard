@@ -18,6 +18,11 @@ const ChannelHeader = ({ channel }) => (
         target="_blank" >
         <i className="fab fa-github-square fa-lg"></i>
       </a>      
+      <a 
+        href="https://angel.co/u/chris-joo"
+        target="_blank" >
+        <i className="fab fa-angellist fa-lg"></i>
+      </a>      
     </div>
   </div>
 

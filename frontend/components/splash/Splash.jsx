@@ -47,7 +47,7 @@ class Splash extends React.Component {
               <a href="https://github.com/chrisj1225/GuildBoard" target="_blank">Github</a>
               <a href="https://www.linkedin.com/in/chrisj1225/" target="_blank">LinkedIn</a>
               <a href="/" target="_blank">Portfolio</a>
-              <a href="/" target="_blank">AngelList</a>
+              <a href="https://angel.co/u/chris-joo" target="_blank">AngelList</a>
             </nav>
             {LogButton}
           </div>
