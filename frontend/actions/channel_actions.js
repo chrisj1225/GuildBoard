@@ -28,9 +28,10 @@ export const receiveChannel = channel => {
   })
 }
 
-export const removeChannel = () => {
+export const removeChannel = (channelId) => {
   return({
-    type: REMOVE_CHANNEL
+    type: REMOVE_CHANNEL,
+    channelId
   })
 }
 
