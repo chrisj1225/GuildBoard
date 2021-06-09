@@ -17,14 +17,26 @@ class ContextMenu extends React.Component {
     // this.handleContextMenu = this.handleContextMenu.bind(this);
   }
   
+  
   componentDidMount() {
-    document.addEventListener("click", this.handleClick);
-    document.addEventListener("contextmenu", this.handleContextMenu);
+    // debugger
+    const parent = this.props.parentRef.current;
+    if (parent) {
+      document.addEventListener("click", this.handleClick);
+      parent.addEventListener("contextmenu", this.handleContextMenu);
+    } else {
+      return;
+    }
   }
-
+  
   componentWillUnmount() {
-    document.removeEventListener("click", this.handleClick);
-    document.removeEventListener("contextmenu", this.handleContextMenu);
+    const parent = this.props.parentRef.current;
+    if (parent) {
+      document.removeEventListener("click", this.handleClick);
+      parent.removeEventListener("contextmenu", this.handleContextMenu);
+    } else {
+      return;
+    }
   }
 
   handleClick = (e) => {
@@ -60,14 +72,16 @@ class ContextMenu extends React.Component {
       
     if (this.state.showMenu) {
       return(
-        <div 
-          className={styles['context-menu']}
-          style={{
-            top: this.state.yPos,
-            left: this.state.xPos,
-          }} >
-          {menu}
-        </div>
+        <>
+          <div 
+            className={styles['context-menu']}
+            style={{
+              top: this.state.yPos,
+              left: this.state.xPos,
+            }} >
+            {menu}
+          </div>
+        </>
       )
     } else {
       return null;

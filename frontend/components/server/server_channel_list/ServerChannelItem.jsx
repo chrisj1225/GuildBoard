@@ -1,10 +1,12 @@
-import React from 'react';
+import React, { useRef }  from 'react';
 import { NavLink } from 'react-router-dom';
 import ContextMenu from '../../context_menu/ContextMenu';
 
 import styles from './ServerChannelList.module.scss';
 
 const ServerChannelItem = ({ channel, server, currentUser, openModal, deleteChannel, history }) => {
+  const channelRef = useRef(null);
+
   const destroyChannel = (channelId) => {
     if (channelId === server.genChanId) {
       alert("You cannot delete the general channel");
@@ -28,7 +30,7 @@ const ServerChannelItem = ({ channel, server, currentUser, openModal, deleteChan
   )
 
   return(
-    <div>
+    <div ref={channelRef}>
       <NavLink
         className={styles['channel-item']}
         activeClassName={styles['selected']}
@@ -36,7 +38,7 @@ const ServerChannelItem = ({ channel, server, currentUser, openModal, deleteChan
         {/* to={`servers/${serverId}/channels/${channel.id}`} > */}
         # {channel.title}
       </NavLink>
-      <ContextMenu menu={ChannelMenu}/>
+      <ContextMenu menu={ChannelMenu} parentRef={channelRef} />
       {/* <ContextMenu type="channel" channel={channel}/> */}
     </div>
   )
