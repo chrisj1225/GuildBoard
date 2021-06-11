@@ -10,22 +10,29 @@ class ContextMenu extends React.Component {
     this.state = {
       xPos: "0px",
       yPos: "0px",
-      showMenu: false
+      showMenu: false,
     }
 
     // this.handleRightClick = this.handleRightClick.bind(this);
     // this.handleContextMenu = this.handleContextMenu.bind(this);
   }
   
-  
-  componentDidMount() {
-    // debugger
-    const parent = this.props.parentRef.current;
-    if (parent) {
-      document.addEventListener("click", this.handleClick);
-      parent.addEventListener("contextmenu", this.handleContextMenu);
-    } else {
-      return;
+  // componentDidMount() {
+  //   // debugger
+  //   const parent = this.props.parentRef.current;
+  //   if (parent) {
+  //     document.addEventListener("click", this.handleClick);
+  //     parent.addEventListener("contextmenu", this.handleContextMenu);
+  //   }
+  // }
+
+  componentDidUpdate(prevProps) {
+    if (prevProps !== this.props) {
+      const parent = this.props.parentRef.current;
+      if (parent) {
+        document.addEventListener("click", this.handleClick);
+        parent.addEventListener("contextmenu", this.handleContextMenu);
+      }
     }
   }
   
