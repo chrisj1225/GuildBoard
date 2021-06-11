@@ -34,8 +34,8 @@ const ServerChannelItem = ({ channel, server, currentUser, openModal, deleteChan
       <NavLink
         className={styles['channel-item']}
         activeClassName={styles['selected']}
-        to={`${channel.id}`} >
-        {/* to={`servers/${serverId}/channels/${channel.id}`} > */}
+        // to={`${channel.id}`} >
+        to={`/servers/${server.id}/channels/${channel.id}`} >
         # {channel.title}
       </NavLink>
       <ContextMenu menu={ChannelMenu} parentRef={channelRef} />
