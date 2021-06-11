@@ -17,10 +17,15 @@ class EditUserForm extends React.Component {
 
   handleSubmit(e) {
     e.preventDefault();
-    const user = Object.assign({}, this.state)
-    this.props.editUser(user).then(() => {
-      this.props.history.push('/home')
-    });
+    if (this.state.id === 2) {
+      alert("You cannot edit the demo user");
+    } else {
+      const user = Object.assign({}, this.state)
+      this.props.editUser(user).then(() => {
+        this.props.history.push('/home')
+      });
+      this.props.closeModal();
+    }
   }
 
   update(field) {
