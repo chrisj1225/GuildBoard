@@ -61,6 +61,13 @@ class ServerChannelList extends React.Component {
       null
     )
 
+    let createChannelButton;
+    createChannelButton = (currentUser.id == currServer.ownerId) ? (
+      <CreateChannelButton 
+        openModal={this.props.openModal} />
+    ) : null;
+            
+
     return (
       <div className={styles['channel-list-container']}
         tabIndex="0"
@@ -84,8 +91,7 @@ class ServerChannelList extends React.Component {
         <div className={styles['channel-list']}>
           <div className={styles['channel-header']}>
             <h2>TEXT CHANNELS</h2>
-            <CreateChannelButton 
-              openModal={this.props.openModal} />
+            {createChannelButton}
           </div>
           <div>
             {this.props.channels.map(channel => {
