@@ -40,9 +40,9 @@ class Splash extends React.Component {
           className={styles.splash}
           style={splashBackgroundImg} >
           <div className={styles['nav-container']}>
-            <Link to="/">
+            <a href="https://guildboard.herokuapp.com/#/">
               <img className={styles.logo} src={window.logoUrl} />
-            </Link>
+            </a>
             <nav className={styles['nav-bar']}>
               <a href="https://github.com/chrisj1225/" target="_blank">Github</a>
               <a href="https://www.linkedin.com/in/chrisj1225/" target="_blank">LinkedIn</a>
@@ -58,11 +58,44 @@ class Splash extends React.Component {
           </div>
         </div>
         <div>
-          Hello
+          CONTENT HERE
         </div>
         <footer>
+          <div className={styles['footer-content']}>
+            <div className={styles['footer-social']}>
+              <h1>Imagine a place...</h1>
+              <ul>
+                <a 
+                  href="https://www.linkedin.com/in/chrisj1225/"
+                  target="_blank" >
+                  <i className="fab fa-linkedin fa-lg"></i>
+                </a>
+                <a 
+                  href="https://github.com/chrisj1225/GuildBoard"
+                  target="_blank" >
+                  <i className="fab fa-github-square fa-lg"></i>
+                </a>      
+                <a 
+                  href="https://angel.co/u/chris-joo"
+                  target="_blank" >
+                  <i className="fab fa-angellist fa-lg"></i>
+                </a>   
+                <a 
+                  href="https://chrisj1225.github.io/portfolio/"
+                  target="_blank" >
+                  <i class="far fa-user fa-lg"></i>
+                </a>   
+              </ul>
+            </div> 
 
-
+          </div>
+          <hr />
+          <div className={styles['footer-logo']}>
+            <a href="https://guildboard.herokuapp.com/#/">
+              <img className={styles.logo} src={window.logoUrl} />
+            </a>
+            <Link className={styles['footer-signup']}to="/signup">Sign Up</Link>
+          </div>
         </footer>
 
       </div>
