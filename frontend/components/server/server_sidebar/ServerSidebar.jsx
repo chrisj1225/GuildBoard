@@ -28,6 +28,8 @@ class ServerSidebar extends React.Component {
 
   render() {
     // debugger
+    const { allServers, currServerId } = this.props;
+
     if ((!Object.keys(this.props.allServers).length) || 
     (!this.props.userServersIds.length)) {
       return null;
@@ -39,7 +41,8 @@ class ServerSidebar extends React.Component {
         {this.props.userServersIds.map(serverId => {
           return <ServerSidebarItem 
             key={serverId}
-            server={this.props.allServers[serverId]} />
+            server={allServers[serverId]}
+            currServerId={currServerId} />
         })}
         <CreateServerButton openModal={this.props.openModal} />
         <ExploreServersButton openModal={this.props.openModal} />
