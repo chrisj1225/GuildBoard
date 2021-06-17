@@ -77,10 +77,7 @@ class Signup extends React.Component {
               <br />
               <input className={styles.button} type="submit" value={this.props.formType} />
             </form>
-            <div>
-              <Link className={styles.link} to="/login">Already have an account?</Link>
-            </div>
-            <br />
+            <Link className={styles.link} to="/login">Already have an account?</Link>
             <Link className={styles.link} to="/">Back to Landing Page</Link>
 
           </div>
