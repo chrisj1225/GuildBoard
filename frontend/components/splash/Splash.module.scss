@@ -121,6 +121,17 @@
   background-color: goldenrod;
 }
 
+.landing-content {
+  display: flex;
+  flex-direction: column;
+
+  section {
+    display: flex;
+    width: 100%;
+    height: 300px;
+  }
+}
+
 footer {
   display: flex;
   flex-direction: column;
@@ -130,6 +141,7 @@ footer {
 
 .footer-content {
   display: flex;
+  justify-content: space-between;
   padding: 20px 100px 30px 100px;
 
   .footer-social {
@@ -163,13 +175,29 @@ footer {
   }
   
   .footer-column {
+    font-family: 'Lato', sans-serif;
     display: flex;
     flex-direction: column;
+    align-items: baseline;
     font-size: 16px;
+    color: white;
+    list-style-type: none;
 
-    &:first-child {
+    h3 {
       color: #5865f2;
+      margin-bottom: 3px;
+    }
+
+    li {
+      margin-bottom: 5px;
+    }
+
+    a {
+      color: lighten(#5865f2, 20%);
       
+      &:hover {
+        color: lighten(#5865f2, 5%);
+      }
     }
   }
 }

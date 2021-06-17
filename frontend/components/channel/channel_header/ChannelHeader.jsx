@@ -26,7 +26,7 @@ const ChannelHeader = ({ channel }) => (
       <a 
         href="https://chrisj1225.github.io/portfolio/"
         target="_blank" >
-        <i class="far fa-user fa-lg"></i>
+        <i className="far fa-user fa-lg"></i>
       </a> 
     </div>
   </div>

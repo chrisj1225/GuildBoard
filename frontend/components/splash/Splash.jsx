@@ -57,8 +57,17 @@ class Splash extends React.Component {
             {SplashButtons}
           </div>
         </div>
-        <div>
+        <div className={styles['landing-content']}>
           CONTENT HERE
+          <section>
+            Content 1
+          </section>
+          <section>
+            Content 2
+          </section>
+          <section>
+            Content 3
+          </section>
         </div>
         <footer>
           <div className={styles['footer-content']}>
@@ -83,11 +92,46 @@ class Splash extends React.Component {
                 <a 
                   href="https://chrisj1225.github.io/portfolio/"
                   target="_blank" >
-                  <i class="far fa-user fa-lg"></i>
+                  <i className="far fa-user fa-lg"></i>
                 </a>   
               </ul>
             </div> 
-
+            <div className={styles['footer-column']}>
+              <h3>Technologies Used</h3>
+              <li>React</li>
+              <li>Redux</li>
+              <li>JavaScript</li>
+              <li>Ruby on Rails</li>
+              <li>Websockets (Action Cable)</li>
+              <li>HTML5</li>
+              <li>SCSS Modules</li>
+              <li>PostgreSQL</li>
+            </div>
+            <div className={styles['footer-column']}>
+              <h3>Things I Like</h3>
+              <li>Eating</li>
+              <li>Grilling</li>
+              <li>Gaming</li>
+              <li>Music</li>
+              <li>Sneakers</li>
+              <li>Star Wars</li>
+              <li>One Piece</li>
+              <li>MCU</li>
+              <li>NBA</li>
+              <li>UFC</li>
+            </div>
+            <div className={styles['footer-column']}>
+              <h3>Additional Projects</h3>
+              <li><a href="https://postcard-triplog.herokuapp.com/#/" target="_blank">Postcard</a></li>
+              <li><a href="https://chrisj1225.github.io/JumpQuest/" target="_blank">Jump Quest</a></li>
+              <li><a href="https://redditamaviewer.netlify.app/" target="_blank">Reddit AMA Viewer</a></li>
+            </div>
+            <div className={styles['footer-column']}>
+              <h3>Contact</h3>
+              <li>Chris Joo</li>
+              <li>chrisj1225@gmail.com</li>
+              <li>516-884-2806</li>
+            </div>
           </div>
           <hr />
           <div className={styles['footer-logo']}>
