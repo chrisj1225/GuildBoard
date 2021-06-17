@@ -13,6 +13,11 @@
     width: 0px;
     background: transparent;
   }
+
+  hr {
+    margin: 8px;
+    width: 50px;
+  }
 }
 
 
@@ -79,9 +84,4 @@
   margin: 5px;
   cursor: pointer; 
   border-radius: 20%;
-}
-
-hr {
-  margin: 8px;
-  width: 50px;
 }

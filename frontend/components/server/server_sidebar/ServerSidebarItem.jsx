@@ -13,7 +13,6 @@ const ServerSidebarItem = ({ server, currServerId }) => {
     <NavLink 
       to={`/servers/${server.id}/channels/${server.genChanId}`}
       className={`${styles['server-icon']} ${styles[`${active ? 'selected' : null}`]}`}
-
       activeClassName={styles['selected']} 
       >
       {server.title.split("")[0]}

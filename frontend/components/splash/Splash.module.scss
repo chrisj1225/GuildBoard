@@ -211,6 +211,11 @@ footer {
   flex-direction: column;
   background-color: #23272a;
   text-align: center;
+
+  hr {
+    margin: 0px 100px;    
+    border: 1px solid #5865f2;
+  }
 }
 
 .footer-content {
@@ -276,10 +281,7 @@ footer {
   }
 }
 
-hr {
-  margin: 0px 100px;    
-  border: 1px solid #5865f2;
-}
+
 
 .footer-logo {
   display: flex;
