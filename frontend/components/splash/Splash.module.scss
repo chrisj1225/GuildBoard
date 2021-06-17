@@ -145,11 +145,29 @@
     // }
 
     &:nth-child(2n) {
-      background-color: #f6f6f6;
-    }
-
-    &:nth-child(2n+1) {
+      // background-color: #f6f6f6;
       background-color: #ffffff;
+
+      .project-gif {
+        margin-right: 50px;
+      }
+
+      div {
+        margin-left: 50px;
+      }
+    }
+    
+    &:nth-child(2n+1) {
+      // background-color: #ffffff;
+      background-color: #f6f6f6;
+      
+      .project-gif {
+        margin-left: 50px;
+      }
+
+      div {
+        margin-right: 50px;
+      }
     }
 
     .project-gif {
