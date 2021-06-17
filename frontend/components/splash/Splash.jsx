@@ -58,15 +58,38 @@ class Splash extends React.Component {
           </div>
         </div>
         <div className={styles['landing-content']}>
-          CONTENT HERE
           <section>
-            Content 1
+            <a 
+              href="https://postcard-triplog.herokuapp.com/#/"
+              target="_blank" >
+              <img className={styles['project-gif']} src={window.postcardGif} />
+            </a>
+            <div>
+              <h2>Postcard</h2>
+              <p>A digital travel log with an interactive map where users can create trips & postcards, input location via google maps, upload photos, follow other users and view other users’ trips.</p>
+            </div>
           </section>
           <section>
-            Content 2
+            <div>
+              <h2>Jump Quest</h2>
+              <p>A simple 2D retro-style platform game where the player must navigate through their environment, dodge obstacles and reach their goal.</p>
+            </div>
+            <a 
+              href="https://chrisj1225.github.io/JumpQuest/"
+              target="_blank" >
+              <img className={styles['project-gif']} src={window.jumpQuestGif} />
+            </a>
           </section>
           <section>
-            Content 3
+            <a 
+              href="https://redditamaviewer.netlify.app/"
+              target="_blank" >
+              <img className={styles['project-gif']} src={window.redditAMAViewerGif} />
+            </a>
+            <div>
+              <h2>Reddit AMA Viewer</h2>
+              <p>A simple application where users can copy and paste a URL for a Reddit iAMA post and enjoy a clean and intuitive viewing experience.</p>
+            </div>
           </section>
         </div>
         <footer>
