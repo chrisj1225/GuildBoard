@@ -46,8 +46,8 @@ class Splash extends React.Component {
             <nav className={styles['nav-bar']}>
               <a href="https://github.com/chrisj1225/" target="_blank">Github</a>
               <a href="https://www.linkedin.com/in/chrisj1225/" target="_blank">LinkedIn</a>
-              <a href="https://chrisj1225.github.io/portfolio/" target="_blank">Portfolio</a>
               <a href="https://angel.co/u/chris-joo" target="_blank">AngelList</a>
+              <a href="https://chrisj1225.github.io/portfolio/" target="_blank">Portfolio</a>
             </nav>
             {LogButton}
           </div>
@@ -98,15 +98,15 @@ class Splash extends React.Component {
               <h1>Imagine a place...</h1>
               <ul>
                 <a 
-                  href="https://www.linkedin.com/in/chrisj1225/"
-                  target="_blank" >
-                  <i className="fab fa-linkedin fa-lg"></i>
-                </a>
-                <a 
                   href="https://github.com/chrisj1225/GuildBoard"
                   target="_blank" >
                   <i className="fab fa-github-square fa-lg"></i>
                 </a>      
+                <a 
+                  href="https://www.linkedin.com/in/chrisj1225/"
+                  target="_blank" >
+                  <i className="fab fa-linkedin fa-lg"></i>
+                </a>
                 <a 
                   href="https://angel.co/u/chris-joo"
                   target="_blank" >
