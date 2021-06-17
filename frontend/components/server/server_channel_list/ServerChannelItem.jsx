@@ -4,7 +4,7 @@ import ContextMenu from '../../context_menu/ContextMenu';
 
 import styles from './ServerChannelList.module.scss';
 
-const ServerChannelItem = ({ channel, server, currentUser, openModal, deleteChannel, history }) => {
+const ServerChannelItem = ({ channel, server, currentUser, currentChanId, openModal, deleteChannel, history }) => {
   const channelRef = useRef(null);
 
   const destroyChannel = (channelId) => {
@@ -16,8 +16,7 @@ const ServerChannelItem = ({ channel, server, currentUser, openModal, deleteChan
     }
   }
 
-  let ChannelMenu;
-  ChannelMenu = (currentUser.id == channel.ownerId) ? (
+  const ChannelMenu = (currentUser.id == channel.ownerId) ? (
     <div>
       {/* <NavLink to={`/servers/${serverId}/channels/${channel.id}`}>Open Channel</NavLink> */}
       <li onClick={() => openModal("update-channel")}>Edit Channel</li>
@@ -29,14 +28,26 @@ const ServerChannelItem = ({ channel, server, currentUser, openModal, deleteChan
     </div>
   )
 
+  const EditChannelBtn = ((currentUser.id == channel.ownerId) && 
+    (currentChanId == channel.id)) ? (
+    <div className={styles['edit-btn']}
+      onClick={() => openModal("update-channel")}>
+      <i className="fas fa-cog"></i>
+    </div>
+  ) : (
+    null
+  )
+  
+
   return(
-    <div ref={channelRef}>
+    <div className={styles['channel-item']} ref={channelRef}>
       <NavLink
-        className={styles['channel-item']}
+        className={styles['channel-link']}
         activeClassName={styles['selected']}
         // to={`${channel.id}`} >
         to={`/servers/${server.id}/channels/${channel.id}`} >
         # {channel.title}
+        {EditChannelBtn}
       </NavLink>
       <ContextMenu menu={ChannelMenu} parentRef={channelRef} />
       {/* <ContextMenu type="channel" channel={channel}/> */}

@@ -80,10 +80,11 @@
   border-radius: 5px;
   
   span {
-    font-size: 12px;
+    font-size: 16px;
     padding: 5px;
     margin: 5px 10px 5px 10px;
     cursor: pointer;
+    border-radius: 5px;
 
     &:hover {
       background-color: #7289da;
@@ -119,29 +120,52 @@
 }
 
 .channel-item {
-  display: block;
-  width: 190px;
-  margin: 5px;
-  padding: 5px;
-  border-radius: 4px;
-  color: #858c81;
-  cursor: pointer;
+  // display: flex;
+  width: 210px;
 
   &:hover {
     background-color: #34373c;
     color: white;
+    
+    .edit-btn {
+      display: block;
+    }
+  }
+}
+
+.channel-link {
+  display: flex;
+  margin: 5px;
+  padding: 5px;
+  justify-content: space-between;
+  border-radius: 4px;
+  color: #858c81;
+  cursor: pointer;
+  width: 100%;
+}
+
+.edit-btn {
+  display: none;
+  color: white;
+
+  &:hover {
+    color: #696969;
   }
 }
 
 .selected {
-  display: block;
-  width: 190px;
+  // display: block;
+  width: 200px;
   margin: 5px;
   padding: 5px;
   border-radius: 4px;
   color: white;;
   cursor: pointer;
   background-color: #34373c;
+
+  .edit-btn {
+    display: block;
+  }
 }
 
 #delete-btn {

@@ -10,6 +10,7 @@ import ServerChannelList from './ServerChannelList';
 const mSTP = (state, ownProps) => {
   // debugger
   const currentServerId = ownProps.match.params.serverId;
+  const currentChannelId = ownProps.match.params.channelId;
   const currServer = state.entities.servers[currentServerId];
   const allChannels = Object.values(state.entities.channels);
   const currServerChans = findServerChans(currServer, allChannels);
@@ -18,6 +19,7 @@ const mSTP = (state, ownProps) => {
     currentUser: state.entities.currentUser[state.session.session.id],
     channels: currServerChans,
     serverId: currentServerId,
+    channelId: currentChannelId,
     currServer: currServer
   })
 }

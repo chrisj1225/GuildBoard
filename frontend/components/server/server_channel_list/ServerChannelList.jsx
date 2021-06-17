@@ -98,6 +98,7 @@ class ServerChannelList extends React.Component {
               return <ServerChannelItem 
               key={channel.id}
               currentUser={currentUser}
+              currentChanId={this.props.channelId}
               channel={channel}
               server={this.props.currServer}
               openModal={this.props.openModal}
