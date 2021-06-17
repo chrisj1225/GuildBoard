@@ -6,17 +6,14 @@ import { findGenChanId } from '../../../util/selectors';
 import styles from './ServerSidebar.module.scss';
 
 const ServerSidebarItem = ({ server, currServerId }) => {
-  // Finding id of a server's general channel:
-  // Find more elegant way (maybe store in backend & retrieve via redux state)
-  // const genChanId = findGenChanId(server, channels);
+  
+  const active = (currServerId == server.id) ? true : false;
 
-  // Styling: Fix tooltip & get activeClassName to work
-  // Adding border-radius when server is selected && 
-  // when switching channels within server.
   return (
     <NavLink 
       to={`/servers/${server.id}/channels/${server.genChanId}`}
-      className={styles['server-icon']}
+      className={`${styles['server-icon']} ${styles[`${active ? 'selected' : null}`]}`}
+
       activeClassName={styles['selected']} 
       >
       {server.title.split("")[0]}
