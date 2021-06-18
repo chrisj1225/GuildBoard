@@ -72,7 +72,8 @@ class ChatRoom extends React.Component {
             return <Message 
               key={message.id}
               message={message}
-              username={this.props.users[message.authorId].username}
+              // username={this.props.users[message.authorId].username}
+              username={message.authorUsername}
               bottom={this.bottom}
               currentUser={this.props.currentUser}
               subscription={this.subscription}

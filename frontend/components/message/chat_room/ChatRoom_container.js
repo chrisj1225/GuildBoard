@@ -15,7 +15,7 @@ const mSTP = (state, ownProps) => {
     currentServerId: ownProps.match.params.serverId,
     users: state.entities.users,
     currentUser: state.entities.currentUser[state.session.session.id],
-    messages: getChannelMessages(state, ownProps.match.params.channelId)
+    messages: getChannelMessages(state.entities.messages, ownProps.match.params.channelId)
     // get messages from current channel to load
   })
 }

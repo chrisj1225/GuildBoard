@@ -11,10 +11,18 @@ class Channel extends React.Component {
   constructor(props) {
     super(props)
 
+    this.state = ({
+      infoFetched: false
+    })
+
   }
 
   componentDidMount() {
-    this.props.fetchServerInfo(this.props.currentServerId);
+    this.props.fetchServerInfo(this.props.currentServerId)
+      .then(res => this.setState({
+          infoFetched: true
+        })
+      )
   }
   
   componentDidUpdate(prevProps, prevState) {
@@ -22,10 +30,16 @@ class Channel extends React.Component {
       this.props.fetchServerInfo(this.props.currentServerId);
     }
   }
+
+  componentWillUnmount() {
+    this.setState({
+      infoFetched: false
+    })
+  }
   
 
   render () {
-    if (!this.props.currentChannel) return null;
+    if (!this.props.currentChannel || !this.state.infoFetched) return null;
     if (this.props.match.params.serverId )
 
     return (

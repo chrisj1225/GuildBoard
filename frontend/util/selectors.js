@@ -28,8 +28,8 @@ export const findServerChans = (server, channels) => {
   return channels.filter( channel => channel.serverId == server.id )
 } 
 
-export const getChannelMessages = (state, channelId) => {
-  const channelMessages = Object.values(state.entities.messages).filter(message => {
+export const getChannelMessages = (messages, channelId) => {
+  const channelMessages = Object.values(messages).filter(message => {
     return message.messageableId == channelId
   })
   return channelMessages;
