@@ -24,9 +24,12 @@ class ChatRoom extends React.Component {
           switch (data.type) {
             case "receive_message":
               this.props.receiveMessage(data.message);
-            break;
+              break;
             case "receive_messages":
               this.props.receiveChannelMessages(data.messages);
+              break;
+            case "remove_message":
+              this.props.removeMessage(data.message.id);
               break;
           }
         },
@@ -71,6 +74,8 @@ class ChatRoom extends React.Component {
               message={message}
               username={this.props.users[message.authorId].username}
               bottom={this.bottom}
+              currentUser={this.props.currentUser}
+              subscription={this.subscription}
             />
         }) : (
           <div className={styles['welcome-msg']}>

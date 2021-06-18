@@ -67,6 +67,11 @@ class ServerChannelList extends React.Component {
         openModal={this.props.openModal} />
     ) : null;
             
+    const toggleBtn = this.state.serverMenuShow ? (
+      <i className="fas fa-times"></i>
+    ) : (
+      <i className="fas fa-angle-down"></i>
+    )
 
     return (
       <div className={styles['channel-list-container']}
@@ -76,7 +81,7 @@ class ServerChannelList extends React.Component {
           className={styles['server-header']}
           onClick={this.toggleMenu} >
           <h1>{this.props.currServer.title}</h1>
-          <i className="fas fa-caret-down"></i>
+          {toggleBtn}
         </div>
         { this.state.serverMenuShow &&
           <div className={styles['server-menu']} >

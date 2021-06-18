@@ -8,28 +8,39 @@ class ChatChannel < ApplicationCable::Channel
   end
 
   def speak(data)
-    # convert data into Message instance
-    @message = Message.new(
+    if data["message"]["delete"]
+      message = Message.find(data["message"]["messageId"])
+      message.destroy
+      socket = {
+        message: {
+          id: message.id
+        },
+        type: 'remove_message',
+      }
+    else 
+      # convert data into Message instance
+      @message = Message.new(
       body: data['message']['body'],
       author_id: data['message']['authorId'],
       messageable_id: @chat.id,
       messageable_type: @chat.class.to_s
-    )
-    if @message.save
-      socket = { 
-        message: {
-          id: @message.id,
-          body: @message.body,
-          authorId: @message.author_id,
-          messageableId: @message.messageable_id,
-          messageableType: @message.messageable_type,
-          createdAt: @message.created_at,
-          author: @message.author
-        },
-        type: 'receive_message'
-      }
-      ChatChannel.broadcast_to(@chat, socket)
+      )
+      if @message.save
+        socket = { 
+          message: {
+            id: @message.id,
+            body: @message.body,
+            authorId: @message.author_id,
+            messageableId: @message.messageable_id,
+            messageableType: @message.messageable_type,
+            createdAt: @message.created_at,
+            author: @message.author
+          },
+          type: 'receive_message'
+        }
+      end
     end
+    ChatChannel.broadcast_to(@chat, socket)
   end
 
   # def load

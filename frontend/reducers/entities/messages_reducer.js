@@ -1,6 +1,7 @@
 import { 
   RECEIVE_CHANNEL_MESSAGES,
-  RECEIVE_MESSAGE
+  RECEIVE_MESSAGE,
+  REMOVE_MESSAGE
 } from '../../actions/message_actions';
 
 import {
@@ -10,6 +11,7 @@ import {
 const messagesReducer = (state = {}, action) => {
   Object.freeze(state);
   // debugger
+  let newState = {...state};
   switch(action.type) {
     case RECEIVE_CHANNEL_MESSAGES:
       // return Object.assign({}, state, action.messages)
@@ -18,6 +20,9 @@ const messagesReducer = (state = {}, action) => {
       return Object.assign({}, action.info.messages);
     case RECEIVE_MESSAGE: 
       return Object.assign({}, state, { [action.message.id]: action.message });
+    case REMOVE_MESSAGE: 
+      delete newState[action.messageId];
+      return newState;
     default:
       return state;
   }

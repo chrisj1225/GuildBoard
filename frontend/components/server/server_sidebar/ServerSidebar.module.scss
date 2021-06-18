@@ -38,7 +38,8 @@
   cursor: pointer; 
 
   .wrapper {
-    visibility: hidden;
+    // visibility: hidden;
+    display: none;
     position: absolute;
     z-index: 10;
     // top: 15%;
@@ -65,7 +66,9 @@
     border-radius: 20%;
   
     .wrapper {
-      visibility: visible;
+      // visibility: visible;
+      display: block;
+      // position: sticky;
     }
   }
 }

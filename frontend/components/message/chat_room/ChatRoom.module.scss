@@ -54,26 +54,73 @@
 }
 
 .message {
-  margin-left: 20px;
-  margin-top: 10px;
+  padding: 5px 20px;
+
+  &:hover {
+    background-color: darken(#36393f, 2%);
+  }
+  
+  .msg-content {
+    font-size: 14px;
+    color: white;
+    margin-left: 20px;
+  }
+  
+  .msg-username {
+    color: #e6792d;
+    font-size: 15px;
+    font-weight: lighter;
+    margin-right: 10px;
+  }
+  
+  .msg-date {
+    color:#687571;
+    font-size: 12px;
+    font-weight: lighter;
+  
+  }
+
+  .wrapper {
+    // visibility: hidden;
+    display: none;
+    position: absolute;
+    z-index: 10;
+    // top: 15%;
+    // left: 125%;
+
+    .tooltip {
+      display: flex;
+      position: relative;
+      justify-content: space-around;
+      width: 50px;
+      top: -70px;
+      left: calc(100vw - 600px);
+      height: 25px;
+      padding: 5px;
+      border-radius: 3px;
+      align-items: center;
+      background-color: darken(#36393f, 1%);
+      border: 0.015em solid #687571;
+      color: white;
+      font-size: 14px;
+    }
+  
+  } 
+
+  &:hover {
+  
+    .wrapper {
+      // visibility: visible;
+      display: block;
+      // position: sticky;
+    }
+  }
 }
 
-.msg-content {
-  font-size: 14px;
-  color: white;
-  margin-left: 20px;
+.edit-btn {
+  cursor: not-allowed;
 }
 
-.msg-username {
-  color: #e6792d;
-  font-size: 15px;
-  font-weight: lighter;
-  margin-right: 10px;
-}
-
-.msg-date {
-  color:#687571;
-  font-size: 12px;
-  font-weight: lighter;
-
+.delete-btn {
+  cursor: pointer;
 }

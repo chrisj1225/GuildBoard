@@ -3,13 +3,12 @@ import { withRouter } from 'react-router';
 
 import { getChannelMessages } from '../../../util/selectors'; 
 
-import { receiveMessage, receiveChannelMessages } from '../../../actions/message_actions';
+import { receiveMessage, receiveChannelMessages, removeMessage } from '../../../actions/message_actions';
 import { fetchServerInfo } from '../../../actions/server_actions';
 
 import ChatRoom from './ChatRoom';
 
 const mSTP = (state, ownProps) => {
-  // debugger
   return({
     chatType: "Channel",
     chat: state.entities.channels[ownProps.match.params.channelId],
@@ -25,6 +24,7 @@ const mDTP = dispatch => {
   return({
     receiveMessage: message => dispatch(receiveMessage(message)),
     receiveChannelMessages: messages => dispatch(receiveChannelMessages(messages)),
+    removeMessage: messageId => dispatch(removeMessage(messageId))
     // fetchServerMembers: serverId => dispatch(fetchServerMembers(serverId)),
     // fetchChannelMessages: channelId => dispatch(fetchChannelMessages(channelId)),
     // fetchServerInfo: serverId => dispatch(fetchServerInfo(serverId))
