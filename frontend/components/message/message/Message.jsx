@@ -6,16 +6,14 @@ import styles from '../chat_room/ChatRoom.module.scss';
 const Message = ({ message, username, bottom, currentUser, subscription }) => {
 
   const messageTooltip = ((currentUser.id == message.authorId) || (currentUser.id == 1)) ? (
-    <div className={styles.wrapper}>
-      <span className={styles.tooltip}>
-        <div className={styles['edit-btn']}>
-          <i className="fas fa-edit"></i>
-        </div>
-        <div className={styles['delete-btn']} 
-          onClick={() => subscription.speak({message: {delete: true, messageId: message.id}})}>
-          <i className="fas fa-trash-alt"></i>
-        </div>
-      </span>
+    <div className={styles.tooltip}>
+      <div className={styles['edit-btn']}>
+        <i className="fas fa-edit"></i>
+      </div>
+      <div className={styles['delete-btn']} 
+        onClick={() => subscription.speak({message: {delete: true, messageId: message.id}})}>
+        <i className="fas fa-trash-alt"></i>
+      </div>
     </div>
   ) : null;
 

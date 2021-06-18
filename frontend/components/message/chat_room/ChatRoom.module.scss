@@ -54,7 +54,9 @@
 }
 
 .message {
+  position: relative;
   padding: 5px 20px;
+  height: 50px;
 
   &:hover {
     background-color: darken(#36393f, 2%);
@@ -79,40 +81,31 @@
     font-weight: lighter;
   
   }
-
-  .wrapper {
-    // visibility: hidden;
-    display: none;
-    position: absolute;
-    z-index: 10;
-    // top: 15%;
-    // left: 125%;
-
-    .tooltip {
-      display: flex;
-      position: relative;
-      justify-content: space-around;
-      width: 50px;
-      top: -70px;
-      left: calc(100vw - 600px);
-      height: 25px;
-      padding: 5px;
-      border-radius: 3px;
-      align-items: center;
-      background-color: darken(#36393f, 1%);
-      border: 0.015em solid #687571;
-      color: white;
-      font-size: 14px;
-    }
+    
+  .tooltip {
+    display: flex;
+    position: relative;
+    visibility: hidden;
+    justify-content: space-around;
+    width: 50px;
+    top: -70px;
+    left: calc(100vw - 600px);
+    height: 25px;
+    padding: 5px;
+    border-radius: 3px;
+    align-items: center;
+    background-color: darken(#36393f, 1%);
+    border: 0.015em solid #687571;
+    color: white;
+    font-size: 14px;
+  }
   
-  } 
+
 
   &:hover {
   
-    .wrapper {
-      // visibility: visible;
-      display: block;
-      // position: sticky;
+    .tooltip {
+      visibility: visible;
     }
   }
 }
