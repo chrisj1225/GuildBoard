@@ -11,6 +11,19 @@
   font-size: 12px;
 }
 
-.cog {
+.buttons {
+  display: flex;
+  width: 60px;
+  justify-content: space-around;
   padding-right: 10px;
+
+  .btn {
+    font-size: 18px;
+    padding: 2px 5px;
+    border-radius: 2px;
+
+    &:hover {
+      background-color: lighten(#292b2f, 10%);
+    }
+  }
 }

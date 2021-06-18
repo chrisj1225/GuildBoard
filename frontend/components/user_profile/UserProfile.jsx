@@ -10,6 +10,7 @@ class UserProfile extends React.Component {
 
   handleBack = () => {
     this.props.history.goBack();
+    // this.props.history.push('/home')
   }
 
   render() {

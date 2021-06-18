@@ -8,11 +8,18 @@ const UserBar = ({ user }) => (
     <span className={styles.user}>
       {user.username}
     </span>
-    <Link 
-      className={styles.cog}
-      to="/@me" >
-      <i className="fas fa-cog"></i>
-    </Link>
+    <div className={styles.buttons}>
+      <Link 
+        className={styles.btn}
+        to="/" >
+        <i className="fas fa-home"></i>
+      </Link>
+      <Link 
+        className={styles.btn}
+        to="/@me" >
+        <i className="fas fa-cog"></i>
+      </Link>
+    </div>
   </div>
 );
 
