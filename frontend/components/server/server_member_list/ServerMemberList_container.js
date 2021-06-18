@@ -1,13 +1,14 @@
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router';
-import { fetchServerMembers } from '../../../actions/server_actions';
+// import { fetchServerMembers } from '../../../actions/server_actions';
 import ServerMemberList from './ServerMemberList';
 
 const mSTP = (state, ownProps) => {
   // debugger
+  const currentServerId = ownProps.match.params.serverId;
   return({
     users: Object.values(state.entities.users),
-    currentServerId: ownProps.match.params.serverId, 
+    currentServer: state.entities.servers[currentServerId] 
   })
 }
 

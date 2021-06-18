@@ -9,15 +9,15 @@ const ChannelHeader = ({ channel }) => (
     </div>
     <div className={styles['icon-links']}>
       <a 
-        href="https://www.linkedin.com/in/chrisj1225/"
-        target="_blank" >
-        <i className="fab fa-linkedin fa-lg"></i>
-      </a>
-      <a 
         href="https://github.com/chrisj1225/GuildBoard"
         target="_blank" >
         <i className="fab fa-github-square fa-lg"></i>
       </a>      
+      <a 
+        href="https://www.linkedin.com/in/chrisj1225/"
+        target="_blank" >
+        <i className="fab fa-linkedin fa-lg"></i>
+      </a>
       <a 
         href="https://angel.co/u/chris-joo"
         target="_blank" >

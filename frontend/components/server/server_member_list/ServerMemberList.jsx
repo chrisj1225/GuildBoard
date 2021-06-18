@@ -16,15 +16,20 @@ class ServerMemberList extends React.Component {
   render(){
     // debugger
     if (!this.props.users) return null;
-    return(
+
+    const { users, currentServer } = this.props;
+
+    return (
       <div className={styles['member-list']}>
         <h1 className={styles['member-header']}>
           SERVER MEMBERS - {this.props.users.length}
         </h1>
-        {this.props.users.map(user => {
+        {users.map(user => {
           return <ServerMemberItem 
             key={user.id}
-            user={user} />
+            user={user}
+            serverOwnerId={currentServer.ownerId}
+            />
         })}
       </div>
 
