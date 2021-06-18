@@ -14,13 +14,14 @@ const ServerSidebarItem = ({ server, currServerId }) => {
       to={`/servers/${server.id}/channels/${server.genChanId}`}
       className={`${styles['server-icon']} ${styles[`${active ? 'selected' : null}`]}`}
       activeClassName={styles['selected']} 
+      // title={`${server.title}`}
       >
       {server.title.split("")[0]}
-      {/* <div className={styles.wrapper}>
-        <div className={styles.tooltip}>
+      <div className={styles.wrapper}>
+        <span className={styles.tooltip}>
           {server.title}
-        </div>
-      </div> */}
+        </span>
+      </div>
       {/* <ContextMenu /> */}
     </NavLink>
   )
