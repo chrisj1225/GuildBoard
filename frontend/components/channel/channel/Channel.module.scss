@@ -13,3 +13,15 @@
   flex-direction: row;
   height: 100%;
 }
+
+.channel-loading {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-grow: 1;
+  background-color: #36393f;
+  font-family: 'Noto Sans JP', sans-serif;
+  color: white;
+  font-weight: bold;
+  font-size: 18px;
+}

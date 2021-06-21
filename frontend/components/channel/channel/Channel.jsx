@@ -39,8 +39,13 @@ class Channel extends React.Component {
   
 
   render () {
-    if (!this.props.currentChannel || !this.state.infoFetched) return null;
-    if (this.props.match.params.serverId )
+    if (!this.props.currentChannel || !this.state.infoFetched) {
+      return <div className={styles['channel-loading']}>
+        Loading...
+      </div>
+    };
+    
+      if (this.props.match.params.serverId )
 
     return (
       <div className={styles['channel-container']}>
