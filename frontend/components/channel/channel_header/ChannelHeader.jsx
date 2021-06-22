@@ -5,7 +5,7 @@ const ChannelHeader = ({ channel }) => (
 
   <div className={styles['channel-header']}>
     <div>
-      <h1>#{channel.title}</h1>
+      <h1><i className="fas fa-hashtag"></i> {channel.title}</h1>
     </div>
     <div className={styles['icon-links']}>
       <a 
