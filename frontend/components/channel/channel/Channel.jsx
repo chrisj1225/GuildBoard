@@ -53,7 +53,8 @@ class Channel extends React.Component {
         <div className={styles['channel-content']}>
           {/* <MainChatContainer /> */}
           <ChatRoomContainer
-            key={this.props.currentChannel.id} />
+            key={this.props.currentChannel.id}
+            chatType="Channel" />
           <ServerMemberListContainer />
         </div>
       </div>

@@ -39,7 +39,7 @@ class ExploreServersMenu extends React.Component {
       const membershipId = this.props.servers[serverId].membershipId;
       this.props.removeServerMember(membershipId)
         .then(() => {
-          this.props.history.push('/home');
+          this.props.history.push("/@me/home");
         });
       this.props.closeModal();
     }

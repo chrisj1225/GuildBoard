@@ -22,7 +22,7 @@ class Splash extends React.Component {
 
     const SplashButtons = currentUser ? (
       <>
-        <Link className={styles['splash-open-gb']}to="/home">Enter GuildBoard</Link>
+        <Link className={styles['splash-open-gb']}to="/@me/home">Enter GuildBoard</Link>
         {/* Change Redirect to "/servers/:general/channels/:general" once those components are made" */}
       </>
     ) : (

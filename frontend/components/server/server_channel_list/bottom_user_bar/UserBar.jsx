@@ -16,7 +16,7 @@ const UserBar = ({ user }) => (
       </Link>
       <Link 
         className={styles.btn}
-        to="/@me" >
+        to="/profile" >
         <i className="fas fa-cog"></i>
       </Link>
     </div>

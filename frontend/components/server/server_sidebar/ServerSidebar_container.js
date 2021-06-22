@@ -8,7 +8,7 @@ import ServerSideBar from './ServerSidebar';
 const mSTP = (state, ownProps) => {
   // debugger
   let home;
-  if (ownProps.match.path == "/home") home = true;
+  if (ownProps.match.path == "/@me/home") home = true;
   return({
     home,
     currentUser: state.entities.currentUser[state.session.session.id],

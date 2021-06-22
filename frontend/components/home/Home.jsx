@@ -4,9 +4,8 @@ import ServerSideBarContainer from '../server/server_sidebar/ServerSidebar_conta
 
 import styles from './Home.module.scss';
 
-const Home = ({ currentUser }) => (
-  <div className={styles['home-container']}>
-    <ServerSideBarContainer />
+const Home = ({ currentUser, currDmId }) => {
+  const HomeContent = (currDmId == "home") ? (
     <div className={styles['home-content']}>
       <h1>Welcome to GuildBoard, {currentUser.username}!</h1>
       <br />
@@ -23,9 +22,20 @@ const Home = ({ currentUser }) => (
       <h2>We're working on it!</h2>
       <img className={styles['bob-gif']} src={window.bobUrl} />
     </div>
+  ) : (
+    null
+    // DM Container
+  )
 
-  </div>
 
-);
+  return (
+    <div className={styles['home-container']}>
+      <ServerSideBarContainer />
+      
+      {HomeContent}
+    </div>
+  );
+
+};
 
 export default Home;

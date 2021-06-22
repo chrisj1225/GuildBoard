@@ -22,7 +22,7 @@ class EditUserForm extends React.Component {
     } else {
       const user = Object.assign({}, this.state)
       this.props.editUser(user).then(() => {
-        this.props.history.push('/home')
+        this.props.history.push("/@me/home")
       });
       this.props.closeModal();
     }

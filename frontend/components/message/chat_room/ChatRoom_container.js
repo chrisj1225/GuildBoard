@@ -10,7 +10,7 @@ import ChatRoom from './ChatRoom';
 
 const mSTP = (state, ownProps) => {
   return({
-    chatType: "Channel",
+    chatType: ownProps.chatType,
     chat: state.entities.channels[ownProps.match.params.channelId],
     currentServerId: ownProps.match.params.serverId,
     users: state.entities.users,

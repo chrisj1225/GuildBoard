@@ -43,7 +43,7 @@ class ServerChannelList extends React.Component {
     // debugger
     if (this.props.currServer.id !== 1) {
       this.props.removeServerMember(this.props.currServer.membershipId)
-        .then(() => this.props.history.push("/home"));
+        .then(() => this.props.history.push("/@me/home"));
     } else {
       alert("You cannot leave the General Server");
     }
@@ -53,7 +53,7 @@ class ServerChannelList extends React.Component {
     // debugger
     if (this.props.currServer.id !== 1) {
       this.props.deleteServer(this.props.serverId)
-        .then(() => this.props.history.push("/home"));
+        .then(() => this.props.history.push("/@me/home"));
     }
   }
 

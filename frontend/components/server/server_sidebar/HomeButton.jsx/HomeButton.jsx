@@ -5,7 +5,7 @@ import styles from '../ServerSidebar.module.scss';
 const HomeButton = () => (
 
   <NavLink 
-    to='/home'
+    to="/@me/home"
     className={styles['server-icon']}
     activeClassName={styles['server-icon active']} >
     <img className={styles.logo} src={window.gbLogoUrl} />
