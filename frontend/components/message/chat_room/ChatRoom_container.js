@@ -9,13 +9,21 @@ import { fetchServerInfo } from '../../../actions/server_actions';
 import ChatRoom from './ChatRoom';
 
 const mSTP = (state, ownProps) => {
+  let chatType = ownProps.chatType;
+  const messages = (chatType == "Channel") ? (
+    getChannelMessages(state.entities.messages, ownProps.match.params.channelId)
+  ) : (
+    // filter DM messages only
+    null
+  )
+
   return({
-    chatType: ownProps.chatType,
+    chatType,
     chat: state.entities.channels[ownProps.match.params.channelId],
     currentServerId: ownProps.match.params.serverId,
     users: state.entities.users,
     currentUser: state.entities.currentUser[state.session.session.id],
-    messages: getChannelMessages(state.entities.messages, ownProps.match.params.channelId)
+    messages
     // get messages from current channel to load
   })
 }

@@ -1,6 +1,7 @@
 import React from 'react';
 
 import ServerSideBarContainer from '../server/server_sidebar/ServerSidebar_container';
+import DMSidebarListContainer from '../direct_message/dm_sidebar/DMSidebarList_container';
 
 import styles from './Home.module.scss';
 
@@ -31,7 +32,7 @@ const Home = ({ currentUser, currDmId }) => {
   return (
     <div className={styles['home-container']}>
       <ServerSideBarContainer />
-      
+      {/* <DMSidebarListContainer /> */}
       {HomeContent}
     </div>
   );

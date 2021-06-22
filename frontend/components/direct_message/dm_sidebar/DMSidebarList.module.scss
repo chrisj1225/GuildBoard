@@ -1,0 +1,138 @@
+.dm-list-container {
+  flex-direction: column;
+  align-items: center;
+  width: 240px;
+  background-color: #2f3136;
+  color: white;
+  font-weight: bold;
+  font-family: 'Noto Sans JP', sans-serif;
+
+  &:first-child {
+    align-items: normal;
+  }
+}
+
+.dm-list {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  height: calc(100vh - 80px);
+  align-items: center;
+  color: #858c81;
+  font-family: 'Noto Sans JP', sans-serif;
+  overflow-y: scroll;
+  overflow-x: hidden;
+
+  &:first-child {
+    align-items: normal;
+  }
+
+  &::-webkit-scrollbar {
+    width: 5px;
+    background: transparent;
+  }
+
+  &:hover {
+    &::-webkit-scrollbar {
+      width: 5px;
+    }
+    
+    &::-webkit-scrollbar-track {
+      background: #2e3338;
+    }
+    
+    &::-webkit-scrollbar-thumb {
+      background-color: #202225;
+      border-radius: 15px; 
+      border: 3px solid #202225;
+    }
+  }
+}
+
+.home-header {
+  display: flex;
+  // position: relative;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 18px;
+  font-style: bold;
+  height: 40px;
+  box-shadow: 0 3px 5px -5px black;
+  cursor: pointer;
+
+  h1 {
+    margin-left: 10px;
+  }
+
+  i {
+    margin-right: 20px;
+  }
+}
+
+.dm-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 5px;
+  font-size: 12px;
+  width: 190px;
+  height: 26px;
+}
+
+.dm-item {
+  // display: flex;
+  width: 210px;
+
+  &:hover {
+    background-color: #34373c;
+    color: white;
+    
+    .edit-btn {
+      display: block;
+    }
+  }
+}
+
+.dm-link {
+  display: flex;
+  margin: 5px;
+  padding: 5px;
+  justify-content: space-between;
+  border-radius: 4px;
+  color: #858c81;
+  cursor: pointer;
+  width: 100%;
+}
+
+.edit-btn {
+  display: none;
+  color: white;
+
+  &:hover {
+    color: #696969;
+  }
+}
+
+.selected {
+  // display: block;
+  width: 200px;
+  margin: 5px;
+  padding: 5px;
+  border-radius: 4px;
+  color: white;;
+  cursor: pointer;
+  background-color: #34373c;
+
+  .edit-btn {
+    display: block;
+  }
+}
+
+#delete-btn {
+  color: #c1393c;
+
+  &:hover {
+    color: white;
+    background-color: #c1393c;
+  }
+}

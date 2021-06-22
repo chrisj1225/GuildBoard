@@ -5,7 +5,7 @@ const DMHeader = ({ directMessage }) => (
 
   <div className={styles['dm-header']}>
     <div>
-      <h1><i className="fas fa-hashtag"></i> {directMessage.otherUser}</h1>
+      <h1><i className="fas fa-hashtag"></i> Other User's Username</h1>
     </div>
     <div className={styles['icon-links']}>
       <a 
