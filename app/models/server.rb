@@ -23,6 +23,7 @@ class Server < ApplicationRecord
   
   has_many :messages,
     through: :channels,
-    source: :messages
+    source: :messages,
+    dependent: :destroy
 
 end

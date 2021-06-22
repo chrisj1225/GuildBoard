@@ -25,7 +25,11 @@ export const convertToSnakeCase = obj => {
 // }
 
 export const findServerChans = (server, channels) => {
-  return channels.filter( channel => channel.serverId == server.id )
+  if (!server) {
+    return null;
+  } else {
+    return channels.filter( channel => channel.serverId == server.id )
+  }
 } 
 
 export const getChannelMessages = (messages, channelId) => {

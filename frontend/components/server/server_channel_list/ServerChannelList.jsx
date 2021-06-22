@@ -17,6 +17,7 @@ class ServerChannelList extends React.Component {
     this.toggleMenu = this.toggleMenu.bind(this);
     this.closeMenu = this.closeMenu.bind(this);
     this.leaveServer = this.leaveServer.bind(this);
+    this.deleteServer = this.deleteServer.bind(this);
   }
 
   // componentDidUpdate(prevProps, prevState) {
@@ -43,17 +44,27 @@ class ServerChannelList extends React.Component {
     if (this.props.currServer.id !== 1) {
       this.props.removeServerMember(this.props.currServer.membershipId)
         .then(() => this.props.history.push("/home"));
+    } else {
+      alert("You cannot leave the General Server");
+    }
+  }
+
+  deleteServer() {
+    // debugger
+    if (this.props.currServer.id !== 1) {
+      this.props.deleteServer(this.props.serverId)
+        .then(() => this.props.history.push("/home"));
     }
   }
 
   render() {
-    if (!this.props.channels.length) return null;
+    if (!this.props.channels || !this.props.channels.length) return null;
 
     const { currentUser, currServer } = this.props;
 
     let editServerButton;
 
-    editServerButton = (currentUser.id === currServer.ownerId) ? (
+    editServerButton = ((currentUser.id === currServer.ownerId) || currentUser.id === 1) ? (
       <span onClick={() => this.props.openModal("update-server")} >
         Edit Server
       </span>
@@ -73,6 +84,28 @@ class ServerChannelList extends React.Component {
       <i className="fas fa-angle-down"></i>
     )
 
+    const ServerMenu = this.state.serverMenuShow ? (
+      (currentUser.id == currServer.ownerId) || (currentUser.id == 1)) ? (
+        <div className={styles['server-menu']} >
+          {editServerButton}
+          <span 
+            onClick={this.deleteServer} >
+              Delete Server
+          </span>
+          <span 
+            onClick={this.leaveServer} >
+              Leave Server
+          </span>
+        </div>) : (
+        
+        <div className={styles['server-menu']} >
+          <span 
+            onClick={this.leaveServer} >
+              Leave Server
+          </span> 
+        </div>
+        ) : null;
+
     return (
       <div className={styles['channel-list-container']}
         tabIndex="0"
@@ -83,15 +116,7 @@ class ServerChannelList extends React.Component {
           <h1>{this.props.currServer.title}</h1>
           {toggleBtn}
         </div>
-        { this.state.serverMenuShow &&
-          <div className={styles['server-menu']} >
-            {editServerButton}
-            <span 
-              onClick={this.leaveServer} >
-                Leave Server
-            </span>
-          </div>
-        }
+        {ServerMenu}
 
         <div className={styles['channel-list']}>
           <div className={styles['channel-header']}>

@@ -15,9 +15,9 @@ class ServerMemberList extends React.Component {
 
   render(){
     // debugger
-    if (!this.props.users) return null;
-
     const { users, currentServer } = this.props;
+    if (!users || !currentServer) return null;
+
     return (
       <div className={styles['member-list']}>
         <h1 className={styles['member-header']}>

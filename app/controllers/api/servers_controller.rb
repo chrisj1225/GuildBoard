@@ -40,7 +40,7 @@ class Api::ServersController < ApplicationController
 
   def destroy
     @server = Server.find(params[:id])
-    if current_user.id == @server.owner_id
+    if (current_user.id == @server.owner_id) || (@server.owner_id == 1)
       @server.destroy
       render "/api/servers/show"
     end
