@@ -5,8 +5,8 @@ import styles from '../ServerSidebar.module.scss';
 const CreateServerButton = ({ openModal }) => (
 
   <button onClick={() => openModal('create-server')}>
-    <div className={styles['server-icon']}>
-      +
+    <div className={styles['create-explore-btn']}>
+      <i className="fas fa-plus"></i>
     </div>
   </button>
 

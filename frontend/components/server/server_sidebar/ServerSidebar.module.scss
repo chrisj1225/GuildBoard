@@ -24,6 +24,25 @@
   height: auto;
 }
 
+.create-explore-btn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #3ba55d;
+  font-weight: bolder;
+  font-size: 28px;
+  background-color: #36393f;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  margin: 5px;
+  cursor: pointer; 
+
+  &:hover {
+    border-radius: 20%;
+  }
+}
+
 .server-icon {
   // position: relative;
   font-family: 'Noto Sans JP', sans-serif;
