@@ -6,6 +6,8 @@ import styles from './ServerMemberList.module.scss';
 class ServerMemberList extends React.Component {
   constructor(props) {
     super(props)
+
+
   }
 
   // Not needed. This is called in Channel cDM.
@@ -15,7 +17,7 @@ class ServerMemberList extends React.Component {
 
   render(){
     // debugger
-    const { users, currentServer } = this.props;
+    const { users, currentServer, openModal } = this.props;
     if (!users || !currentServer) return null;
 
     return (
@@ -28,6 +30,7 @@ class ServerMemberList extends React.Component {
             key={user.id}
             user={user}
             serverOwnerId={currentServer.ownerId}
+            openModal={openModal}
             />
         })}
       </div>

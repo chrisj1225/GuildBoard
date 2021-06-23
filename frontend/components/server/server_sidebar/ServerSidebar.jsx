@@ -9,6 +9,10 @@ class ServerSidebar extends React.Component {
   constructor(props) {
     super(props)
 
+    this.state = {
+      dmsFetched: false
+    }
+
   }
   
   componentDidMount() {
@@ -17,7 +21,11 @@ class ServerSidebar extends React.Component {
     //   this.props.fetchServerMembers(this.props.currServerId);
     // } 
     this.props.fetchAllServers(this.props.currentUser.id);
-    this.props.fetchAllChannels()
+    this.props.fetchAllChannels();
+    this.props.fetchUserDMs(this.props.currentUser.id)
+      .then(res => {
+        this.setState({dmsFetched: true})
+      })
   }
   
   // componentDidUpdate(prevProps, prevState) {
@@ -26,12 +34,19 @@ class ServerSidebar extends React.Component {
   //   }
   // }
 
+  componentWillUnmount() {
+    this.setState({
+      dmsFetched: false
+    })
+  }
+
   render() {
     // debugger
     const { allServers, currServerId } = this.props;
 
     if ((!Object.keys(this.props.allServers).length) || 
-    (!this.props.userServersIds.length)) {
+    (!this.props.userServersIds.length) || 
+    (!this.state.dmsFetched)) {
       return null;
     }
     return(

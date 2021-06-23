@@ -12,12 +12,14 @@ class Api::DirectMessagesController < ApplicationController
   end
 
   def create
-    other_user = User.find_by(id: params[:other_user_id])
-    current_user.direct_messages.each do |dm|
-      if dm.members.include?(other_user)
-        render json: ["Direct message with this user already exists"], status: 404
-      end
-    end
+    debugger
+    # other_user = User.find_by(id: params[:otherUserId])
+    # current_user.direct_messages.each do |dm|
+    #   if dm.members.include?(other_user)
+    #     render json: ["Direct message with this user already exists"], status: 404
+    #     break
+    #   end
+    # end
 
     @dm = DirectMessage.new()
     if @dm.save
@@ -27,13 +29,15 @@ class Api::DirectMessagesController < ApplicationController
         joinable_type: "DirectMessage"
       }
       other_user = {
-        user_id: params[:other_user_id],
+        user_id: params[:otherUserId],
         joinable_id: @dm.id,
         joinable_type: "DirectMessage"
       }
       Membership.create(curr_user)
       Membership.create(other_user)
       render "api/direct_messages/show"
+    else 
+      render json: ["Direct message with this user already exists"], status: 404
     end
   end
 

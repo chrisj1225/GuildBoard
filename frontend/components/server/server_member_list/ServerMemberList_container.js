@@ -1,6 +1,7 @@
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router';
 // import { fetchServerMembers } from '../../../actions/server_actions';
+import { openModal } from '../../../actions/ui_actions';
 import ServerMemberList from './ServerMemberList';
 
 const mSTP = (state, ownProps) => {
@@ -13,10 +14,11 @@ const mSTP = (state, ownProps) => {
   })
 }
 
-// const mDTP = dispatch => {
-//   return ({
-//     fetchServerMembers: (serverId) => dispatch(fetchServerMembers(serverId))
-//   })
-// }
+const mDTP = dispatch => {
+  return ({
+    // fetchServerMembers: (serverId) => dispatch(fetchServerMembers(serverId)),
+    openModal: (modalName) => dispatch(openModal(modalName))
+  })
+}
 
-export default withRouter(connect(mSTP, null)(ServerMemberList));
+export default withRouter(connect(mSTP, mDTP)(ServerMemberList));

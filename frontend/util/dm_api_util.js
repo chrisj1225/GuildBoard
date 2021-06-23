@@ -12,11 +12,11 @@ export const fetchUserDMs = (userId) => {
   })
 };
 
-export const createDM = (otherUser) => {
+export const createDM = (otherUserId) => {
   return $.ajax({
     method: 'POST',
     url: '/api/direct_messages',
-    data: { otherUser }
+    data: { otherUserId }
   })
 };
 

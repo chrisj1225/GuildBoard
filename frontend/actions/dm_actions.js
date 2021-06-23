@@ -12,10 +12,10 @@ export const receiveUserDMs = dms => {
   })
 };
 
-export const receiveDM = dm => {
+export const receiveDM = data => {
   return({
     type: RECEIVE_DM,
-    dm
+    data
   })
 };
 
@@ -40,12 +40,12 @@ export const fetchUserDMs = userId => dispatch => {
 
 export const fetchDM = dmId => dispatch => {
   return DMAPIUtil.fetchDM(dmId)
-    .then(dm => dispatch(receiveDM(dm)))
+    .then(data => dispatch(receiveDM(data)))
 };
 
-export const createDM = otherUser => dispatch => {
-  return DMAPIUtil.createDM(otherUser)
-    .then(dm => dispatch(receiveDM(dm)),
+export const createDM = otherUserId => dispatch => {
+  return DMAPIUtil.createDM(otherUserId)
+    .then(data => dispatch(receiveDM(data)),
     err => dispatch(receiveErrors(err.responseJSON)))
 };
 

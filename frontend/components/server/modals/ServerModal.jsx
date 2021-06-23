@@ -7,6 +7,7 @@ import CreateChannelFormContainer from '../server_channel_list/create_channel/Cr
 import UpdateServerFormContainer from '../server_channel_list/update_server/UpdateServerForm_container';
 import UpdateChannelFormContainer from '../../channel/update_channel/UpdateChannelForm_container';
 import EditUserFormContainer from '../../user_profile/edit_user/EditUserForm_container';
+import UserModalContainer from '../../user_profile/user_modal/UserModal_container';
 
 import styles from './ServerModal.module.scss';
 
@@ -32,6 +33,9 @@ const ServerModal = ({ modal, closeModal }) => {
       break;
     case 'edit-user':
       component = <EditUserFormContainer />
+      break;
+    case 'user-modal':
+      component = <UserModalContainer />
       break;
     default:
       return null;
