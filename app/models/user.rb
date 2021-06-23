@@ -23,12 +23,17 @@ class User < ApplicationRecord
     through: :memberships,
     source: :joinable,
     source_type: 'Server'
-
-  has_many :channels_owned,
+    
+    has_many :channels_owned,
     primary_key: :id,
     foreign_key: :owner_id,
     class_name: :Channel
 
+  has_many :direct_messages, # direct messages joined
+      through: :memberships,
+      source: :joinable,
+      source_type: 'DirectMessage'
+    
   has_many :messages,
     primary_key: :id,
     foreign_key: :author_id,

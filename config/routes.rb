@@ -4,6 +4,7 @@ Rails.application.routes.draw do
   namespace :api, defaults: {format: :json} do
     resources :users, only: [:create, :show, :update] do
       resources :servers, only: [:index]
+      resources :direct_messages, only: [:index]
     end
     resource :session, only: [:create, :destroy]
     resources :servers, only: [:create, :show, :update, :destroy] do
@@ -13,6 +14,10 @@ Rails.application.routes.draw do
     resources :memberships, only: [:show, :create, :destroy]
 
     resources :channels, only: [:show, :create, :update, :destroy] do
+      resources :messages, only: [:index]
+    end
+
+    resources :direct_messages, only: [:create, :show, :destroy] do 
       resources :messages, only: [:index]
     end
 

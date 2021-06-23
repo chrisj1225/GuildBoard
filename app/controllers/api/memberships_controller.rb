@@ -15,6 +15,9 @@ class Api::MembershipsController < ApplicationController
       if membership.joinable_type == "Server"
         @server = membership.joinable
         render "api/servers/show"
+      elsif membership.joinable_type == "DirectMessage"
+        @dm = membership.joinable
+        render "api/direct_messages/show"
       end
     else 
       render json: ["Something went wrong"], status: 404
@@ -44,6 +47,10 @@ class Api::MembershipsController < ApplicationController
     # elsif @membership && params.include(:dm_id)
     #   @membership.destroy
     #   render "/api/servers/#{params[:dm_id]}/users"
+    elsif membership && membership.joinable_type == "DirectMessage"
+      membership.destroy
+      @direct_message = membership.joinable
+      render "/api/direct_messages/show"
     else
       render json: ["Something went wrong"], status: 404
     end
