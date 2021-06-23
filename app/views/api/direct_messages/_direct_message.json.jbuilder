@@ -1,1 +1,4 @@
-json.extract! channel, :id, :title, :server_id, :owner_id
+json.extract! dm, :id
+
+members = dm.members.select{ |member| member != current_user }
+json.set! :other_user, members[0]

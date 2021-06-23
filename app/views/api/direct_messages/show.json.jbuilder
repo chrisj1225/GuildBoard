@@ -1,4 +1,4 @@
-json.server do
+json.dm do
   json.partial! 'api/direct_messages/direct_message', dm: @dm
 end
 json.members do

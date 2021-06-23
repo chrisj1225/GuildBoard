@@ -13,9 +13,9 @@ export const createMessage = message => {
   })
 }
 
-// export const fetchDMMessages = DMId => {
-//   return $.ajax({
-//     method: 'GET',
-//     url: `/api/direct_messages/${DMId}/messages`
-//   })
-// }
+export const fetchDMMessages = dmId => {
+  return $.ajax({
+    method: 'GET',
+    url: `/api/direct_messages/${dmId}/messages`
+  })
+}
