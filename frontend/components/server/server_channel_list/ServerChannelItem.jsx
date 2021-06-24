@@ -19,7 +19,7 @@ const ServerChannelItem = ({ channel, server, currentUser, currentChanId, openMo
   const ChannelMenu = (currentUser.id == channel.ownerId) ? (
     <div>
       {/* <NavLink to={`/servers/${serverId}/channels/${channel.id}`}>Open Channel</NavLink> */}
-      <li onClick={() => openModal("update-channel")}>Edit Channel</li>
+      <li onClick={() => openModal({type: "update-channel"})}>Edit Channel</li>
       <li id={styles['delete-btn']} onClick={() => destroyChannel(channel.id)}>Delete Channel</li>
     </div>
   ) : (
@@ -31,7 +31,7 @@ const ServerChannelItem = ({ channel, server, currentUser, currentChanId, openMo
   const EditChannelBtn = ((currentUser.id == channel.ownerId) && 
     (currentChanId == channel.id)) ? (
     <div className={styles['edit-btn']}
-      onClick={() => openModal("update-channel")}>
+      onClick={() => openModal({type: "update-channel"})}>
       <i className="fas fa-cog"></i>
     </div>
   ) : (
@@ -44,7 +44,6 @@ const ServerChannelItem = ({ channel, server, currentUser, currentChanId, openMo
       <NavLink
         className={styles['channel-link']}
         activeClassName={styles['selected']}
-        // to={`${channel.id}`} >
         to={`/servers/${server.id}/channels/${channel.id}`} >
         # {channel.title}
         {EditChannelBtn}

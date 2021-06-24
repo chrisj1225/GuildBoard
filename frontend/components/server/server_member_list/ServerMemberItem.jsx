@@ -13,7 +13,8 @@ const ServerMemberItem = ({ user, serverOwnerId, openModal }) => {
         {serverOwnerMarker}
       </div>
       <div 
-        className={styles['member-modal-btn']}onClick={() => openModal('user-modal')}>
+        className={styles['member-modal-btn']} 
+          onClick={() => openModal({type: 'user-modal', otherUser: user})}>
         <i className="fas fa-address-card"></i>
       </div>
     </div>

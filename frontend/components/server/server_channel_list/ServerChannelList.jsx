@@ -65,7 +65,7 @@ class ServerChannelList extends React.Component {
     let editServerButton;
 
     editServerButton = ((currentUser.id === currServer.ownerId) || currentUser.id === 1) ? (
-      <span onClick={() => this.props.openModal("update-server")} >
+      <span onClick={() => this.props.openModal({type: "update-server"})} >
         Edit Server
       </span>
     ) : (

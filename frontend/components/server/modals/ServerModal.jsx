@@ -15,7 +15,7 @@ const ServerModal = ({ modal, closeModal }) => {
   if (!modal) return null;
 
   let component;
-  switch(modal) {
+  switch(modal.type) {
     case 'create-server':
       component = <CreateServerFormContainer />
       break;
@@ -35,7 +35,7 @@ const ServerModal = ({ modal, closeModal }) => {
       component = <EditUserFormContainer />
       break;
     case 'user-modal':
-      component = <UserModalContainer />
+      component = <UserModalContainer otherUser={modal.otherUser} />
       break;
     default:
       return null;

@@ -12,18 +12,21 @@ class UserModal extends React.Component {
       e.preventDefault();
       this.props.createDM(otherUserId)
         .then(res => {
-          this.props.history.push(`/@me/${res.dm.id}`)
+          debugger
+          this.props.closeModal();
+          this.props.history.push(`/@me/${res.data.dm.id}`)
         });
     }
   }
 
   render() {
+    const { otherUser } = this.props;
     return(
       <div>
-        User
+        {otherUser.username}
 
-        <div onClick={this.handleCreateDM}>
-          Start DM
+        <div onClick={this.handleCreateDM(otherUser.id)}>
+          Send Message
         </div>
       </div>
     )

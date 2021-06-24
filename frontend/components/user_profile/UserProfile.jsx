@@ -35,7 +35,7 @@ class UserProfile extends React.Component {
           </div>
           <button 
             className={styles.edit}
-            onClick={() => this.props.openModal('edit-user')} >Edit User</button>
+            onClick={() => this.props.openModal({type: 'edit-user'})} >Edit User</button>
         </div>
         <div>
           <button 

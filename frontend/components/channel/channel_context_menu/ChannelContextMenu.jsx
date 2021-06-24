@@ -19,7 +19,7 @@ const ChannelContextMenu = ({ channel, currChannel, currServer, currentUser }) =
   let ChannelMenu;
   ChannelMenu = (currentUser.id == currChannel.ownerId) ? (
     <div>
-      <li onClick={() => openModal("update-channel")}>Edit Channel</li>
+      <li onClick={() => openModal({type: "update-channel"})}>Edit Channel</li>
       <li onClick={() => destroyChannel(currChannel.id)}>Delete Channel</li>
     </div>
   ) : (

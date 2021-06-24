@@ -14,7 +14,7 @@ const DMListItem = ({ currentUser, dm, openModal, history }) => {
 
   const DeleteDMBtn = (
     <div className={styles['delete-btn']}
-      onClick={() => openModal("delete-dm")}>
+      onClick={() => openModal({type: "delete-dm"})}>
       <i className="fas fa-times"></i>
     </div>
   )

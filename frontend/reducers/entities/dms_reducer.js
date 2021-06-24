@@ -11,7 +11,6 @@ const dmsReducer = (state = {}, action) => {
     case RECEIVE_USER_DMS:
       return Object.assign({}, action.dms);
     case RECEIVE_DM:
-      debugger
       return Object.assign({}, state, { [action.data.dm.id]: action.data.dm })
     case REMOVE_DM:
       let newState = Object.assign({}, state);
