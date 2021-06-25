@@ -20,19 +20,25 @@ class DeleteDMModal extends React.Component {
     const { dm } = this.props;
 
     return(
-      <div className={styles['update-container']}>
-        <div>
-          <h1 className={styles.header}>
+      <div className={styles['delete-dm-container']}>
+        <div className={styles.header}>
+          <h1>
             Confirm Delete <br />
             Direct Message with {dm.otherUser.username}
           </h1>
+          <p>
+            This action cannot be undone. <br />
+            Please only confirm delettion if you are sure.
+          </p>
         </div>
-        <div>
-          <div onClick={(e) => this.handleDelete(e)}>
-            Delete
-          </div>
-          <div onClick={() => this.props.closeModal()}>
+        <div className={styles['delete-btns']}>
+          <div onClick={() => this.props.closeModal()}
+            className={styles.cancel}>
             Cancel
+          </div>
+          <div onClick={(e) => this.handleDelete(e)}
+            className={styles.delete}>
+            Delete
           </div>
         </div>
       </div>
