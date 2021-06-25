@@ -1,6 +1,8 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
+import styles from './UserModal.module.scss';
+
 class UserModal extends React.Component {
   constructor(props) {
     super(props)
@@ -37,26 +39,27 @@ class UserModal extends React.Component {
       return dm.otherUser.id == otherUser.id
     });
     const dmBtn = dmExist ? (
-      <div>
-        {/* <Link to={`/@me/${dmId}`} >
-          Open Direct Message
-        </Link> */}
-        <div onClick={this.handleOpenDM(dmId)}>
-          Open Direct Message
-        </div>
+      <div onClick={this.handleOpenDM(dmId)}
+        className={styles['dm-btn']} >
+        Open Messages
       </div>
     ) : (
-      <div onClick={this.handleCreateDM(otherUser.id)}>
-        Send Direct Message
+      <div onClick={this.handleCreateDM(otherUser.id)}
+        className={styles['dm-btn']} >
+        Send Message
       </div>
     );
 
     return(
-      <div>
-        <span>
-          {otherUser.username}
-        </span>
-        {dmBtn}
+      <div className={styles['user-modal-container']}>
+        <div className={styles['user-modal-header']}>          
+        </div>
+        <div className={styles['user-modal-info']}>
+          <span className={styles['username']}>
+            user: {otherUser.username}
+          </span>
+          {dmBtn}
+        </div>
       </div>
     )
   }

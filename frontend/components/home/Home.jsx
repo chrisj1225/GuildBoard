@@ -8,7 +8,7 @@ import styles from './Home.module.scss';
 
 const Home = ({ currentUser, currDmId }) => {
 
-  const HomeContent = (currDmId == "home") ? (
+  const HomeDMContent = (currDmId == "home") ? (
     <div className={styles['home-content']}>
       <h1>Welcome to GuildBoard, {currentUser.username}!</h1>
       <br />
@@ -34,7 +34,7 @@ const Home = ({ currentUser, currDmId }) => {
     <div className={styles['home-container']}>
       <ServerSideBarContainer />
       <DMSidebarListContainer />
-      {HomeContent}
+      {HomeDMContent}
     </div>
   );
 

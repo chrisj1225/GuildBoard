@@ -1,0 +1,47 @@
+.user-modal-container {
+  display: flex;
+  flex-direction: column;
+  width: 450px;
+  height: 225px;
+  border-radius: 10px;
+}
+
+.user-modal-header {
+  width: 100%;
+  height: 100px;
+  background-color: #747c8c;
+}
+
+.user-modal-info {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-family: 'Noto Sans JP', sans-serif;
+  background-color: #2f3136;
+  color: white;
+  font-size: 22px;
+  height: 150px;
+
+  .username {
+    margin: 20px;
+    max-width: 175px;
+  }
+  
+  .dm-btn {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 16px;
+    background: #3ba55d;
+    margin: 30px;
+    border-radius: 5px;
+    border: 0;
+    height: 40px;
+    width: 140px;
+    cursor: pointer;
+    
+    &:hover {
+      background: darken(#3ba55d, 10%);
+    }
+  }
+}

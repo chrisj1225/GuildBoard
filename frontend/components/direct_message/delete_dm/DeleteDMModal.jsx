@@ -28,7 +28,7 @@ class DeleteDMModal extends React.Component {
           </h1>
           <p>
             This action cannot be undone. <br />
-            Please only confirm delettion if you are sure.
+            Please only confirm deletion if you are sure!
           </p>
         </div>
         <div className={styles['delete-btns']}>
