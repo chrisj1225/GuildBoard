@@ -13,13 +13,13 @@ class Api::DirectMessagesController < ApplicationController
 
   def create
     # debugger
-    other_user = User.find_by(id: params[:otherUserId])
-    current_user.direct_messages.each do |dm|
-      if dm.members.include?(other_user)
-        render json: ["Direct message with this user already exists"], status: 404
-        break
-      end.
-    end
+    # other_user = User.find_by(id: params[:otherUserId])
+    # current_user.direct_messages.each do |dm|
+    #   if dm.members.include?(other_user)
+    #     render json: ["Direct message with this user already exists"], status: 404
+    #     break
+    #   end
+    # end
 
     @dm = DirectMessage.new()
     if @dm.save

@@ -16,6 +16,11 @@
       user: current_user
     ).html_safe %>
 
+    window.userDMs = <%= render(
+      "api/users/user_dms.json.jbuilder",
+      user: current_user
+    ).html_safe %>
+
     window.currentUser = <%= render(
       "api/users/current_user.json.jbuilder",
       user: current_user

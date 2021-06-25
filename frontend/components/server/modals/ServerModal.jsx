@@ -8,6 +8,7 @@ import UpdateServerFormContainer from '../server_channel_list/update_server/Upda
 import UpdateChannelFormContainer from '../../channel/update_channel/UpdateChannelForm_container';
 import EditUserFormContainer from '../../user_profile/edit_user/EditUserForm_container';
 import UserModalContainer from '../../user_profile/user_modal/UserModal_container';
+import DeleteDMContainer from '../../direct_message/delete_dm/DeleteDMModal_container';
 
 import styles from './ServerModal.module.scss';
 
@@ -36,6 +37,9 @@ const ServerModal = ({ modal, closeModal }) => {
       break;
     case 'user-modal':
       component = <UserModalContainer otherUser={modal.otherUser} />
+      break;
+    case 'delete-dm':
+      component = <DeleteDMContainer dm={modal.dm} />
       break;
     default:
       return null;

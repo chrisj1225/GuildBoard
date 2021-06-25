@@ -1,11 +1,14 @@
 import React from 'react'; 
 import styles from './DMHeader.module.scss';
 
-const DMHeader = ({ directMessage }) => (
+const DMHeader = ({ dm }) => (
 
   <div className={styles['dm-header']}>
     <div>
-      <h1><i className="fas fa-hashtag"></i> Other User's Username</h1>
+      <h1>
+        <i className="fas fa-at"></i>
+        {dm.otherUser.username}
+      </h1>
     </div>
     <div className={styles['icon-links']}>
       <a 

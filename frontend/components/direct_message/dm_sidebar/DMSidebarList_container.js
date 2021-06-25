@@ -7,6 +7,7 @@ import DMSidebarList from './DMSidebarList';
 const mSTP = (state, ownProps) => {
   return({
     currentUser: state.entities.currentUser[state.session.session.id],
+    dms: state.entities.dms
   })
 }
 

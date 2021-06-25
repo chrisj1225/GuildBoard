@@ -1,4 +1,5 @@
 import React from 'react';
+import { NavLink } from 'react-router-dom';
 import DMListItem from './DMListItem';
 import UserBar from '../../server/server_channel_list/bottom_user_bar/UserBar';
 
@@ -27,7 +28,7 @@ class DMSidebarList extends React.Component {
   render() {
     // if (!this.props.channels || !this.props.channels.length) return null;
 
-    const { currentUser, dmId, history } = this.props;
+    const { currentUser, dms, dmId, history } = this.props;
 
     return (
       <div className={styles['dm-list-container']}>
@@ -35,13 +36,21 @@ class DMSidebarList extends React.Component {
           <h1>Direct Messages</h1>
         </div>
         <div className={styles['dm-list']}>
+          <div className={styles['dm-item']}>
+            <NavLink
+              className={styles['dm-link']}
+              activeClassName={styles['selected']}
+              to={"/@me/home"} >
+              Home
+            </NavLink>
+          </div>
           <div className={styles['dm-header']}>
             <h2>DIRECT MESSAGES</h2>
           </div>
-          {/* <div>
-            {this.props.directMessages.map(dm => {
+          <div>
+            {Object.values(dms).map(dm => {
               return <DMListItem 
-              key={channel.id}
+              key={dm.id}
               currentUser={currentUser}
               currentDMId={dmId}
               dm={dm}
@@ -49,7 +58,7 @@ class DMSidebarList extends React.Component {
               history={history}
               />
             })}
-          </div> */}
+          </div>
         </div>
         <UserBar user={currentUser} />
       </div>

@@ -94,6 +94,7 @@ class ChatRoom extends React.Component {
           {messageList}
         </div>
         <MessageFormContainer 
+          chatType={this.props.chatType}
           subscription={this.subscription} />
       </div>
     )

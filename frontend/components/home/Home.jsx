@@ -2,10 +2,12 @@ import React from 'react';
 
 import ServerSideBarContainer from '../server/server_sidebar/ServerSidebar_container';
 import DMSidebarListContainer from '../direct_message/dm_sidebar/DMSidebarList_container';
+import DirectMessageContainer from '../direct_message/dm/DirectMessage_container';
 
 import styles from './Home.module.scss';
 
 const Home = ({ currentUser, currDmId }) => {
+
   const HomeContent = (currDmId == "home") ? (
     <div className={styles['home-content']}>
       <h1>Welcome to GuildBoard, {currentUser.username}!</h1>
@@ -24,15 +26,14 @@ const Home = ({ currentUser, currDmId }) => {
       <img className={styles['bob-gif']} src={window.bobUrl} />
     </div>
   ) : (
-    null
-    // DM Container
+    <DirectMessageContainer />
   )
 
 
   return (
     <div className={styles['home-container']}>
       <ServerSideBarContainer />
-      {/* <DMSidebarListContainer /> */}
+      <DMSidebarListContainer />
       {HomeContent}
     </div>
   );

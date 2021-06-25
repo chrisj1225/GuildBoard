@@ -4,12 +4,19 @@ import { withRouter } from 'react-router';
 import MessageForm from './MessageForm';
 
 const mSTP = (state, ownProps) => {
+  const chat = (ownProps.chatType == "Channel") ? (
+    state.entities.channels[ownProps.match.params.channelId]
+  ) : (
+    state.entities.dms[ownProps.match.params.dmId]
+  )
+
   return({
     message: {
       body: "",
       authorId: state.session.session.id
     },
-    chat: state.entities.channels[ownProps.match.params.channelId]
+    chat,
+    chatType: ownProps.chatType,
   })
 }
 

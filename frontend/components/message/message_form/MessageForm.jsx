@@ -27,6 +27,12 @@ class MessageForm extends React.Component {
   }  
 
   render() {
+    const placeholderText = (this.props.chatType == "Channel") ? (
+      `Message ${this.props.chat.title}`
+    ) : (
+      `Message ${this.props.chat.otherUser.username}`
+    )
+
     return(
       <div className={styles['message-wrapper']}>
         <form 
@@ -37,7 +43,7 @@ class MessageForm extends React.Component {
             type="text"
             value={this.state.body}
             onChange={this.update('body')}
-            placeholder={`Message ${this.props.chat.title}`}
+            placeholder={placeholderText}
           />
           <button type="submit"></button>
         </form>

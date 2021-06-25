@@ -7,6 +7,7 @@ import UserModal from './UserModal';
 const mSTP = (state, ownProps) => {
   return({
     users: Object.values(state.entities.users),
+    dms: state.entities.dms,
   })
 }
 

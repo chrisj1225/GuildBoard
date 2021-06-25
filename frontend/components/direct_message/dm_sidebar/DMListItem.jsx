@@ -14,7 +14,7 @@ const DMListItem = ({ currentUser, dm, openModal, history }) => {
 
   const DeleteDMBtn = (
     <div className={styles['delete-btn']}
-      onClick={() => openModal({type: "delete-dm"})}>
+      onClick={() => openModal({type: "delete-dm", dm})}>
       <i className="fas fa-times"></i>
     </div>
   )
@@ -25,7 +25,7 @@ const DMListItem = ({ currentUser, dm, openModal, history }) => {
         className={styles['dm-link']}
         activeClassName={styles['selected']}
         to={`/@me/${dm.id}`} >
-        # Other username
+        {dm.otherUser.username}
         {DeleteDMBtn}
       </NavLink>
     </div>

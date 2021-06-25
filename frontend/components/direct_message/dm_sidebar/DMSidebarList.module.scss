@@ -58,7 +58,6 @@
   font-style: bold;
   height: 40px;
   box-shadow: 0 3px 5px -5px black;
-  cursor: pointer;
 
   h1 {
     margin-left: 10px;
@@ -84,10 +83,18 @@
   width: 210px;
 
   &:hover {
-    background-color: #34373c;
-    color: white;
-    
-    .edit-btn {
+
+    .dm-link {
+      width: 200px;
+      margin: 5px;
+      padding: 5px;
+      border-radius: 4px;
+      color: white;;
+      cursor: pointer;
+      background-color: #34373c;
+    }
+
+    .delete-btn {
       display: block;
     }
   }
@@ -101,7 +108,7 @@
   border-radius: 4px;
   color: #858c81;
   cursor: pointer;
-  width: 100%;
+  width: 90%;
 }
 
 .edit-btn {
@@ -114,7 +121,6 @@
 }
 
 .selected {
-  // display: block;
   width: 200px;
   margin: 5px;
   padding: 5px;
@@ -123,16 +129,11 @@
   cursor: pointer;
   background-color: #34373c;
 
-  .edit-btn {
+  .delete-btn {
     display: block;
   }
 }
 
-#delete-btn {
-  color: #c1393c;
-
-  &:hover {
-    color: white;
-    background-color: #c1393c;
-  }
+.delete-btn {
+  display: none;
 }

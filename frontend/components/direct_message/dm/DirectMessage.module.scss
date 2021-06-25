@@ -1,4 +1,4 @@
-.channel-container {
+.dm-container {
   display: flex;
   flex-direction: column;
   flex-grow: 1;
@@ -8,13 +8,13 @@
   font-family: 'Noto Sans JP', sans-serif;
 }
 
-.channel-content {
+.dm-content {
   display: flex;
   flex-direction: row;
   height: 100%;
 }
 
-.channel-loading {
+.dm-loading {
   display: flex;
   justify-content: center;
   align-items: center;

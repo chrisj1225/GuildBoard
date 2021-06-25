@@ -39,6 +39,13 @@ export const getChannelMessages = (messages, channelId) => {
   return channelMessages;
 }
 
+export const getDMMessages = (messages, dmId) => {
+  const dmMessages = Object.values(messages).filter(message => {
+    return message.messageableId == dmId
+  })
+  return dmMessages;
+}
+
 export const convertDateString = (date) => {
   const msgDate = new Date(date);
   const msgYear = msgDate.getFullYear();
