@@ -6,11 +6,10 @@ import ServerMemberList from './ServerMemberList';
 
 const mSTP = (state, ownProps) => {
   const currentServerId = ownProps.match.params.serverId;
-  
+
   return({
     users: Object.values(state.entities.users),
     currentServer: state.entities.servers[currentServerId],
-    currentUserId: state.session.id,
   })
 }
 

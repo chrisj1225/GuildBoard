@@ -29,7 +29,6 @@ class ServerMemberList extends React.Component {
           return <ServerMemberItem 
             key={user.id}
             user={user}
-            currUserId={currentUserId}
             serverOwnerId={currentServer.ownerId}
             openModal={openModal}
             />
