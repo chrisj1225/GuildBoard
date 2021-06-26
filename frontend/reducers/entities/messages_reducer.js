@@ -5,6 +5,7 @@ import {
 } from '../../actions/message_actions';
 import { 
   RECEIVE_DM,
+  REMOVE_DM,
 } from '../../actions/dm_actions';
 import {
   RECEIVE_SERVER_INFO
@@ -24,6 +25,8 @@ const messagesReducer = (state = {}, action) => {
       return Object.assign({}, state, { [action.message.id]: action.message });
     case RECEIVE_DM:
       return Object.assign({}, action.data.messages);
+    case REMOVE_DM:
+      return {};
     case REMOVE_MESSAGE: 
       delete newState[action.messageId];
       return newState;
