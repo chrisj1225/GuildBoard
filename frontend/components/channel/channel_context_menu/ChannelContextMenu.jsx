@@ -40,7 +40,7 @@ const mSTP = (state, ownProps) => {
   const currentChannelId = ownProps.match.params.channelId;
   const currChannel = state.entities.channels[currentChannelId];
   return({
-    currentUser: state.entities.currentUser[state.session.session.id],
+    currentUser: state.entities.currentUser[state.session.user.id],
     currServer: currServer,
     currChannel: currChannel
   })

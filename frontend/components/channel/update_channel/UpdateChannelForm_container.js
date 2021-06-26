@@ -10,7 +10,7 @@ const mSTP = (state, ownProps) => {
   const serverId = ownProps.location.pathname.split("/")[2];
   return({
     currServer: state.entities.servers[serverId],
-    currentUser: state.entities.currentUser[state.session.session.id],
+    currentUser: state.entities.currentUser[state.session.user.id],
     newChannel: state.entities.channels[channelId]
   })
 }

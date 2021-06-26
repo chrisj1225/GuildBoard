@@ -17,7 +17,7 @@ class ServerMemberList extends React.Component {
 
   render(){
     // debugger
-    const { users, currentServer, openModal } = this.props;
+    const { users, currentUserId, currentServer, openModal } = this.props;
     if (!users || !currentServer) return null;
 
     return (
@@ -29,6 +29,7 @@ class ServerMemberList extends React.Component {
           return <ServerMemberItem 
             key={user.id}
             user={user}
+            currUserId={currentUserId}
             serverOwnerId={currentServer.ownerId}
             openModal={openModal}
             />

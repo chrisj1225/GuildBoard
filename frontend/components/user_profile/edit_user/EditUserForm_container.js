@@ -5,7 +5,7 @@ import { editUser, clearErrors } from '../../../actions/session_actions';
 import { closeModal } from '../../../actions/ui_actions';
 
 const mSTP = (state, ownProps) => {
-  const currentUser = state.entities.currentUser[state.session.session.id];
+  const currentUser = state.entities.currentUser[state.session.user.id];
   return({
     user: {
       id: currentUser.id,

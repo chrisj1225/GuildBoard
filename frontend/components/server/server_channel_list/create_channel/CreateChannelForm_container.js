@@ -7,12 +7,12 @@ import CreateChannelForm from './CreateChannelForm';
 const mSTP = (state, ownProps) => {
   // debugger
   return({
-    currentUser: state.entities.currentUser[state.session.session.id],
+    currentUser: state.entities.currentUser[state.session.user.id],
     serverId: ownProps.location.pathname.split("/")[2],
     newChannel: {
       title: "",
       serverId: ownProps.location.pathname.split("/")[2],
-      ownerId: state.session.session.id
+      ownerId: state.session.user.id
     }
   })
 }

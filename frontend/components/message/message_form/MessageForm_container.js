@@ -13,7 +13,7 @@ const mSTP = (state, ownProps) => {
   return({
     message: {
       body: "",
-      authorId: state.session.session.id
+      authorId: state.session.user.id
     },
     chat,
     chatType: ownProps.chatType,

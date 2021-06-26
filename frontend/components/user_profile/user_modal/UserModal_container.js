@@ -5,7 +5,9 @@ import { closeModal } from '../../../actions/ui_actions';
 import UserModal from './UserModal';
 
 const mSTP = (state, ownProps) => {
+
   return({
+    currentUserId: state.session.user.id,
     users: Object.values(state.entities.users),
     dms: state.entities.dms,
   })

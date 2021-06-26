@@ -6,10 +6,7 @@ import styles from './UserModal.module.scss';
 class UserModal extends React.Component {
   constructor(props) {
     super(props)
-
-    this.handleCreateDM = this.handleCreateDM.bind(this);
   }
-
   
   handleCreateDM(otherUserId) {
     return e => {
@@ -30,24 +27,41 @@ class UserModal extends React.Component {
     }
   }
   
+  handleGoHome() {
+    // debugger
+    return e => {
+      e.preventDefault();
+      this.props.history.push('/@me/home')
+      this.props.closeModal();
+    }
+  }
+  
   render() {
-    const { otherUser, dms } = this.props;
+    const { currentUserId, otherUser, dms } = this.props;
     
     let dmId;
     const dmExist = Object.values(dms).some(dm => {
       dmId = dm.id;
       return dm.otherUser.id == otherUser.id
     });
-    const dmBtn = dmExist ? (
-      <div onClick={this.handleOpenDM(dmId)}
+
+    const dmBtn = (otherUser.id === currentUserId) ? (
+      <div onClick={this.handleGoHome()}
         className={styles['dm-btn']} >
-        Open Messages
+        Go To Messages
       </div>
     ) : (
-      <div onClick={this.handleCreateDM(otherUser.id)}
-        className={styles['dm-btn']} >
-        Send Message
-      </div>
+      dmExist ? (
+        <div onClick={this.handleOpenDM(dmId)}
+          className={styles['dm-btn']} >
+          Open Messages
+        </div>
+      ) : (
+        <div onClick={this.handleCreateDM(otherUser.id)}
+          className={styles['dm-btn']} >
+          Send Message
+        </div>
+      )
     );
 
     return(

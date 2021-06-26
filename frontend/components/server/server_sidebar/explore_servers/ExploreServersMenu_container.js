@@ -7,9 +7,9 @@ import ExploreServersMenu from './ExploreServersMenu';
 const mSTP = (state, ownProps) => {
   // debugger
   return({
-    currentUser: state.entities.currentUser[state.session.session.id],
+    currentUser: state.entities.currentUser[state.session.user.id],
     memberParams: {
-      userId: state.session.session.id,
+      userId: state.session.user.id,
       joinableId: null,
       joinableType: 'Server'
     },

@@ -16,7 +16,7 @@ const mSTP = (state, ownProps) => {
   const currServerChans = findServerChans(currServer, allChannels);
   // debugger
   return({
-    currentUser: state.entities.currentUser[state.session.session.id],
+    currentUser: state.entities.currentUser[state.session.user.id],
     channels: currServerChans,
     serverId: currentServerId,
     channelId: currentChannelId,

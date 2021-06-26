@@ -5,12 +5,12 @@ import { openModal } from '../../../actions/ui_actions';
 import ServerMemberList from './ServerMemberList';
 
 const mSTP = (state, ownProps) => {
-  // debugger
   const currentServerId = ownProps.match.params.serverId;
-
+  
   return({
     users: Object.values(state.entities.users),
-    currentServer: state.entities.servers[currentServerId] 
+    currentServer: state.entities.servers[currentServerId],
+    currentUserId: state.session.id,
   })
 }
 

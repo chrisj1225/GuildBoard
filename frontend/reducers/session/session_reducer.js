@@ -3,7 +3,7 @@ import authReducer from './auth_reducer';
 import userServersReducer from './user_servers_reducer';
 
 const sessionReducer = combineReducers({
-  session: authReducer,
+  user: authReducer,
   userServers: userServersReducer
 })
 

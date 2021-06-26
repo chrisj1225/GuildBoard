@@ -12,7 +12,7 @@ const mSTP = (state, ownProps) => {
   if (ownProps.match.path == "/@me/home") home = true;
   return({
     home,
-    currentUser: state.entities.currentUser[state.session.session.id],
+    currentUser: state.entities.currentUser[state.session.user.id],
     userServersIds: state.session.userServers,
     currServerId: ownProps.match.params.serverId,
     allServers: state.entities.servers,
