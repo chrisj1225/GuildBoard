@@ -86,11 +86,7 @@
 
     .dm-link {
       width: 200px;
-      margin: 5px;
-      padding: 5px;
-      border-radius: 4px;
       color: white;;
-      cursor: pointer;
       background-color: #34373c;
     }
 
@@ -111,15 +107,6 @@
   width: 90%;
 }
 
-.edit-btn {
-  display: none;
-  color: white;
-
-  &:hover {
-    color: #696969;
-  }
-}
-
 .selected {
   width: 200px;
   margin: 5px;
@@ -136,4 +123,8 @@
 
 .delete-btn {
   display: none;
+
+  &:hover {
+    color: #696969;
+  }
 }

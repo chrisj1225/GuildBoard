@@ -30,7 +30,7 @@ const ServerModal = ({ modal, closeModal }) => {
       component = <UpdateServerFormContainer />
       break;
     case 'update-channel':
-      component = <UpdateChannelFormContainer />
+      component = <UpdateChannelFormContainer channel={modal.channel} />
       break;
     case 'edit-user':
       component = <EditUserFormContainer />

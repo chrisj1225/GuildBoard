@@ -13,16 +13,6 @@ class DMSidebarList extends React.Component {
     this.state = {
       serverMenuShow: false
     }
-
-    this.deleteServer = this.deleteServer.bind(this);
-  }
-
-  deleteServer() {
-    // debugger
-    if (this.props.currServer.id !== 1) {
-      this.props.deleteServer(this.props.serverId)
-        .then(() => this.props.history.push("/@me/home"));
-    }
   }
 
   render() {

@@ -99,9 +99,6 @@
       }
     }
   }
-
-
-
 }
 
 .channel-header {
@@ -124,9 +121,14 @@
   width: 210px;
 
   &:hover {
-    background-color: #34373c;
-    color: white;
-    
+
+    .channel-link {
+      width: 200px;
+      color: white;
+      background-color: #34373c;
+
+    }
+      
     .edit-btn {
       display: block;
     }
@@ -141,20 +143,10 @@
   border-radius: 4px;
   color: #858c81;
   cursor: pointer;
-  width: 100%;
-}
-
-.edit-btn {
-  display: none;
-  color: white;
-
-  &:hover {
-    color: #696969;
-  }
+  width: 90%;
 }
 
 .selected {
-  // display: block;
   width: 200px;
   margin: 5px;
   padding: 5px;
@@ -162,9 +154,17 @@
   color: white;;
   cursor: pointer;
   background-color: #34373c;
-
+  
   .edit-btn {
     display: block;
+  }
+}
+
+.edit-btn {
+  display: none;
+
+  &:hover {
+    color: #696969;
   }
 }
 
