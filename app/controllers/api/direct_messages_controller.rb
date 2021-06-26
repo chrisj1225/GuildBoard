@@ -41,6 +41,14 @@ class Api::DirectMessagesController < ApplicationController
     end
   end
 
+  def destroy
+    @dm = DirectMessage.find(params[:id])
+    if @dm
+      @dm.destroy
+      render "/api/direct_messages/show"
+    end
+  end
+
   private
 
   # def dm_params

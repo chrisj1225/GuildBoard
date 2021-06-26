@@ -12,8 +12,11 @@ class DeleteDMModal extends React.Component {
 
   handleDelete(e) {
     e.preventDefault();
-    this.props.deleteDM(this.props.dm.id);
-    this.props.closeModal();
+    this.props.deleteDM(this.props.dm.id)
+      .then(res => {
+        this.props.closeModal();
+        this.props.history.push('/@me/home');
+      })
   }
 
   render() {

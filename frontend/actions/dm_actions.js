@@ -2,7 +2,7 @@ import * as DMAPIUtil from '../util/dm_api_util';
 
 export const RECEIVE_USER_DMS = 'RECEIVE_USER_DMS';
 export const RECEIVE_DM = 'RECEIVE_DM';
-export const REMOVE_DM = 'REMOVE_DMS';
+export const REMOVE_DM = 'REMOVE_DM';
 export const RECEIVE_DM_ERRORS = 'RECEIVE_DM_ERRORS';
 
 export const receiveUserDMs = dms => {
@@ -21,7 +21,7 @@ export const receiveDM = data => {
 
 export const removeDM = dmId => {
   return({
-    type: RECEIVE_DM,
+    type: REMOVE_DM,
     dmId
   })
 };
@@ -51,5 +51,5 @@ export const createDM = otherUserId => dispatch => {
 
 export const deleteDM = dmId => dispatch => {
   return DMAPIUtil.deleteDM(dmId)
-    .then(dm => dispatch(removeDM(dm.id)))
+    .then(data => dispatch(removeDM(data.dm.id)))
 };
