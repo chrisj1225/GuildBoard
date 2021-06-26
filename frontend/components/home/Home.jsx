@@ -13,16 +13,21 @@ const Home = ({ currentUser, currDmId }) => {
       <h1>Welcome to GuildBoard, {currentUser.username}!</h1>
       <br />
       <h2>
-        The home page is currently under construction.
+        If you're new here, try exploring the servers <i className="fas fa-compass"></i> our users have already created
         <br />
-        Eventually this will hold direct messages with other users!
+        or feel free to create <i className="fas fa-plus"></i> your own server for your interests and friends.
+        <br /><br />
+        At any time, you can enter a server by clicking its icon <i className="fas fa-stop-circle"></i> in the server sidebar 
+        <br />
+        to the left and start live chatting with other server members right away.
+        <br /><br />
+        To send private messages to a server member, you can click the profile icon <i className="fas fa-address-card"></i>
+        <br />
+        next to their name and start/open a direct message session with them.
       </h2>
-      <br /><br />
-      <h2>
-        For now, please try entering one of our servers to the left!
-      </h2>
-      <br /><br />
-      <h2>We're working on it!</h2>
+        <br /><br />
+      <h2>Please know we're constantly working to improve the site!</h2>
+        <br />
       <img className={styles['bob-gif']} src={window.bobUrl} />
     </div>
   ) : (

@@ -177,7 +177,8 @@
       border-radius: 10px;
 
       &:hover {
-        height: 360px;
+        // height: 360px;
+        opacity: 0.5;
       }
     }
     
@@ -191,14 +192,14 @@
 
       h2 {
         font-family: 'Lato', sans-serif;
-        font-size: 36px;
+        font-size: 40px;
         font-weight: bolder;
         margin-bottom: 20px;
       }
 
       p {
         font-family: 'Noto Sans JP', sans-serif;
-        font-size: 20px;
+        font-size: 24px;
         // margin-bottom: 25px;
 
       }
