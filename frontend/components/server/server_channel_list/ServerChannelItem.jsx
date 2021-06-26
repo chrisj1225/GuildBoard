@@ -37,7 +37,7 @@ const ServerChannelItem = ({ channel, server, currentUser, currentChanId, openMo
   ) : (
     null
   )
-  debugger
+
   return(
     <div className={styles['channel-item']} ref={channelRef}>
       <NavLink

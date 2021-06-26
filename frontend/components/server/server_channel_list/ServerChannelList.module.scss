@@ -66,6 +66,10 @@
 
   i {
     margin-right: 20px;
+    
+    &:hover {
+      color: #696969;
+    }
   }
 }
 
@@ -114,6 +118,10 @@
 .create-channel {
   font-size: 18px;
   font-weight: bold;
+
+  &:hover {
+    color: darken(#858c81, 10%);
+  }
 }
 
 .channel-item {

@@ -79,9 +79,15 @@ class ChatRoom extends React.Component {
               subscription={this.subscription}
             />
         }) : (
-          <div className={styles['welcome-msg']}>
-            <h1>Welcome to {this.props.chat.title}!</h1>
-          </div>
+          (this.props.chatType == "Channel") ? (
+            <div className={styles['welcome-msg']}>
+              <h1>Welcome to {this.props.chat.title}!</h1>
+            </div>
+          ) : (
+            <div className={styles['welcome-msg']}>
+              <h1>Start a Direct Message with {this.props.chat.otherUser.username}!</h1>
+            </div>
+          )
         )
     } else {
       // return null;

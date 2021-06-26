@@ -56,5 +56,9 @@
 
   .member-modal-btn {
     cursor: pointer;
+
+    &:hover {
+      color: darken(#858c81, 10%);
+    }
   }
 }
