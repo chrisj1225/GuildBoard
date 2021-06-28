@@ -42,16 +42,17 @@ class ServerSidebar extends React.Component {
 
   render() {
     // debugger
-    const { allServers, currServerId } = this.props;
+    const { allServers, currServerId, path } = this.props;
 
     if ((!Object.keys(this.props.allServers).length) || 
     (!this.props.userServersIds.length) || 
     (!this.state.dmsFetched)) {
       return null;
     }
+
     return(
       <div className={styles.sidebar}>
-        <HomeButton />
+        <HomeButton path={path}/>
         <hr />
         {this.props.userServersIds.map(serverId => {
           return <ServerSidebarItem 
