@@ -28,7 +28,7 @@ const Home = ({ currentUser, currDmId }) => {
         <br /><br />
       <h2>Please know we're constantly working to improve the site!</h2>
         <br />
-      <img className={styles['bob-gif']} src={window.bobUrl} />
+      {/* <img className={styles['bob-gif']} src={window.bobUrl} /> */}
     </div>
   ) : (
     <DirectMessageContainer />
