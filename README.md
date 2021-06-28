@@ -10,12 +10,14 @@
 ## Getting Started
 
 ## Features 
-* Live instant message chatting between users to come share their wonderful ideas in real time. 
+* Live instant message chatting between users to communicate & share their ideas in real time. 
 * Unlimited server creation for users to gather in and discuss a singular topic or theme. 
-* Within each server, users can also create channels to further subdivide their team to have more focused conversations. 
+  * Within each server, users can also create channels to further subdivide their team to have more focused conversations. 
+* Private messaging between two users via Direct Messages.
+  * Direct messages can be initiated through the user profile from a server's member list. 
 
 ## Technologies
-* Guildboard was built with a Ruby on Rails backend and a Postgres database management system. On the front end side, React and Redux were used for component and state management and were styled with SCSS modules. Lastly, Rails' ActionCable and Redis were used to seamlessly integrate WebSockets into the application to create a persistent bi-directional 'full-duplex' connection between the user and server which gives the live chat feature the 'real-time' effect.   
+* Guildboard was built with a Ruby on Rails backend and a Postgres database management system. On the front end side, React and Redux were used for component and state management and were styled with SCSS modules. Lastly, Rails' ActionCable and Redis were used to seamlessly integrate WebSockets into the application to create a persistent bi-directional, 'full-duplex' connection between the user and server or user and direct message which gives the live chat feature the 'real-time' effect.   
 
 ## Challenges
 ### ActionCable and Websockets
@@ -26,6 +28,12 @@
 * While the answer may seem somewhat obvious now, when WebSockets were first successfully implemented on this application, messages sent into the stream by users were created, stored in the backend and immediately broadcasted back to the front end where they were stored in the current channel's local state. 
 * When a user entered a channel and previous messages had to be loaded, the current channel's subscription would fire off a `load` command which would then query the database, find all messages with the correct channel id and broadcast them back to the channel where they would be stored in local state. 
 * While this may not seem like a terrible solution, it was mentioned earlier that the desired functionality was to fetch a server's members and messages all at once.
+
+### Overflow-y and Tooltips
+
+
+### Context Menus
+
 
 ## Development
 
