@@ -1,3 +1,7 @@
+.sidebar-wrapper {
+  position: relative;
+}
+
 .sidebar {
   display: flex;
   flex-direction: column;
@@ -7,6 +11,7 @@
   height: 100vh;
   overflow-y: scroll;
   background-color: #202225;
+  font-family: 'Noto Sans JP', sans-serif;
   
   &::-webkit-scrollbar {
     width: 0px;
@@ -45,68 +50,69 @@
   }
 }
 
-.server-icon {
-  // position: relative;
-  font-family: 'Noto Sans JP', sans-serif;
+.server-icon-wrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
   color: white;
-  font-size: 32px;
-  background-color: #7289da;
-  width: 50px;
-  height: 50px;
-  border-radius: 50%;
-  text-align: center;
-  margin: 5px;
-  cursor: pointer; 
+  width: 100%;
+  // height: 50px;
+  margin: 5px 0;
 
+  .server-icon {
+    font-size: 32px;
+    background-color: #7289da;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    text-align: center;
+    // margin: 5px;
+    cursor: pointer; 
+  
+    &:hover {
+      border-radius: 20%;
+    }
+  } 
+  
   .wrapper {
     // visibility: hidden;
-    // display: none;
-    // remove display: block;
-    display: block;
     position: absolute;
-    // position: relative;
     z-index: 10;
-    // top: 15%;
-    // left: 125%;
-
+    top: 15%;
+    left: 80px;
+  
     .tooltip {
       display: flex;
-      position: relative;
-      // position: absolute;
-      // top: -40px;
-      // left: 65px;
-      // width: 100px;
+      white-space: nowrap;
+      // position: relative;
+      top: 50%;
       height: 25px;
-      padding: 5px 20px 5px 10px;
+      padding: 5px 10px 5px 10px;
       border-radius: 3px;
       align-items: center;
       background-color: #18191c;
-      color: white;
-      font-size: 14px;
+      
+      h3 {
+        margin: 0 auto;
+        color: white;
+        font-size: 14px;
+      }
     }
-  
-  } 
+  }
 
-  &:hover {
+
+  .selected {
+    font-family: 'Noto Sans JP', sans-serif;
+    color: white;
+    font-size: 32px;
+    background-color: #5865f2;
+    width: 50px;
+    height: 50px;
+    text-align: center;
+    // margin: 5px;
+    cursor: pointer; 
     border-radius: 20%;
-  
-    .wrapper {
-      // visibility: visible;
-      display: block;
-      // position: sticky;
-    }
   }
 }
 
-.selected {
-  font-family: 'Noto Sans JP', sans-serif;
-  color: white;
-  font-size: 32px;
-  background-color: #5865f2;
-  width: 50px;
-  height: 50px;
-  text-align: center;
-  margin: 5px;
-  cursor: pointer; 
-  border-radius: 20%;
-}
