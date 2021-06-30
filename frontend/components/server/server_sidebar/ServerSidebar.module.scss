@@ -60,8 +60,11 @@
 
   .wrapper {
     // visibility: hidden;
-    display: none;
+    // display: none;
+    // remove display: block;
+    display: block;
     position: absolute;
+    // position: relative;
     z-index: 10;
     // top: 15%;
     // left: 125%;
@@ -69,8 +72,9 @@
     .tooltip {
       display: flex;
       position: relative;
-      top: -40px;
-      left: 65px;
+      // position: absolute;
+      // top: -40px;
+      // left: 65px;
       // width: 100px;
       height: 25px;
       padding: 5px 20px 5px 10px;

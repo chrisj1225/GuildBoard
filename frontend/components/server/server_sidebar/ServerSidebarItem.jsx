@@ -1,6 +1,6 @@
 import React, { useRef } from 'react';
 import { NavLink } from 'react-router-dom';
-import { findGenChanId } from '../../../util/selectors';
+import Tooltip from './tooltip/Tooltip';
 // import ContextMenu from '../../context_menu/ContextMenu';
 
 import styles from './ServerSidebar.module.scss';
@@ -8,12 +8,6 @@ import styles from './ServerSidebar.module.scss';
 const ServerSidebarItem = ({ server, currServerId }) => {
   const el = useRef(null);
   const active = (currServerId == server.id) ? true : false;
-
-  if (el && el.current) {
-    const dims = el.current.getBoundingClientRect();
-  } else {
-    return null;
-  }
 
   return (
     <NavLink 
@@ -24,11 +18,7 @@ const ServerSidebarItem = ({ server, currServerId }) => {
       ref={el}
       >
       {server.title.split("")[0]}
-      <div className={styles.wrapper}>
-        <span className={styles.tooltip}>
-          {server.title}
-        </span>
-      </div>
+      <Tooltip title={server.title} el={el}/>
       {/* <ContextMenu /> */}
     </NavLink>
   )
