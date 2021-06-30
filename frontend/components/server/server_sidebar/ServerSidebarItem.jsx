@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useRef } from 'react';
 import { NavLink } from 'react-router-dom';
 import { findGenChanId } from '../../../util/selectors';
 // import ContextMenu from '../../context_menu/ContextMenu';
@@ -6,8 +6,14 @@ import { findGenChanId } from '../../../util/selectors';
 import styles from './ServerSidebar.module.scss';
 
 const ServerSidebarItem = ({ server, currServerId }) => {
-  
+  const el = useRef(null);
   const active = (currServerId == server.id) ? true : false;
+
+  if (el && el.current) {
+    const dims = el.current.getBoundingClientRect();
+  } else {
+    return null;
+  }
 
   return (
     <NavLink 
@@ -15,6 +21,7 @@ const ServerSidebarItem = ({ server, currServerId }) => {
       className={`${styles['server-icon']} ${styles[`${active ? 'selected' : null}`]}`}
       activeClassName={styles['selected']} 
       // title={`${server.title}`}
+      ref={el}
       >
       {server.title.split("")[0]}
       <div className={styles.wrapper}>
