@@ -1,15 +1,30 @@
-import React from 'react';
+import React, { useState, useRef } from 'react';
+import Tooltip from '../tooltip/Tooltip';
 
 import styles from '../ServerSidebar.module.scss';
 
-const CreateServerButton = ({ openModal }) => (
+const CreateServerButton = ({ openModal }) => {
+  const [tooltip, setTooltip] = useState(false);
+  const showTooltip = () => setTooltip(true);
+  const hideTooltip = () => setTooltip(false);
 
-  <button onClick={() => openModal({type: 'create-server'})}>
-    <div className={styles['create-explore-btn']}>
-      <i className="fas fa-plus"></i>
+  const el = useRef(null);
+
+  return ( 
+    <div className={styles['server-icon-wrapper']}
+      onClick={() => openModal({type: 'create-server'})}>
+      <div className={styles['create-explore-btn']}
+        onMouseOver={showTooltip}
+        onFocus={showTooltip}
+        onMouseOut={hideTooltip}
+        onBlur={hideTooltip}
+        ref={el}>
+        <i className="fas fa-plus"></i>
+      </div>
+      {tooltip && <Tooltip title="Create Server" el={el}/>}
     </div>
-  </button>
 
-)
+  )
+};
 
 export default CreateServerButton;
