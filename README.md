@@ -135,12 +135,40 @@ end
 * Keeping consistent with storing messages in the redux state made it natural to retrieve previously sent messages along with the rest of the current server's information. 
 
 ### Overflow-y and Tooltips
+* If you've ever used discord, you'll know that due to the minimalistic server sidebar on the lefthand side, a hover tooltip is necessary to display the entire server name. Naturally, it was something I knew I needed to implement. However, what seemed like a simple & straightforward implementation with a little bit of CSS magic turned out to be one of the most challenging features.
+* Initially, I had just set the parent element, `.server-icon`, to `position: relative` and the child element, `.tooltip`, to `position: absolute` along with a hover pseudo selector on the `.server-icon` to toggle the `visibility` of the tooltip. While this did work nicely, I realized there are certain limitations imposed when using any variation of `overflow: hidden` or `overflow: scroll`. Essentially, when an element's overflow is set in one axis (x or y), the overflow in the other axis is set to auto, meaning there is actually no way to have the effect of `overflow-y: scroll` and `overflow-x: visible` simultaneously.  
+* In my case, I needed the ServerSidebar component to scroll vertically in case a user is joined to many servers and set the ServerSidebar container element with `overflow-y: scroll`. However, since the x-axis is automatically set to `overflow: auto` any element that is trying to go beyond the border of the element with `overflow-y: scroll` in the x-axis gets cut off (in this case, the tooltip!).
+* After much searching and googling I found a few resources that provided some interesting ideas but none that I could readily use as I did not wish to introduce JQuery or Vanilla DOM Manipulation into my React components in fear that it would cause bugs with my virtual DOM. In the end, I did find a useful tip from [CSS-Tricks](https://css-tricks.com/popping-hidden-overflow/) that I incorporated. The idea is that for an absolutely positioned element to appear outside of an element with `overflow: hidden/scroll`, its closest positioned ancestor must also be an ancestor of the element with `overflow: hidden/scroll`. So, I simply added a wrapper element with `position: absolute` around the tooltip element with `position: relative` which allowed the tooltip to be visible outside of the ServerSidebars boundaries. 
+* However, this is still not a perfect solution. Because the wrapper element is set with `position: absolute` each tooltip wrapper's absolute position is fixed to its corresponding ServerSidebarItem's *original* position. When the ServerSidebar is scrolled down, the position of the wrapper and tooltip are not automatically updated.
+  * I am currently looking into using the `useRef` hook to set a ref on each ServerSidebar item and use that to update the wrapper and tooltips position. 
+```js
+const ServerSidebarItem = ({ server, currServerId }) => {
+ 
+  const active = (currServerId == server.id) ? true : false;
 
-
-### Context Menus
-
-
-## Development
+  return (
+    <NavLink 
+      to={`/servers/${server.id}/channels/${server.genChanId}`}
+      className={`${styles['server-icon']} ${styles[`${active ? 'selected' : null}`]}`}
+      activeClassName={styles['selected']} 
+      >
+      {server.title.split("")[0]}
+      <div className={styles.wrapper}>
+        <span className={styles.tooltip}>
+          {server.title}
+        </span>
+      </div>
+    </NavLink>
+  )
+}
+```
+## Future Development
+As I continue to learn more and improve my web development skills, I plan to continue building upon Guild Board to allow for future scalability, better user experience, and to ultimately mimic more of Discord's unique functionalities. Additional features that I plan on implementing in the future:
+* Messages update functionality.
+* Incorporate AWS S3 to allow users to upload profile pictures and images for servers.
+* Utilizing a third party library to apply context menus throughout the application.
+* Improve ServerSidebarItem tooltip.
+* Incorporate authentication to redirect user if they manually try to enter a Server that they are not joined to or a Server/Channel combination that does not exist. 
 
 
 ## Credits
