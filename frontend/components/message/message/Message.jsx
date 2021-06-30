@@ -7,7 +7,8 @@ const Message = ({ message, username, bottom, currentUser, subscription }) => {
 
   const messageTooltip = ((currentUser.id == message.authorId) || (currentUser.id == 1)) ? (
     <div className={styles.tooltip}>
-      <div className={styles['edit-btn']}>
+      <div className={styles['edit-btn']}
+        title="update message feature in progress!">
         <i className="fas fa-edit"></i>
       </div>
       <div className={styles['delete-btn']} 
